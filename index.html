@@ -523,7 +523,7 @@
 <section id="contact">
   <div class="wrap">
     <div class="contact-grid">
-      <div class="contact-intro rv">
+      <div class="contact-intro">
         <p class="label en">Get in Touch</p>
         <p class="label zh">联系我们</p>
         <h2 class="sec-title en">Pitch to us or <em>start a conversation.</em></h2>
@@ -537,7 +537,7 @@
           <div class="contact-item">📍 <span class="en">Hong Kong · New York</span><span class="zh">中国香港 · 美国纽约</span></div>
         </div>
       </div>
-      <form class="cf rv d1" id="cf-form">
+      <form class="cf" id="cf-form">
         <input type="hidden" name="access_key" value="eac9ab84-4433-402e-a7e5-57335e232e21"/>
         <input type="hidden" name="subject" value="New AGVC Website Enquiry"/>
         <input type="hidden" name="from_name" value="AGVC Website"/>
@@ -1020,8 +1020,8 @@
   const chatBtn=document.getElementById('chatbot-btn'),chatWin=document.getElementById('chat-win');
   const chatClose=document.getElementById('chat-close'),chatMsgs=document.getElementById('chat-msgs');
   const chatOpts=document.getElementById('chat-opts'),chatInput=document.getElementById('chat-input');
-  chatBtn.addEventListener('click',()=>chatWin.classList.toggle('open'));
-  chatClose.addEventListener('click',()=>chatWin.classList.remove('open'));
+  if(chatBtn&&chatWin)chatBtn.addEventListener('click',()=>chatWin.classList.toggle('open'));
+  if(chatClose&&chatWin)chatClose.addEventListener('click',()=>chatWin.classList.remove('open'));
 
   const botResponses={
     startup:{

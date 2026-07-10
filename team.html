@@ -325,5 +325,37 @@
   setLang(currentLang);
 
 </script>
+<div id="chatbot">
+  <div class="chat-window" id="chat-win">
+    <div class="chat-head">
+      <div class="chat-head-info">
+        <div class="chat-avatar">🧬</div>
+        <div>
+          <div class="chat-name en">Chat with Us</div>
+          <div class="chat-name zh">在线咨询</div>
+          <div class="chat-status">● Online</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chat-close">✕</button>
+    </div>
+    <div class="chat-msgs" id="chat-msgs">
+      <div class="msg bot en">Hi! I can help you figure out which of our services fits your situation best. What describes you?</div>
+      <div class="msg bot zh">您好！我可以帮您了解哪项服务最适合您的情况。请问您的身份是？</div>
+    </div>
+    <div class="chat-options" id="chat-opts">
+      <button class="chat-opt" data-q="startup"><span class="en">🔬 I have a longevity / health-tech startup</span><span class="zh">🔬 我有一家长寿/健康科技初创企业</span></button>
+      <button class="chat-opt" data-q="cdmo"><span class="en">🏭 I'm a CDMO or manufacturing partner</span><span class="zh">🏭 我是CDMO或制造合作方</span></button>
+      <button class="chat-opt" data-q="researcher"><span class="en">🎓 I'm a researcher / TTO with IP</span><span class="zh">🎓 我是科研人员或技术转让办公室</span></button>
+      <button class="chat-opt" data-q="investor"><span class="en">💼 I'm exploring the longevity market</span><span class="zh">💼 我正在研究长寿赛道</span></button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chat-input" placeholder="…"/>
+      <button class="chat-send" id="chat-send">→</button>
+    </div>
+  </div>
+  <button class="chat-bubble" id="chatbot-btn" aria-label="Open AI Advisor">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+</div>
 </body>
 </html>
