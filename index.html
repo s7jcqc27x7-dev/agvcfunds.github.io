@@ -416,6 +416,12 @@
     .fsub:disabled{opacity:.6;cursor:default}
     @media(max-width:760px){.contact-grid{grid-template-columns:1fr}.cf-row{grid-template-columns:1fr}}
 
+
+    .contact-detail{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
+    .contact-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.65rem 1.2rem;border:1px solid var(--rule-hi);border-radius:var(--r);color:var(--text-dim);font-size:var(--fs-sm);letter-spacing:.02em;transition:all .25s}
+    .contact-btn svg{width:17px;height:17px;flex-shrink:0}
+    .contact-btn:hover{color:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
+
   </style>
 </head>
 <body>
@@ -464,8 +470,8 @@
     </div>
     <div class="hero-eye">
       <div class="hero-eye-line"></div>
-      <span class="label en">Cross-Border Venture Accelerator</span>
-      <span class="label zh">跨境创投加速平台</span>
+      <span class="label en">The Ageless Venture Catalyst</span>
+      <span class="label zh">无龄创投催化平台</span>
     </div>
     <h1 class="hero-h en" id="hero-headline" aria-label="We Land the Science That Improves Life.">
       <span class="word-reveal" style="--d:0">We</span>
@@ -531,10 +537,18 @@
         <p class="contact-lead en">Share your company, thesis, or partnership idea. We review every submission and respond within 5 business days.</p>
         <p class="contact-lead zh">分享您的公司、理念或合作构想。我们审阅每一份提交，并在5个工作日内回复。</p>
         <div class="contact-detail">
-          <div class="contact-item">✉ <a href="mailto:info@agvcfunds.com">info@agvcfunds.com</a></div>
-          <div class="contact-item">🔗 <a href="https://linkedin.com/company/agvcfunds" target="_blank" rel="noopener">linkedin.com/company/agvcfunds</a></div>
-          <div class="contact-item">📅 <a href="https://cal.com/justintso/intro" target="_blank" rel="noopener"><span class="en">Schedule an intro call</span><span class="zh">预约初步通话</span></a></div>
-          <div class="contact-item">📍 <span class="en">Hong Kong · New York</span><span class="zh">中国香港 · 美国纽约</span></div>
+          <a class="contact-btn" href="mailto:info@agvcfunds.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <span class="en">Email</span><span class="zh">邮件</span>
+          </a>
+          <a class="contact-btn" href="https://linkedin.com/company/agvcfunds" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V9.9H6V17h2.34zM7.17 8.86a1.36 1.36 0 1 0 0-2.71 1.36 1.36 0 0 0 0 2.71zM18 17v-3.9c0-2.08-1.11-3.05-2.6-3.05-1.2 0-1.74.66-2.04 1.12V9.9h-2.34c.03.66 0 7.1 0 7.1h2.34v-3.96c0-.21.02-.42.08-.57.16-.42.55-.86 1.19-.86.84 0 1.17.64 1.17 1.57V17H18z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="contact-btn" href="https://cal.com/justintso/intro" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <span class="en">Schedule</span><span class="zh">预约通话</span>
+          </a>
         </div>
       </div>
       <form class="cf" id="cf-form">
