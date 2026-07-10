@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en" style="visibility:visible">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Intelligence — AGVC</title>
-  <meta name="description" content="AGVC market intelligence on the global longevity ecosystem, company landscape, and aging economy across Asia and beyond."/>
+  <meta name="description" content="AGVC market intelligence on the global longevity ecosystem — tracking companies, regions, and aging economy trends."/>
   <link rel="icon" type="image/png" href="/images/logo2__new_.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
+
     /* ── TOKENS ─────────────────────────────────────────── */
     :root{
-      --ink:#010408;--ink-mid:#050e1c;--ink-soft:#0a1828;
+      --ink:#03080f;--ink-mid:#071020;--ink-soft:#0e1c30;
       --rule:rgba(80,130,200,0.13);--rule-hi:rgba(80,130,200,0.24);
-      --text:#f0f4ff;--text-dim:#b8cfe0;--text-muted:#5a7a9a;
+      --text:#e6ecf5;--text-dim:#8fafc8;--text-muted:#3d5a78;
       --gold:#c4a46b;--gold-dim:rgba(196,164,107,0.1);--gold-glow:rgba(196,164,107,0.04);
       --blue-acc:#3a7bd5;--blue-dim:rgba(58,123,213,0.12);
-      --grad:linear-gradient(135deg,#0d3060 0%,#0a5060 60%,#086858 100%);
-      --grad-hover:linear-gradient(135deg,#0f3a75 0%,#0d6070 60%,#0a7a68 100%);
-      --grad-border:rgba(8,104,88,0.5);
-      --teal:#0a7a68;--teal-dim:rgba(10,122,104,0.14);
-      --serif:'Montserrat','Noto Sans SC',sans-serif;
-      --sans:'Satoshi','Noto Sans SC',system-ui,sans-serif;
+      --grad:linear-gradient(135deg,#c4a46b 0%,#b8975c 100%);
+      --grad-hover:linear-gradient(135deg,#d0b078 0%,#c4a46b 100%);
+      --grad-border:rgba(196,164,107,0.4);
+      --teal:#c4a46b;--teal-dim:rgba(196,164,107,0.1);
+      --serif:'Noto Serif',Georgia,serif;
+      --sans:'Inter','Noto Sans SC',system-ui,sans-serif;
       --fs-hero:clamp(2.4rem,5vw,4.8rem);--fs-h2:clamp(1.5rem,2.6vw,2.3rem);
       --fs-body:clamp(.88rem,1vw,.97rem);--fs-sm:.8rem;--fs-xs:.68rem;
       --max:1180px;--gap:clamp(1.5rem,4vw,3rem);--r:4px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{background:linear-gradient(160deg,#010408 0%,#020c18 30%,#040f1e 60%,#030b16 85%,#010408 100%);background-attachment:scroll;color:var(--text);font-family:var(--sans);font-size:var(--fs-body);font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:.01em}
+    body{background:linear-gradient(160deg,#03080f 0%,#050d1a 25%,#071525 50%,#061220 75%,#040b16 100%);background-attachment:scroll;color:var(--text);font-family:var(--sans);font-size:var(--fs-body);font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
@@ -62,6 +63,10 @@
     .nav-logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
     .nav-logo img{height:26px;width:auto;object-fit:contain}
     .nav-word{font-size:.72rem;font-weight:400;letter-spacing:.05em;color:var(--text-dim);font-family:var(--serif)}
+    /* ── LOGO WORDMARK (brand-book gold gradient) ── */
+    .logo-word{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.01em;background:linear-gradient(to bottom,#f0d696 0%,#d4b478 32%,#c8c8cd 55%,#8a8a92 74%,#2a2a30 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .hero-logo-word{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;background:linear-gradient(to bottom,#f4dca0 0%,#d8b87c 34%,#d0d0d6 58%,#9a9aa2 78%,#4a4a52 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:inline-block}
+
     .nav-right{display:flex;align-items:center;gap:1.4rem}
     .nav-links{display:flex;align-items:center;gap:1.4rem;list-style:none}
     .nav-links a{font-size:var(--fs-sm);color:var(--text-dim);letter-spacing:.05em;transition:color .2s}
@@ -78,9 +83,9 @@
     .hero-logo-img{height:clamp(34px,5vw,52px);width:auto;object-fit:contain;opacity:.95}
     .hero-eye{display:flex;align-items:center;gap:.9rem;margin-bottom:2rem}
     .hero-eye-line{width:36px;height:1px;background:var(--teal)}
-    h1.hero-h{font-family:var(--serif);font-size:var(--fs-hero);font-weight:700;font-style:normal;letter-spacing:-.03em;line-height:1.08;color:#fff;max-width:820px;margin-bottom:1.5rem}
+    h1.hero-h{font-family:var(--serif);font-size:var(--fs-hero);font-weight:300;font-style:italic;line-height:1.08;color:#fff;max-width:820px;margin-bottom:1.5rem}
     h1.hero-h.zh-headline{font-style:normal;font-family:var(--sans);font-weight:300;letter-spacing:.03em}
-    h1.hero-h strong{font-style:normal;font-weight:500;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    h1.hero-h strong{font-style:normal;font-weight:400;color:var(--gold)}
     .hero-sub{font-size:clamp(.9rem,1.3vw,1.07rem);font-weight:300;color:var(--text-dim);max-width:520px;line-height:1.82;margin-bottom:1.4rem}
     .hero-paths{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
     .path-card{flex:1;min-width:200px;padding:1.2rem 1.4rem;border-radius:var(--r);cursor:pointer;transition:all .25s;text-align:left;font-family:var(--sans);border:1px solid var(--rule-hi)}
@@ -107,11 +112,8 @@
       animation-delay:calc(var(--d) * 0.09s + 0.2s);
     }
     .word-grad strong{
-      background:var(--grad);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-      font-weight:500;
+      color:var(--gold);
+      font-weight:400;
     }
     @keyframes word-up{
       0%{opacity:0;transform:translateY(24px)}
@@ -145,7 +147,7 @@
     section{padding:clamp(3.5rem,7vw,7rem) 0}
     .sec-hd{margin-bottom:clamp(2rem,4vw,4rem)}
     .sec-hd .label{margin-bottom:.8rem}
-    .sec-title{font-family:var(--serif);font-size:var(--fs-h2);font-weight:600;line-height:1.1;color:#fff;max-width:580px;letter-spacing:-.03em}
+    .sec-title{font-family:var(--serif);font-size:var(--fs-h2);font-weight:300;line-height:1.16;color:#fff;max-width:580px}
     .sec-title.zh-title{font-family:var(--sans);font-style:normal;font-weight:300;letter-spacing:.02em}
     .sec-title em{font-style:italic;color:var(--gold)}
 
@@ -165,7 +167,7 @@
     .impact-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin-bottom:3rem}
     .impact-num-card{background:var(--ink);padding:2rem 1.8rem}
     .impact-val{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#fff;line-height:1}
-    .impact-val span{color:var(--gold)}
+    .impact-val span{color:var(--teal)}
     .impact-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:.5rem;line-height:1.5}
     .impact-src{font-size:.62rem;color:var(--text-muted);margin-top:.25rem}
 
@@ -193,7 +195,7 @@
     .svc-tab.active{color:var(--teal);border-bottom-color:var(--teal)}
     .svc-panel{display:none}
     .svc-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
-    .svc-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+    .svc-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1.1rem}
     .svc-badge-dot{width:6px;height:6px;background:var(--teal);border-radius:50%}
     .svc-h{font-family:var(--serif);font-size:clamp(1.4rem,2vw,1.9rem);font-weight:300;color:#fff;line-height:1.2;margin-bottom:.9rem}
     .svc-h.zh-h{font-family:var(--sans);font-style:normal;font-weight:300}
@@ -206,7 +208,7 @@
     .svc-acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
     .svc-del-list{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.5rem;padding-top:.5rem}
     .svc-del-list li{font-size:var(--fs-sm);color:var(--text);display:flex;align-items:flex-start;gap:.6rem;line-height:1.6}
-    .svc-del-list li::before{content:'→';color:var(--gold);font-size:.7rem;margin-top:.2rem;flex-shrink:0}
+    .svc-del-list li::before{content:'→';color:var(--teal);font-size:.7rem;margin-top:.2rem;flex-shrink:0}
     .svc-pills{display:flex;flex-wrap:wrap;gap:.4rem}
     .pill{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .65rem;background:var(--teal-dim);color:var(--teal);border-radius:20px}
     .svc-card{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
@@ -226,7 +228,7 @@
     .adv-card:hover{background:var(--ink-soft)}
     .adv-photo{width:54px;height:54px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule-hi)}
     .adv-photo img{width:100%;height:100%;object-fit:cover}
-    .adv-init{width:54px;height:54px;border-radius:50%;background:var(--ink-soft);border:1px solid var(--rule-hi);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--gold);font-weight:300;flex-shrink:0}
+    .adv-init{width:54px;height:54px;border-radius:50%;background:var(--ink-soft);border:1px solid var(--rule-hi);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--teal);font-weight:300;flex-shrink:0}
     .adv-name{font-size:.87rem;font-weight:500;color:#fff;margin-bottom:.12rem}
     .adv-title{font-size:.74rem;color:var(--text-dim);line-height:1.5}
 
@@ -264,7 +266,7 @@
     .news-card:hover{border-color:var(--rule-hi)}
     .news-card-img{height:130px;background:var(--ink-soft);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
     .news-card-img-placeholder{font-size:2rem;opacity:.3}
-    .news-card-tag{position:absolute;top:.7rem;left:.7rem;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.18rem .55rem;background:var(--gold-dim);color:var(--gold);border-radius:20px;border:1px solid rgba(196,164,107,.2)}
+    .news-card-tag{position:absolute;top:.7rem;left:.7rem;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.18rem .55rem;background:var(--gold-dim);color:var(--teal);border-radius:20px;border:1px solid rgba(196,164,107,.2)}
     .news-card-body{padding:1.2rem}
     .news-card-date{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
     .news-card-title{font-size:.87rem;font-weight:500;color:#fff;line-height:1.4;margin-bottom:.5rem}
@@ -312,7 +314,7 @@
     footer{background:var(--ink-mid);border-top:1px solid var(--rule);padding:3rem 0 2rem}
     .footer-main{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;align-items:start;margin-bottom:2rem}
     .footer-italic{font-family:var(--serif);font-style:italic;font-size:.77rem;color:var(--teal);opacity:.7}
-    .footer-brand{font-size:.82rem;font-weight:600;letter-spacing:.1em;color:#fff;margin-bottom:.4rem}
+    .footer-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.01em;background:linear-gradient(to bottom,#f0d696,#d4b478 34%,#c8c8cd 58%,#8a8a92 78%,#3a3a42);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;display:inline-block}
     .footer-tagline{font-family:var(--serif);font-style:italic;font-size:.77rem;color:var(--text-muted)}
     .footer-offices{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1rem}
     .footer-office{font-size:.72rem;color:var(--text-muted);line-height:1.6}
@@ -335,23 +337,37 @@
     .chat-head-info{display:flex;align-items:center;gap:.7rem}
     .chat-avatar{width:32px;height:32px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(196,164,107,.3);display:flex;align-items:center;justify-content:center;font-size:.9rem}
     .chat-name{font-size:.82rem;font-weight:500;color:#fff}
-    .chat-status{font-size:.65rem;color:var(--gold)}
+    .chat-status{font-size:.65rem;color:var(--teal)}
     .chat-close{background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1.1rem;padding:.2rem;line-height:1}
     .chat-msgs{height:240px;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
     .msg{max-width:85%;padding:.65rem .9rem;border-radius:10px;font-size:.78rem;line-height:1.55}
     .msg.bot{background:var(--ink-soft);color:var(--text);align-self:flex-start;border:1px solid var(--rule)}
-    .msg.user{background:var(--gold);color:var(--ink);align-self:flex-end}
+    .msg.user{background:var(--grad);color:var(--ink);align-self:flex-end}
     .chat-options{padding:.6rem 1rem;display:flex;flex-direction:column;gap:.4rem;border-top:1px solid var(--rule)}
     .chat-opt{background:none;border:1px solid var(--rule-hi);color:var(--text-dim);font-family:var(--sans);font-size:.72rem;padding:.45rem .8rem;border-radius:20px;cursor:pointer;text-align:left;transition:all .2s}
     .chat-opt:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
     .chat-input-row{display:flex;gap:.5rem;padding:.8rem 1rem;border-top:1px solid var(--rule)}
     .chat-input{flex:1;background:var(--ink);border:1px solid var(--rule-hi);color:var(--text);font-family:var(--sans);font-size:.76rem;padding:.5rem .75rem;border-radius:6px;outline:none}
-    .chat-send{background:var(--gold);border:none;color:var(--ink);padding:.5rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:500}
+    .chat-send{background:var(--grad);border:none;color:var(--ink);padding:.5rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:500}
 
     /* ── REVEAL ── */
     .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .rv.in{opacity:1;transform:none}
     .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+
+    /* ── MOBILE HAMBURGER ── */
+    .nav-hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;z-index:210}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);transition:all .3s}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:var(--ink-mid);border-left:1px solid var(--rule-hi);z-index:205;flex-direction:column;padding:5rem 2rem 2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);gap:.4rem}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu a{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--text);padding:.9rem 0;border-bottom:1px solid var(--rule);letter-spacing:-.01em}
+    .mobile-menu a:last-of-type{border-bottom:none}
+    .mobile-menu-backdrop{display:none;position:fixed;inset:0;background:rgba(1,4,8,.6);backdrop-filter:blur(3px);z-index:204}
+    .mobile-menu-backdrop.open{display:block}
 
     /* ── RESPONSIVE ── */
     @media(max-width:900px){
@@ -366,41 +382,35 @@
       .hero-stats{grid-template-columns:repeat(2,1fr)}
       .hero-paths{flex-direction:column}
     }
-    @media(max-width:620px){
+    @media(max-width:760px){
       .nav-links{display:none}
+      .nav-hamburger{display:flex}
+      .mobile-menu{display:flex}
       .news-grid{grid-template-columns:1fr}
       .impact-nums{grid-template-columns:1fr 1fr}
       .chat-window{width:290px}
     }
   
+    /* ── SUBPAGE ── */
     .page-shell{padding:clamp(6rem,12vw,9rem) 0 clamp(4rem,8vw,8rem)}
-    .page-header{margin-bottom:clamp(3rem,5vw,5rem);border-bottom:1px solid var(--rule);padding-bottom:clamp(2rem,4vw,4rem)}
-    .page-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:700;font-style:normal;color:#fff;line-height:1.08;margin-bottom:1rem;letter-spacing:-.03em}
-    .page-title strong{font-style:normal;font-weight:500;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .page-sub{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--text-dim);max-width:560px;line-height:1.8}
+    .page-hd{margin-bottom:clamp(2.5rem,4vw,4rem);padding-bottom:clamp(2rem,4vw,3.5rem);border-bottom:1px solid var(--rule)}
+    .page-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;font-style:italic;color:#fff;line-height:1.1;margin-bottom:.9rem}
+    .page-title strong{font-style:normal;font-weight:400;color:var(--gold)}
+    .page-sub{font-size:clamp(.88rem,1.15vw,1rem);color:var(--text-dim);max-width:560px;line-height:1.82}
     .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:2rem;transition:color .2s}
     .back-link:hover{color:var(--text-dim)}
 
-    /* ── ECOSYSTEM MAP ── */
-    .eco-wrap{position:relative;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin:2.5rem 0 3rem}
-    .eco-svg{width:100%;display:block}
-    .eco-node-center{fill:var(--ink-soft);stroke:var(--teal);stroke-width:1.5}
-    .eco-node-cat{fill:#0d2a45;stroke:rgba(13,158,140,.35);stroke-width:1}
-    .eco-node-co{fill:var(--ink-mid);stroke:var(--rule-hi);stroke-width:1}
-    .eco-link{stroke:rgba(80,130,200,0.18);stroke-width:1}
-    .eco-label-center{font-family:var(--serif);font-size:11px;font-weight:600;fill:var(--teal);text-anchor:middle;letter-spacing:-.5px}
-    .eco-label-cat{font-family:var(--sans);font-size:8.5px;fill:var(--text-dim);text-anchor:middle}
-    .eco-co-name{font-family:var(--serif);font-size:8px;fill:var(--text);text-anchor:middle;font-weight:500}
-    .eco-legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;padding:1rem 1.4rem;border-top:1px solid var(--rule)}
-    .eco-leg-item{display:flex;align-items:center;gap:.4rem;font-size:.68rem;color:var(--text-dim);letter-spacing:.05em}
-    .eco-leg-dot{width:8px;height:8px;border-radius:50%}
+    /* ── ACCESSIBILITY ── */
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
   </style>
-</head><body>
+</head>
+<body>
 <!-- ── NAV ── -->
 <nav id="nav">
   <div class="nav-row">
-    <a href="#hero" class="nav-logo">
-      <img src="/images/logo2__new_.png" alt="AGVC" onerror="this.src='/images/agvc-logo-white.png'"/>
+    <a href="/" class="nav-logo">
+      <span class="logo-word">AGVC</span>
       <span class="nav-word en">/ Age, but less.</span>
       <span class="nav-word zh">/ 增长年岁，而不衰老。</span>
     </a>
@@ -416,46 +426,42 @@
         <button class="lang-opt active" data-lang="en">EN</button>
         <button class="lang-opt" data-lang="zh">中文</button>
       </div>
-    </div>
+      </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu-backdrop" id="mm-backdrop"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a>
+  <a href="/services"><span class="en">Services</span><span class="zh">服务内容</span></a>
+  <a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a>
+  <a href="/team"><span class="en">Team</span><span class="zh">团队</span></a>
+  <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
+</div>
 
 
-<div class="page-shell"><div class="wrap">
-  <a href="/" class="back-link en">← Back</a><a href="/" class="back-link zh">← 返回</a>
-  <div class="page-header rv">
-    <p class="label en">Intelligence</p><p class="label zh">产业洞察</p>
+<div class="page-shell">
+<div class="wrap">
+
+  <a href="/" class="back-link en">← Home</a>
+  <a href="/" class="back-link zh">← 返回主页</a>
+
+  <div class="page-hd rv">
+    <p class="label en">Intelligence</p>
+    <p class="label zh">产业洞察</p>
     <h1 class="page-title en">The global longevity ecosystem,<br><strong>mapped and tracked.</strong></h1>
-    <h1 class="page-title zh" style="font-family:var(--serif);font-style:normal;font-weight:500;font-size:clamp(2rem,4vw,3.5rem);color:#fff;line-height:1.08;margin-bottom:1rem;letter-spacing:-.01em">全球长寿生态系统，<br><strong>全面追踪与解析。</strong></h1>
+    <h1 class="page-title zh" style="font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4vw,3.4rem);color:#fff;line-height:1.08;margin-bottom:.9rem;letter-spacing:-.01em">全球长寿生态系统，<br><strong style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">全面追踪与解析。</strong></h1>
     <p class="page-sub en">AGVC tracks the emergence of health and longevity companies shaping the future of human healthspan — from Insurtech and Biology-driven AI to GeronTech and next-gen pharma.</p>
-    <p class="page-sub zh">AGVC持续追踪塑造人类健康寿命未来的健康与长寿企业的兴起——从保险科技、生物驱动AI，到高龄科技和新一代制药。</p>
+    <p class="page-sub zh">AGVC持续追踪塑造人类健康寿命未来的健康与长寿企业——从保险科技、生物驱动AI，到高龄科技和新一代制药。</p>
   </div>
 
-  <!-- Ecosystem Map (D3 radial) -->
-  <div class="rv">
-    <div class="sec-hd">
-      <p class="label en">Global Company Landscape</p><p class="label zh">全球企业格局</p>
-      <h2 class="sec-title en">Emergence of health &amp; longevity companies <em>backing human healthspan.</em></h2>
-      <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:500;color:#fff;max-width:620px;letter-spacing:-.02em">健康与长寿企业的崛起，<em style="color:var(--teal)">共同支撑人类健康寿命。</em></h2>
-    </div>
-    <div class="eco-wrap">
-      <div id="eco-map" style="min-height:520px"></div>
-      <div class="eco-legend">
-        <div class="eco-leg-item"><div class="eco-leg-dot" style="background:var(--teal)"></div><span class="en">AGVC</span><span class="zh">AGVC</span></div>
-        <div class="eco-leg-item"><div class="eco-leg-dot" style="background:#0d2a45;border:1px solid rgba(13,158,140,.4)"></div><span class="en">Category</span><span class="zh">类别</span></div>
-        <div class="eco-leg-item"><div class="eco-leg-dot" style="background:var(--ink-mid);border:1px solid var(--rule-hi)"></div><span class="en">Company</span><span class="zh">企业</span></div>
-        <div style="margin-left:auto;font-size:.65rem;color:var(--text-muted)" class="en">Source: company websites</div>
-        <div style="margin-left:auto;font-size:.65rem;color:var(--text-muted)" class="zh">来源：各公司官网</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Region switcher (geo) -->
+  <!-- ── REGIONAL GEO SWITCHER ── -->
   <div style="margin-top:5rem;padding-top:3rem;border-top:1px solid var(--rule)" class="rv">
     <div class="sec-hd">
-      <p class="label en">Regional Market Intelligence</p><p class="label zh">区域市场洞察</p>
+      <p class="label en">Regional Market Intelligence</p>
+      <p class="label zh">区域市场洞察</p>
       <h2 class="sec-title en">The longevity economy, <em>region by region.</em></h2>
-      <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:500;color:#fff;max-width:580px;letter-spacing:-.02em">银发经济，<em style="color:var(--teal)">逐区深度解析。</em></h2>
+      <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:600;color:#fff;max-width:580px;letter-spacing:-.02em">银发经济，<em style="color:var(--teal)">逐区深度解析。</em></h2>
     </div>
     <div class="geo-region-btns rv" id="geo-tabs">
       <button class="geo-rbtn active" data-region="hk"><span class="en">Hong Kong</span><span class="zh">香港</span></button>
@@ -464,46 +470,53 @@
     </div>
     <div class="geo-layout rv d1">
       <div class="geo-map-wrap">
-        <div id="geo-loading" style="display:flex;align-items:center;justify-content:center;height:360px;color:var(--text-muted);font-size:var(--fs-sm)"><span class="en">Loading map…</span><span class="zh">地图加载中…</span></div>
+        <div id="geo-loading" style="display:flex;align-items:center;justify-content:center;height:360px;color:var(--text-muted);font-size:var(--fs-sm)">
+          <span class="en">Loading map…</span><span class="zh">地图加载中…</span>
+        </div>
         <svg id="geo-svg" viewBox="0 0 700 420" style="display:none;width:100%"></svg>
       </div>
       <div class="geo-panel" id="geo-panel"></div>
     </div>
   </div>
 
-  <!-- Longevity Pulse news -->
+  <!-- ── NEWS ── -->
   <div style="margin-top:5rem;padding-top:3rem;border-top:1px solid var(--rule)" class="rv">
     <div class="sec-hd">
-      <p class="label en">Longevity Pulse</p><p class="label zh">长寿产业动态</p>
+      <p class="label en">Longevity Pulse</p>
+      <p class="label zh">长寿产业动态</p>
       <h2 class="sec-title en">What's happening in the <em>longevity ecosystem.</em></h2>
-      <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:500;color:#fff;max-width:580px;letter-spacing:-.02em">长寿生态系统的<em style="color:var(--teal)">最新动态。</em></h2>
-      <p style="color:var(--text-muted);font-size:var(--fs-xs);margin-top:.5rem" class="en">Updated periodically · Click any card to read</p>
-      <p style="color:var(--text-muted);font-size:var(--fs-xs);margin-top:.5rem" class="zh">定期更新 · 点击卡片阅读全文</p>
+      <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:600;color:#fff;max-width:580px;letter-spacing:-.02em">长寿生态系统的<em style="color:var(--teal)">最新动态。</em></h2>
     </div>
     <div class="news-grid">
       <a class="news-card rv" href="https://www.nature.com/articles/s43587-024-00629-3" target="_blank" rel="noopener">
         <div class="news-card-img"><div class="news-card-img-placeholder">🧬</div><span class="news-card-tag en">Research</span><span class="news-card-tag zh">科研</span></div>
-        <div class="news-card-body"><div class="news-card-date en">2025 · Nature Aging</div><div class="news-card-date zh">2025 · 《自然衰老》</div>
-        <div class="news-card-title en">Targeting the Hallmarks of Aging: Senolytics to Epigenetic Reprogramming</div>
-        <div class="news-card-title zh">攻克衰老标志：从衰老细胞清除到表观遗传重编程</div>
-        <div class="news-card-excerpt en">Nature Aging examines the frontier of longevity medicine — senolytics to epigenetic reprogramming — and what it means for therapeutic development in Asia.</div>
-        <div class="news-card-excerpt zh">《自然衰老》深入探讨长寿医学科研前沿及其对亚洲治疗领域的深远影响。</div></div>
+        <div class="news-card-body">
+          <div class="news-card-date en">2025 · Nature Aging</div><div class="news-card-date zh">2025 · 《自然衰老》</div>
+          <div class="news-card-title en">Targeting the Hallmarks of Aging: Senolytics to Epigenetic Reprogramming</div>
+          <div class="news-card-title zh">攻克衰老标志：从衰老细胞清除到表观遗传重编程</div>
+          <div class="news-card-excerpt en">Nature Aging examines the frontier of longevity medicine and its implications for therapeutic development in Asia.</div>
+          <div class="news-card-excerpt zh">《自然衰老》深入探讨长寿医学科研前沿及其对亚洲治疗领域的深远影响。</div>
+        </div>
       </a>
       <a class="news-card rv d1" href="https://www.who.int/news-room/fact-sheets/detail/ageing-and-health" target="_blank" rel="noopener">
         <div class="news-card-img"><div class="news-card-img-placeholder">🏛️</div><span class="news-card-tag en">Policy</span><span class="news-card-tag zh">政策</span></div>
-        <div class="news-card-body"><div class="news-card-date en">2025 · WHO</div><div class="news-card-date zh">2025 · 世界卫生组织</div>
-        <div class="news-card-title en">Global Report on Ageing: Asia's Silver Economy Accelerates</div>
-        <div class="news-card-title zh">全球老龄化报告：亚洲银发经济需求加速释放</div>
-        <div class="news-card-excerpt en">Asia accounts for 55%+ of the world's elderly population — demand for longevity medicine and care-tech is outpacing supply.</div>
-        <div class="news-card-excerpt zh">亚洲老龄人口占全球总量逾55%——长寿医学与护理科技需求快速超越供给。</div></div>
+        <div class="news-card-body">
+          <div class="news-card-date en">2025 · WHO</div><div class="news-card-date zh">2025 · 世界卫生组织</div>
+          <div class="news-card-title en">Global Report on Ageing: Asia's Silver Economy Accelerates</div>
+          <div class="news-card-title zh">全球老龄化报告：亚洲银发经济需求加速释放</div>
+          <div class="news-card-excerpt en">Asia accounts for 55%+ of the world's elderly population — demand for longevity medicine and care-tech is outpacing supply.</div>
+          <div class="news-card-excerpt zh">亚洲老龄人口占全球总量逾55%——长寿医学与护理科技需求快速超越供给。</div>
+        </div>
       </a>
       <a class="news-card rv d2" href="https://www.scmp.com" target="_blank" rel="noopener">
         <div class="news-card-img"><div class="news-card-img-placeholder">🤖</div><span class="news-card-tag en">Market</span><span class="news-card-tag zh">市场</span></div>
-        <div class="news-card-body"><div class="news-card-date en">2025 · SCMP</div><div class="news-card-date zh">2025 · 南华早报</div>
-        <div class="news-card-title en">Hong Kong as Asia's Longevity Hub: Capital, Biotech, and the GBA</div>
-        <div class="news-card-title zh">香港：亚洲长寿科技枢纽——资本、生物科技与大湾区</div>
-        <div class="news-card-excerpt en">Hong Kong's position bridges global science with Chinese capital and GBA manufacturing — the defining gateway for longevity companies in Asia.</div>
-        <div class="news-card-excerpt zh">香港连接全球科研、中国资本与大湾区制造——成为长寿企业进军亚洲的核心门户。</div></div>
+        <div class="news-card-body">
+          <div class="news-card-date en">2025 · SCMP</div><div class="news-card-date zh">2025 · 南华早报</div>
+          <div class="news-card-title en">Hong Kong as Asia's Longevity Hub: Capital, Biotech, and the GBA</div>
+          <div class="news-card-title zh">香港：亚洲长寿科技枢纽——资本、生物科技与大湾区</div>
+          <div class="news-card-excerpt en">Hong Kong bridges global science with Chinese capital and GBA manufacturing — the defining gateway for longevity companies.</div>
+          <div class="news-card-excerpt zh">香港连接全球科研、中国资本与大湾区制造——成为长寿企业进军亚洲的核心门户。</div>
+        </div>
       </a>
     </div>
     <div style="margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap">
@@ -511,173 +524,9 @@
       <a href="https://www.jmdd.com.cn" target="_blank" rel="noopener" class="news-more zh">更多资讯：《健康管理》 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
-</div></div>
 
-<script>
-// ── ECOSYSTEM RADIAL MAP ─────────────────────────────────────────
-(function(){
-  const categories = [
-    { id:'Insurtech',          label:'Insurtech',           labelZh:'保险科技',      r:42, cos:['Clover','Oscar','ZestyAI'] },
-    { id:'Healthcare SaaS',    label:'Healthcare SaaS',     labelZh:'医疗SaaS',      r:42, cos:['Flatiron','Innovaccer'] },
-    { id:'Biology-driven AI',  label:'Biology-driven AI',   labelZh:'生物驱动AI',    r:42, cos:['Tempus','Insilico Medicine'] },
-    { id:'GeronTech',          label:'GeronTech',           labelZh:'高龄科技',      r:42, cos:['Honor','Papa','CarePredict'] },
-    { id:'LongBios',           label:'LongBios',            labelZh:'长寿医药',      r:42, cos:['ALTOS','Atria'] },
-    { id:'Lifestyle Hardwares',label:'Lifestyle Hardwares', labelZh:'生活穿戴',      r:42, cos:['WHOOP','Oura'] },
-  ];
-
-  const CLEARBIT = 'https://logo.clearbit.com/';
-  const logoMap = {
-    'Clover':     CLEARBIT+'cloverhealth.com?size=80',
-    'Oscar':      CLEARBIT+'hioscar.com?size=80',
-    'ZestyAI':    CLEARBIT+'zesty.ai?size=80',
-    'Flatiron':   CLEARBIT+'flatiron.com?size=80',
-    'Innovaccer': CLEARBIT+'innovaccer.com?size=80',
-    'Tempus':     CLEARBIT+'tempus.com?size=80',
-    'Insilico Medicine': CLEARBIT+'insilico.com?size=80',
-    'Honor':      CLEARBIT+'joinhonor.com?size=80',
-    'Papa':       CLEARBIT+'papa.com?size=80',
-    'CarePredict':CLEARBIT+'carepredict.com?size=80',
-    'ALTOS':      CLEARBIT+'altoslabs.com?size=80',
-    'Atria':      CLEARBIT+'atriahealth.com?size=80',
-    'WHOOP':      CLEARBIT+'whoop.com?size=80',
-    'Oura':       CLEARBIT+'ouraring.com?size=80',
-  };
-
-  const container = document.getElementById('eco-map');
-  if(!container) return;
-  const W = container.offsetWidth || 800, H = 520;
-  const cx = W/2, cy = H/2;
-  const CAT_R = 90; // category circle radius from center
-  const CO_R = 65;  // company circle radius from category
-
-  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
-  svg.setAttribute('width','100%');
-  svg.style.display='block';
-
-  const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
-  // gradient for AGVC center
-  const grad = document.createElementNS('http://www.w3.org/2000/svg','radialGradient');
-  grad.setAttribute('id','agvc-grad'); grad.setAttribute('cx','50%'); grad.setAttribute('cy','50%'); grad.setAttribute('r','50%');
-  const s1=document.createElementNS('http://www.w3.org/2000/svg','stop'); s1.setAttribute('offset','0%'); s1.setAttribute('stop-color','#0d3060');
-  const s2=document.createElementNS('http://www.w3.org/2000/svg','stop'); s2.setAttribute('offset','100%'); s2.setAttribute('stop-color','#086858');
-  grad.appendChild(s1); grad.appendChild(s2); defs.appendChild(grad);
-
-  // clip paths for company logos
-  let clipIdx=0;
-  function makeClip(id,r){
-    const cp=document.createElementNS('http://www.w3.org/2000/svg','clipPath');
-    cp.setAttribute('id',id);
-    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    c.setAttribute('r',r); c.setAttribute('cx',0); c.setAttribute('cy',0);
-    cp.appendChild(c); defs.appendChild(cp);
-  }
-
-  svg.appendChild(defs);
-
-  const nCat = categories.length;
-  const catRadius = Math.min(W,H)*0.28;
-
-  categories.forEach((cat,i)=>{
-    const angleBase = (i/nCat)*Math.PI*2 - Math.PI/2;
-    const catX = cx + Math.cos(angleBase)*catRadius;
-    const catY = cy + Math.sin(angleBase)*catRadius;
-
-    // spoke from center to category
-    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-    line.setAttribute('x1',cx); line.setAttribute('y1',cy);
-    line.setAttribute('x2',catX); line.setAttribute('y2',catY);
-    line.setAttribute('stroke','rgba(80,130,200,0.15)'); line.setAttribute('stroke-width','1');
-    svg.appendChild(line);
-
-    // category circle
-    const catCircle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    catCircle.setAttribute('cx',catX); catCircle.setAttribute('cy',catY);
-    catCircle.setAttribute('r','40'); catCircle.setAttribute('fill','#0d2040');
-    catCircle.setAttribute('stroke','rgba(13,158,140,0.4)'); catCircle.setAttribute('stroke-width','1');
-    svg.appendChild(catCircle);
-
-    // category label
-    const lang = document.documentElement.getAttribute('data-lang')||'en';
-    const catLabel=document.createElementNS('http://www.w3.org/2000/svg','text');
-    catLabel.setAttribute('x',catX); catLabel.setAttribute('y',catY-4);
-    catLabel.setAttribute('text-anchor','middle'); catLabel.setAttribute('fill','#b8cfe0');
-    catLabel.setAttribute('font-size','7.5'); catLabel.setAttribute('font-family','Satoshi,sans-serif');
-    catLabel.setAttribute('font-weight','500');
-    catLabel.textContent = lang==='zh'?cat.labelZh:cat.label;
-    svg.appendChild(catLabel);
-
-    // company nodes
-    const nCo = cat.cos.length;
-    const coRadius = Math.min(W,H)*0.14;
-    cat.cos.forEach((co,j)=>{
-      const spreadAngle = (nCo===1)?0:((j/(nCo-1))-0.5)*0.8;
-      const coAngle = angleBase + spreadAngle;
-      const coX = catX + Math.cos(coAngle)*coRadius;
-      const coY = catY + Math.sin(coAngle)*coRadius;
-
-      // spoke cat→company
-      const coLine=document.createElementNS('http://www.w3.org/2000/svg','line');
-      coLine.setAttribute('x1',catX); coLine.setAttribute('y1',catY);
-      coLine.setAttribute('x2',coX); coLine.setAttribute('y2',coY);
-      coLine.setAttribute('stroke','rgba(80,130,200,0.12)'); coLine.setAttribute('stroke-width','0.8');
-      svg.appendChild(coLine);
-
-      // company circle
-      const coCircle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      coCircle.setAttribute('cx',coX); coCircle.setAttribute('cy',coY);
-      coCircle.setAttribute('r','22'); coCircle.setAttribute('fill','#050e1c');
-      coCircle.setAttribute('stroke','rgba(80,130,200,0.25)'); coCircle.setAttribute('stroke-width','1');
-      svg.appendChild(coCircle);
-
-      const logoSrc = logoMap[co];
-      if(logoSrc){
-        const clipId=`clip-co-${clipIdx++}`;
-        const cp=document.createElementNS('http://www.w3.org/2000/svg','clipPath');
-        cp.setAttribute('id',clipId);
-        const cc=document.createElementNS('http://www.w3.org/2000/svg','circle');
-        cc.setAttribute('cx',coX); cc.setAttribute('cy',coY); cc.setAttribute('r','20');
-        cp.appendChild(cc); svg.insertBefore(cp, svg.querySelector('defs').nextSibling);
-        const img=document.createElementNS('http://www.w3.org/2000/svg','image');
-        img.setAttribute('href',logoSrc);
-        img.setAttribute('x',coX-18); img.setAttribute('y',coY-18);
-        img.setAttribute('width','36'); img.setAttribute('height','36');
-        img.setAttribute('clip-path',`url(#${clipId})`);
-        img.setAttribute('preserveAspectRatio','xMidYMid meet');
-        img.setAttribute('crossOrigin','anonymous');
-        img.addEventListener('error', function(){this.style.display='none';});
-        svg.appendChild(img);
-      }
-
-      // company name (fallback if no logo, or always shown below)
-      const coText=document.createElementNS('http://www.w3.org/2000/svg','text');
-      coText.setAttribute('x',coX); coText.setAttribute('y',coY+(logoSrc?30:4));
-      coText.setAttribute('text-anchor','middle'); coText.setAttribute('fill','#8fafc8');
-      coText.setAttribute('font-size',logoSrc?'6.5':'7.5');
-      coText.setAttribute('font-family','Satoshi,sans-serif'); coText.setAttribute('font-weight','500');
-      coText.textContent = co.length>12?co.substring(0,10)+'…':co;
-      svg.appendChild(coText);
-    });
-  });
-
-  // AGVC center circle
-  const agvcCircle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-  agvcCircle.setAttribute('cx',cx); agvcCircle.setAttribute('cy',cy);
-  agvcCircle.setAttribute('r','52'); agvcCircle.setAttribute('fill','url(#agvc-grad)');
-  agvcCircle.setAttribute('stroke','rgba(13,158,140,0.6)'); agvcCircle.setAttribute('stroke-width','1.5');
-  svg.appendChild(agvcCircle);
-  const agvcText=document.createElementNS('http://www.w3.org/2000/svg','text');
-  agvcText.setAttribute('x',cx); agvcText.setAttribute('y',cy+5);
-  agvcText.setAttribute('text-anchor','middle'); agvcText.setAttribute('fill','rgba(13,158,140,0.9)');
-  agvcText.setAttribute('font-size','13'); agvcText.setAttribute('font-family','Satoshi,sans-serif');
-  agvcText.setAttribute('font-weight','700'); agvcText.setAttribute('letter-spacing','-0.5');
-  agvcText.textContent='✳ AGVC';
-  svg.appendChild(agvcText);
-
-  container.appendChild(svg);
-})();
-</script>
-
+</div><!-- /wrap -->
+</div><!-- /page-shell -->
 <!-- ── FOOTER ── -->
 <footer>
   <div class="wrap">
@@ -754,38 +603,52 @@
 </div>
 
 
-<!-- ── SCRIPTS ── -->
 <script>
-  // ── GEO SWITCHER ──
 
-  // ── Language init (required for geo panel) ──
+  // ── Mobile menu ──
+  (function(){
+    const ham=document.getElementById('hamburger');
+    const mm=document.getElementById('mobile-menu');
+    const bd=document.getElementById('mm-backdrop');
+    if(ham&&mm&&bd){
+      function toggle(){const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+      ham.addEventListener('click',toggle);
+      bd.addEventListener('click',toggle);
+      mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ham.classList.remove('open');bd.classList.remove('open');document.body.style.overflow='';}));
+    }
+  })();
+
+  // ── Self-contained language init ──────────────────────────────
   let currentLang = localStorage.getItem('agvc-lang') || 'en';
-  function setLang(lang){
+  function setLang(lang) {
     currentLang = lang;
     document.documentElement.setAttribute('data-lang', lang);
-    document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    document.querySelectorAll('.lang-opt').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     localStorage.setItem('agvc-lang', lang);
-    if(typeof renderGeoPanel === 'function') renderGeoPanel();
+    if (typeof renderGeoPanel === 'function') renderGeoPanel();
   }
-  document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
-  setLang(currentLang);
+  document.querySelectorAll('.lang-opt').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+  // Initial lang applied at end of script (after GEO defined)
 
-  // ── Nav ──
-  const nav=document.getElementById('nav');
-  if(nav) window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
-  // ── Scroll reveal ──
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
-  },{threshold:.05});
-  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-  setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')),800);
+  // ── Nav scroll ────────────────────────────────────────────────
+  const nav = document.getElementById('nav');
+  if (nav) window.addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 50), {passive: true});
 
+  // ── Scroll reveal ─────────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold: 0.05});
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+  setTimeout(() => document.querySelectorAll('.rv:not(.in)').forEach(el => el.classList.add('in')), 800);
+
+  // ── GEO SWITCHER DATA ─────────────────────────────────────────
+  // ── GEO SWITCHER ──
   const GEO = [
     {
       id:'hk',
       en:{title:'Hong Kong',sub:'Our operational base — gateway to 86M GBA consumers and Asian capital markets'},
       zh:{title:'香港',sub:'我们的运营基地——通往大湾区8,600万消费者及亚洲资本市场的核心门户'},
-      dot:[114.18,22.32],col:'#0a7a68',
+      dot:[114.18,22.32],col:'#c4a46b',
       en_stats:[{v:'$4.2',u:'T',l:'China silver economy by 2035'},{v:'No.1',u:'',l:'Global IPO market in 2025'},{v:'86',u:'M',l:"GBA consumers"},{v:'3,384',u:'+',l:'Single-family offices in HK'}],
       zh_stats:[{v:'$4.2',u:'T',l:'2035年中国银发经济规模'},{v:'第一',u:'',l:'2025年全球IPO市场'},{v:'86',u:'M',l:'大湾区消费者'},{v:'3,384',u:'+',l:'香港单一家族办公室数量'}],
       en_opps:[{t:'Robust Aging Investment & Infrastructure',b:'HKSAR connects global capital with Asia\'s largest aging markets — a proven hub for longevity-focused companies.'},{t:'Government Grant Ecosystem',b:'InnoHK, ITF, HKIDS, Cyberport — substantial non-dilutive capital for qualifying companies.'},{t:'Deep-Tech R&D Cluster',b:'5 HK universities in global top 100. World\'s 2nd largest biotech fundraising hub.'}],
@@ -795,7 +658,7 @@
       id:'gcapac',
       en:{title:'Greater China & Asia-Pacific',sub:'Mainland China, Japan, South Korea, Singapore, Southeast Asia, Australia'},
       zh:{title:'大中华区及亚太地区',sub:'中国大陆、日本、韩国、新加坡、东南亚及澳大利亚'},
-      dot:[108,32],col:'#2a6aaa',
+      dot:[108,32],col:'#3a7bd5',
       gcIds:new Set(['156','344','360','356','392','410','458','104','764','116','418','704','050','096','702','036','554']),
       en_stats:[{v:'310',u:'M+',l:'Chinese citizens aged 60+'},{v:'$1.26',u:'T',l:'China silver economy 2025'},{v:'700',u:'M+',l:'APAC aged 60+ by 2050'},{v:'$30',u:'B',l:'China digital health 2025'}],
       zh_stats:[{v:'310',u:'M+',l:'中国60岁以上人口'},{v:'$1.26',u:'T',l:'中国2025年银发经济规模'},{v:'700',u:'M+',l:'2050年亚太60岁以上人口'},{v:'$30',u:'B',l:'中国数字健康市场（2025）'}],
@@ -806,7 +669,7 @@
       id:'mea',
       en:{title:'Middle East & Africa',sub:'Gulf states, Israel, South Africa — emerging longevity capital and biotech bridge'},
       zh:{title:'中东及非洲地区',sub:'海湾国家、以色列、南非——新兴长寿资本与生物科技桥梁'},
-      dot:[45,25],col:'#3a7a9a',
+      dot:[45,25],col:'#eda100',
       meaIds:new Set(['682','784','512','414','400','048','634','356','364','368','760','422','706','231','566','024','710','404','508','834','818','012','504','288']),
       en_stats:[{v:'$47',u:'B',l:'GCC healthcare market 2026'},{v:'No.1',u:'',l:'Israel per-capita longevity VC'},{v:'3.4',u:'%',l:'Gulf aging population growth p.a.'},{v:'2030',u:'',l:'Saudi Vision longevity priority'}],
       zh_stats:[{v:'$47',u:'B',l:'海湾合作委员会医疗市场（2026）'},{v:'第一',u:'',l:'以色列人均长寿科技风投'},{v:'3.4',u:'%',l:'海湾国家老龄人口年均增长率'},{v:'2030',u:'',l:'沙特2030愿景长寿科技优先布局'}],
@@ -818,6 +681,7 @@
   let geoActive='hk', geoProjection=null, geoSvg=null, geoCountriesData=null, geoDotsG=null, geoCountriesG=null;
 
   function renderGeoPanel(){
+    if(typeof GEO==='undefined') return;
     const r=GEO.find(x=>x.id===geoActive);
     const panel=document.getElementById('geo-panel');
     if(!panel||!r) return;
@@ -924,5 +788,17 @@
   } else { initGeoMap(); }
 
 
+
+  // ── Chatbot ───────────────────────────────────────────────────
+  const chatBtn = document.getElementById('chatbot-btn');
+  const chatWin = document.getElementById('chat-win');
+  const chatClose = document.getElementById('chat-close');
+  if (chatBtn) chatBtn.addEventListener('click', () => chatWin.classList.toggle('open'));
+  if (chatClose) chatClose.addEventListener('click', () => chatWin.classList.remove('open'));
+
+  // ── Apply initial language now that everything is defined ──
+  setLang(currentLang);
+  renderGeoPanel();
 </script>
-</body></html>
+</body>
+</html>

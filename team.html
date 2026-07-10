@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Team — AGVC</title>
   <link rel="icon" type="image/png" href="/images/logo2__new_.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    :root{--ink:#010408;--ink-mid:#050e1c;--ink-soft:#0a1828;--rule:rgba(80,130,200,0.13);--rule-hi:rgba(80,130,200,0.24);--text:#f0f4ff;--text-dim:#b8cfe0;--text-muted:#3d5a78;--gold:#c4a46b;--serif:'Montserrat','Noto Sans SC',sans-serif;--sans:'Satoshi','Noto Sans SC',system-ui,sans-serif;--max:1080px;--r:4px;}
+    :root{--ink:#03080f;--ink-mid:#071020;--ink-soft:#0e1c30;--rule:rgba(80,130,200,0.13);--rule-hi:rgba(80,130,200,0.24);--text:#f0f4ff;--text-dim:#b8cfe0;--text-muted:#3d5a78;--gold:#c4a46b;--serif:'Noto Serif',Georgia,serif;--sans:'Inter','Noto Sans SC',system-ui,sans-serif;--max:1080px;--r:4px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{background:linear-gradient(160deg,#010408 0%,#020c18 30%,#040f1e 60%,#030b16 85%,#010408 100%);background-attachment:scroll;color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased}
+    body{background:linear-gradient(160deg,#03080f 0%,#050d1a 25%,#071525 50%,#061220 75%,#040b16 100%);background-attachment:scroll;color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
@@ -19,20 +18,24 @@
     [data-lang="en"] .zh{display:none!important}
     .lang-btn{display:flex;align-items:center;background:var(--ink-soft);border:1px solid var(--rule-hi);border-radius:20px;overflow:hidden;padding:0;cursor:pointer}
     .lang-opt{padding:.32rem .8rem;font-size:.7rem;font-weight:500;border:none;background:none;color:var(--text-muted);cursor:pointer;font-family:var(--sans);transition:all .2s}
-    .lang-opt.active{background:var(--gold);color:var(--ink)}
+    .lang-opt.active{background:var(--grad);color:var(--ink)}
     nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(3,8,15,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
     .nav-row{max-width:var(--max);margin:0 auto;padding:1.1rem clamp(1.25rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between}
     .nav-logo{display:flex;align-items:center;gap:.7rem}
     .nav-logo img{height:24px;width:auto;object-fit:contain}
     .nav-word{font-size:.72rem;font-weight:400;letter-spacing:.05em;color:var(--text-dim);font-family:var(--serif)}
+    /* ── LOGO WORDMARK (brand-book gold gradient) ── */
+    .logo-word{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.01em;background:linear-gradient(to bottom,#f0d696 0%,#d4b478 32%,#c8c8cd 55%,#8a8a92 74%,#2a2a30 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .hero-logo-word{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;background:linear-gradient(to bottom,#f4dca0 0%,#d8b87c 34%,#d0d0d6 58%,#9a9aa2 78%,#4a4a52 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:inline-block}
+
     .nav-right{display:flex;align-items:center;gap:1rem}
     .nav-back{font-size:.78rem;color:var(--text-muted);display:flex;align-items:center;gap:.4rem;transition:color .2s}
     .nav-back:hover{color:var(--text-dim)}
     .page-header{padding:clamp(6rem,12vw,9rem) 0 clamp(3rem,5vw,5rem);border-bottom:1px solid var(--rule)}
-    .label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
     .page-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;font-style:italic;color:#fff;line-height:1.1;margin-bottom:1rem}
     .page-title.zh-title{font-family:var(--sans);font-style:normal;font-weight:300}
-    .page-title strong{font-style:normal;font-weight:400;color:var(--gold)}
+    .page-title strong{font-style:normal;font-weight:400;color:var(--teal)}
     .page-sub{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--text-dim);max-width:520px;line-height:1.8}
     .team-section{padding:clamp(3rem,6vw,6rem) 0}
     .team-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin-top:2.5rem}
@@ -42,7 +45,7 @@
     .team-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule-hi)}
     .team-photo img{width:100%;height:100%;object-fit:cover}
     .team-photo.lg{width:100px;height:120px;border-radius:var(--r)}
-    .team-init{width:72px;height:72px;border-radius:50%;background:var(--ink-soft);border:1px solid var(--rule-hi);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--gold);flex-shrink:0}
+    .team-init{width:72px;height:72px;border-radius:50%;background:var(--ink-soft);border:1px solid var(--rule-hi);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--teal);flex-shrink:0}
     .team-name{font-size:1rem;font-weight:500;color:#fff;margin-bottom:.2rem}
     .team-role{font-size:.82rem;color:var(--teal);letter-spacing:.04em;margin-bottom:.6rem}
     .team-bio{font-size:.8rem;color:var(--text-dim);line-height:1.75;margin-bottom:.8rem}
@@ -50,16 +53,34 @@
     .cred{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .8rem;border:1px solid var(--rule-hi);color:var(--text-muted);border-radius:20px;white-space:nowrap}
     .team-cta{margin-top:3rem;padding:2rem;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);text-align:center}
     .team-cta p{font-size:.9rem;color:var(--text-dim);margin-bottom:1rem}
-    .team-cta a{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;padding:.7rem 1.6rem;background:var(--gold);color:var(--ink);border-radius:var(--r);transition:opacity .2s}
+    .team-cta a{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;padding:.7rem 1.6rem;background:var(--grad);color:var(--ink);border-radius:var(--r);transition:opacity .2s}
     .team-cta a:hover{opacity:.88}
     @media(max-width:720px){.team-cards{grid-template-columns:1fr}.team-card.featured{grid-column:span 1}}
+
+    /* ── MOBILE HAMBURGER ── */
+    .nav-hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;z-index:210}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);transition:all .3s}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:var(--ink-mid);border-left:1px solid var(--rule-hi);z-index:205;flex-direction:column;padding:5rem 2rem 2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);gap:.4rem}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu a{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--text);padding:.9rem 0;border-bottom:1px solid var(--rule);letter-spacing:-.01em}
+    .mobile-menu a:last-of-type{border-bottom:none}
+    .mobile-menu-backdrop{display:none;position:fixed;inset:0;background:rgba(1,4,8,.6);backdrop-filter:blur(3px);z-index:204}
+    .mobile-menu-backdrop.open{display:block}
+
+
+    /* ── ACCESSIBILITY ── */
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
   </style>
 </head>
 <body>
 <nav>
   <div class="nav-row">
     <a href="/" class="nav-logo">
-      <img src="/images/logo2__new_.png" alt="AGVC" onerror="this.src='/images/agvc-logo-white.png'"/>
+      <span class="logo-word">AGVC</span>
       <span class="nav-word en">/ Age, but less.</span>
       <span class="nav-word zh">/ 增长年岁，而不衰老。</span>
     </a>
@@ -70,9 +91,18 @@
         <button class="lang-opt active" data-lang="en">EN</button>
         <button class="lang-opt" data-lang="zh">中文</button>
       </div>
-    </div>
+      </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu-backdrop" id="mm-backdrop"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a>
+  <a href="/services"><span class="en">Services</span><span class="zh">服务内容</span></a>
+  <a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a>
+  <a href="/team"><span class="en">Team</span><span class="zh">团队</span></a>
+  <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
+</div>
 
 <div class="page-header">
   <div class="wrap">
@@ -193,6 +223,20 @@
 </div>
 
 <script>
+
+  // ── Mobile menu ──
+  (function(){
+    const ham=document.getElementById('hamburger');
+    const mm=document.getElementById('mobile-menu');
+    const bd=document.getElementById('mm-backdrop');
+    if(ham&&mm&&bd){
+      function toggle(){const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+      ham.addEventListener('click',toggle);
+      bd.addEventListener('click',toggle);
+      mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ham.classList.remove('open');bd.classList.remove('open');document.body.style.overflow='';}));
+    }
+  })();
+
   const htmlEl=document.documentElement;
   function setLang(lang){htmlEl.setAttribute('data-lang',lang);document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('agvc-lang',lang);}
   document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));

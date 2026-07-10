@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <defs>
+    <linearGradient id="agvc-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e0c896"/>
+      <stop offset="45%" stop-color="#c4a46b"/>
+      <stop offset="100%" stop-color="#8a7038"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="70" font-family="Georgia, 'Noto Serif', serif" font-size="82" font-weight="700" letter-spacing="-2" fill="url(#agvc-gold)">AGVC</text>
+</svg>
