@@ -599,8 +599,8 @@
       <div class="chat-head-info">
         <div class="chat-avatar">🧬</div>
         <div>
-          <div class="chat-name en">AGVC Advisor</div>
-          <div class="chat-name zh">AGVC 顾问</div>
+          <div class="chat-name en">Chat with Us</div>
+          <div class="chat-name zh">在线咨询</div>
           <div class="chat-status">● Online</div>
         </div>
       </div>
@@ -629,364 +629,105 @@
 <!-- ── SCRIPTS ── -->
 <script>
 
-  // ── WAVE ANIMATION ──────────────────────────────────────────
-  (function(){
-    const canvas = document.getElementById('wave-canvas');
-    if(!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let W, H, dpr, t = 0;
-
-    function resize(){
-      dpr = window.devicePixelRatio || 1;
-      W = canvas.offsetWidth;
-      H = canvas.offsetHeight;
-      canvas.width = W * dpr;
-      canvas.height = H * dpr;
-      ctx.scale(dpr, dpr);
-    }
-
-    // Wave definitions — 5 layered waves with different speeds, amplitudes, phases
-    const waves = [
-      { speed:0.0006, amp:0.055, freq:1.3,  phase:0,      alpha:0.18, width:1.2, color:'rgba(13,100,120,' },
-      { speed:0.0009, amp:0.042, freq:1.8,  phase:2.1,    alpha:0.14, width:1.0, color:'rgba(10,80,100,' },
-      { speed:0.0005, amp:0.07,  freq:0.9,  phase:1.1,    alpha:0.10, width:1.5, color:'rgba(8,104,88,'  },
-      { speed:0.0011, amp:0.032, freq:2.4,  phase:3.4,    alpha:0.12, width:0.8, color:'rgba(15,60,130,' },
-      { speed:0.0007, amp:0.085, freq:0.6,  phase:0.7,    alpha:0.07, width:2.0, color:'rgba(6,60,90,'   },
-    ];
-
-    function drawWave(w, time){
-      const yBase = H * 0.52;
-      ctx.beginPath();
-      ctx.moveTo(0, H);
-      for(let x = 0; x <= W; x += 2){
-        const nx = x / W;
-        const y = yBase
-          + Math.sin(nx * Math.PI * 2 * w.freq + time * w.speed * 10000 + w.phase) * H * w.amp
-          + Math.sin(nx * Math.PI * 3.7 * w.freq + time * w.speed * 7000 + w.phase * 1.3) * H * w.amp * 0.4
-          + Math.sin(nx * Math.PI * 1.1 + time * w.speed * 5000) * H * w.amp * 0.2;
-        if(x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.lineTo(W, H);
-      ctx.lineTo(0, H);
-      ctx.closePath();
-      const grad = ctx.createLinearGradient(0, yBase - H*w.amp*2, 0, H);
-      grad.addColorStop(0, w.color + (w.alpha * 1.4) + ')');
-      grad.addColorStop(0.5, w.color + w.alpha + ')');
-      grad.addColorStop(1, w.color + '0)');
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Also draw the wave line itself
-      ctx.beginPath();
-      for(let x = 0; x <= W; x += 2){
-        const nx = x / W;
-        const y = yBase
-          + Math.sin(nx * Math.PI * 2 * w.freq + time * w.speed * 10000 + w.phase) * H * w.amp
-          + Math.sin(nx * Math.PI * 3.7 * w.freq + time * w.speed * 7000 + w.phase * 1.3) * H * w.amp * 0.4
-          + Math.sin(nx * Math.PI * 1.1 + time * w.speed * 5000) * H * w.amp * 0.2;
-        if(x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = w.color + Math.min(w.alpha * 2.5, 0.45) + ')';
-      ctx.lineWidth = w.width;
-      ctx.stroke();
-    }
-
-    let raf;
-    function animate(ts){
-      ctx.clearRect(0, 0, W, H);
-      waves.forEach(w => drawWave(w, ts));
-      raf = requestAnimationFrame(animate);
-    }
-
-    resize();
-    window.addEventListener('resize', resize, {passive:true});
-    raf = requestAnimationFrame(animate);
-  })();
-
-
   // ── Mobile menu ──
   (function(){
     const ham=document.getElementById('hamburger');
     const mm=document.getElementById('mobile-menu');
     const bd=document.getElementById('mm-backdrop');
     if(ham&&mm&&bd){
-      function toggle(){const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+      const toggle=()=>{const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';};
       ham.addEventListener('click',toggle);
       bd.addEventListener('click',toggle);
       mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ham.classList.remove('open');bd.classList.remove('open');document.body.style.overflow='';}));
     }
   })();
 
-  // ── Language Switch ──
-  const htmlEl = document.documentElement;
-  let currentLang = 'en';
-
+  // ── Language ──
+  let currentLang = localStorage.getItem('agvc-lang') || 'en';
   function setLang(lang){
     currentLang = lang;
-    htmlEl.setAttribute('data-lang', lang);
-    document.querySelectorAll('.lang-opt').forEach(b=>{
-      b.classList.toggle('active', b.dataset.lang===lang);
-    });
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
     localStorage.setItem('agvc-lang', lang);
-    renderGeoPanel();
+    if(typeof renderGeoPanel==='function'){ try{renderGeoPanel();}catch(e){} }
   }
+  document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
 
-  document.querySelectorAll('.lang-opt').forEach(btn=>{
-    btn.addEventListener('click',()=>setLang(btn.dataset.lang));
-  });
+  // ── Nav scroll ──
+  const nav=document.getElementById('nav');
+  if(nav) window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
 
-  // Restore saved language
-  const savedLang = localStorage.getItem('agvc-lang');
-  if(savedLang) setLang(savedLang);
-
-  // ── Nav ──
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
-
-  // ── Service tabs ──
-  document.querySelectorAll('.svc-tab').forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      document.querySelectorAll('.svc-tab').forEach(t=>t.classList.remove('active'));
-      document.querySelectorAll('.svc-panel').forEach(p=>p.classList.remove('active'));
-      tab.classList.add('active');
-      const p=document.getElementById(tab.dataset.panel);
-      if(p){p.classList.add('active');p.classList.add('in')}
-    });
-  });
-
-  // ── Scroll reveal (Safari-safe) ──
-  function revealAll(){document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));}
+  // ── Scroll reveal ──
   if('IntersectionObserver' in window){
-    const obs=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
-    },{threshold:.05,rootMargin:'0px 0px -20px 0px'});
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.05});
     document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-    // Fallback: reveal all after 800ms in case observer doesn't fire (Safari local)
     setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')),800);
   } else {
-    revealAll();
+    document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
   }
 
-  // ── Form ──
-  const cfForm=document.getElementById('cf-form');
-  if(cfForm){
+  // ── Chatbot ──
+  (function(){
+    const btn=document.getElementById('chatbot-btn');
+    const win=document.getElementById('chat-win');
+    const close=document.getElementById('chat-close');
+    if(btn&&win) btn.addEventListener('click',()=>win.classList.toggle('open'));
+    if(close&&win) close.addEventListener('click',()=>win.classList.remove('open'));
+    // Chat option buttons → route to contact / mail
+    document.querySelectorAll('.chat-opt').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const q=b.dataset.q;
+        const msgs=document.getElementById('chat-msgs');
+        if(msgs){
+          const u=document.createElement('div');u.className='msg user';u.textContent=b.textContent.trim();msgs.appendChild(u);
+          const bot=document.createElement('div');bot.className='msg bot';
+          const replies={
+            startup: currentLang==='zh'?'太好了！请通过下方表单提交您的公司资料，或预约通话。':'Great — share your company via the form below, or schedule a call.',
+            cdmo: currentLang==='zh'?'我们很乐意对接制造合作。请填写表单或直接发送邮件。':'We\'d love to explore manufacturing partnering. Fill the form or email us.',
+            researcher: currentLang==='zh'?'我们支持科研成果的商业化。请通过表单联系我们。':'We support commercialising research IP. Reach us via the form.',
+            investor: currentLang==='zh'?'感谢您的关注，请通过表单或邮件与我们联系。':'Thanks for your interest — connect via the form or email.'
+          };
+          bot.textContent=replies[q]||(currentLang==='zh'?'请通过下方表单联系我们。':'Please reach us via the form below.');
+          msgs.appendChild(bot);
+          msgs.scrollTop=msgs.scrollHeight;
+        }
+        // Also route to contact section if present
+        const contact=document.getElementById('contact');
+        if(contact){setTimeout(()=>{win.classList.remove('open');contact.scrollIntoView({behavior:'smooth'});},900);}
+        else{setTimeout(()=>{window.location.href='/#contact';},900);}
+      });
+    });
+  })();
+
+  // ── Contact form (Web3Forms) ──
+  (function(){
+    const cfForm=document.getElementById('cf-form');
+    if(!cfForm) return;
     cfForm.addEventListener('submit',async e=>{
       e.preventDefault();
-      const btn=cfForm.querySelector('.fsub');
-      btn.innerHTML=currentLang==='zh'?'发送中…':'Sending…'; btn.disabled=true;
+      const lang=document.documentElement.getAttribute('data-lang')||'en';
+      const hideLang=lang==='zh'?'en':'zh';
+      cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=true);
+      const btns=cfForm.querySelectorAll('.fsub');
+      const btnVisible=cfForm.querySelector('.fsub.'+lang)||btns[0];
+      btns.forEach(b=>b.disabled=true);
+      if(btnVisible) btnVisible.innerHTML=lang==='zh'?'发送中…':'Sending…';
       try{
         const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(cfForm)))});
         const d=await res.json();
-        if(d.success){btn.innerHTML=currentLang==='zh'?'✓ 已发送':'Sent ✓';btn.style.background='#3d6b4a';cfForm.reset();}
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(d.success){ if(btnVisible){btnVisible.innerHTML=lang==='zh'?'✓ 已发送':'Sent ✓';btnVisible.style.background='#3d6b4a';} cfForm.reset(); }
         else throw new Error();
-      }catch{btn.innerHTML=currentLang==='zh'?'发送失败':'Error';btn.style.background='#6b3d3d';btn.disabled=false;}
-    });
-  }
-
-  // ── GEO SWITCHER ──
-  const GEO = [
-    {
-      id:'hk',
-      en:{title:'Hong Kong',sub:'Our operational base — gateway to 86M GBA consumers and Asian capital markets'},
-      zh:{title:'香港',sub:'我们的运营基地——通往大湾区8,600万消费者及亚洲资本市场的核心门户'},
-      dot:[114.18,22.32],col:'#c4a46b',
-      en_stats:[{v:'$4.2',u:'T',l:'China silver economy by 2035'},{v:'No.1',u:'',l:'Global IPO market in 2025'},{v:'86',u:'M',l:"GBA consumers"},{v:'3,384',u:'+',l:'Single-family offices in HK'}],
-      zh_stats:[{v:'$4.2',u:'T',l:'2035年中国银发经济规模'},{v:'第一',u:'',l:'2025年全球IPO市场'},{v:'86',u:'M',l:'大湾区消费者'},{v:'3,384',u:'+',l:'香港单一家族办公室数量'}],
-      en_opps:[{t:'Robust Aging Investment & Infrastructure',b:'HKSAR connects global capital with Asia\'s largest aging markets — a proven hub for longevity-focused companies.'},{t:'Government Grant Ecosystem',b:'InnoHK, ITF, HKIDS, Cyberport — substantial non-dilutive capital for qualifying companies.'},{t:'Deep-Tech R&D Cluster',b:'5 HK universities in global top 100. World\'s 2nd largest biotech fundraising hub.'}],
-      zh_opps:[{t:'完善的老龄化投资与基础设施',b:'香港特区将全球资本与亚洲最大的老龄化市场紧密相连——是长寿企业的重要枢纽。'},{t:'政府资助生态体系',b:'InnoHK、ITF、HKIDS、数码港——为符合资格的企业提供丰厚的非稀释性资本支持。'},{t:'深度科技研发集群',b:'香港5所大学跻身全球百强，是全球第二大生物科技融资枢纽。'}]
-    },
-    {
-      id:'gcapac',
-      en:{title:'Greater China & Asia-Pacific',sub:'Mainland China, Japan, South Korea, Singapore, Southeast Asia, Australia'},
-      zh:{title:'大中华区及亚太地区',sub:'中国大陆、日本、韩国、新加坡、东南亚及澳大利亚'},
-      dot:[108,32],col:'#3a7bd5',
-      gcIds:new Set(['156','344','360','356','392','410','458','104','764','116','418','704','050','096','702','036','554']),
-      en_stats:[{v:'310',u:'M+',l:'Chinese citizens aged 60+'},{v:'$1.26',u:'T',l:'China silver economy 2025'},{v:'700',u:'M+',l:'APAC aged 60+ by 2050'},{v:'$30',u:'B',l:'China digital health 2025'}],
-      zh_stats:[{v:'310',u:'M+',l:'中国60岁以上人口'},{v:'$1.26',u:'T',l:'中国2025年银发经济规模'},{v:'700',u:'M+',l:'2050年亚太60岁以上人口'},{v:'$30',u:'B',l:'中国数字健康市场（2025）'}],
-      en_opps:[{t:'Longevity Medicine & Biotech',b:'National pivot to biological aging intervention — multi-omics, senolytics, regenerative medicine. China\'s 15th Five-Year Plan elevates silver economy to core national strategy.'},{t:'CDMO & Manufacturing Hub',b:'GBA hosts the world\'s densest biotech manufacturing cluster across Guangzhou, Shenzhen, and Zhuhai.'},{t:'Japan & Korea Age-Tech',b:'Elder-care robotics, wearables, and digital therapeutics scaling regionally with strong IP export potential.'}],
-      zh_opps:[{t:'长寿医学与生物科技',b:'国家层面转向系统性生物老龄化干预——多组学、衰老细胞清除、再生医学。中国十五五规划将银发经济列为核心国家战略。'},{t:'CDMO与制造业枢纽',b:'大湾区汇聚全球密度最高的生物科技制造集群，覆盖广州、深圳和珠海。'},{t:'日韩老龄科技',b:'养老护理机器人、可穿戴设备及数字疗法在区域内快速扩展，知识产权出口潜力强劲。'}]
-    },
-    {
-      id:'mea',
-      en:{title:'Middle East & Africa',sub:'Gulf states, Israel, South Africa — emerging longevity capital and biotech bridge'},
-      zh:{title:'中东及非洲地区',sub:'海湾国家、以色列、南非——新兴长寿资本与生物科技桥梁'},
-      dot:[45,25],col:'#eda100',
-      meaIds:new Set(['682','784','512','414','400','048','634','356','364','368','760','422','706','231','566','024','710','404','508','834','818','012','504','288']),
-      en_stats:[{v:'$47',u:'B',l:'GCC healthcare market 2026'},{v:'No.1',u:'',l:'Israel per-capita longevity VC'},{v:'3.4',u:'%',l:'Gulf aging population growth p.a.'},{v:'2030',u:'',l:'Saudi Vision longevity priority'}],
-      zh_stats:[{v:'$47',u:'B',l:'海湾合作委员会医疗市场（2026）'},{v:'第一',u:'',l:'以色列人均长寿科技风投'},{v:'3.4',u:'%',l:'海湾国家老龄人口年均增长率'},{v:'2030',u:'',l:'沙特2030愿景长寿科技优先布局'}],
-      en_opps:[{t:'Gulf Sovereign Capital',b:'GCC sovereign wealth funds actively deploying into longevity and health-tech — significant LP opportunity for APAC-listed assets.'},{t:'Israel Biotech Pipeline',b:"Israel's longevity pipeline — senolytics, epigenetics, diagnostics — natural fit for APAC commercialisation via AGVC."},{t:'Saudi Vision 2030',b:'Preventive health and longevity medicine is a stated national priority. Public hospital modernisation and digital health integration underway.'}],
-      zh_opps:[{t:'海湾主权资本',b:'海湾合作委员会主权财富基金正积极布局长寿及健康科技领域——为在亚太上市资产提供重要的有限合伙人机遇。'},{t:'以色列生物科技储备',b:'以色列的长寿科技资产储备——衰老细胞清除剂、表观遗传学、诊断技术——天然契合AGVC的亚太商业化路径。'},{t:'沙特2030愿景',b:'预防医学与长寿科技已被列为国家战略优先方向，公立医院现代化与数字健康整合正加速推进。'}]
-    }
-  ];
-
-  let geoActive='hk', geoProjection=null, geoSvg=null, geoCountriesData=null, geoDotsG=null, geoCountriesG=null;
-
-  function renderGeoPanel(){
-    const r=GEO.find(x=>x.id===geoActive);
-    const panel=document.getElementById('geo-panel');
-    if(!panel||!r) return;
-    const lang=currentLang==='zh'?'zh':'en';
-    const info=r[lang]||r['en'];
-    const stats=r[lang+'_stats']||r['en_stats'];
-    const opps=r[lang+'_opps']||r['en_opps'];
-    panel.innerHTML=`
-      <div class="geo-panel-head">
-        <div class="geo-panel-title">${info.title}</div>
-        <div class="geo-panel-sub">${info.sub}</div>
-      </div>
-      <div class="geo-stats">${stats.map(s=>`<div class="geo-stat"><div class="geo-stat-val">${s.v}<span>${s.u}</span></div><div class="geo-stat-label">${s.l}</div></div>`).join('')}</div>
-      <div class="geo-opps">
-        <div class="geo-opps-title">${lang==='zh'?'重点机遇':'Opportunity segments'}</div>
-        ${opps.map(o=>`<div class="geo-opp"><div class="geo-opp-dot"></div><div class="geo-opp-text"><strong>${o.t}</strong> — ${o.b}</div></div>`).join('')}
-      </div>
-    `;
-  }
-
-  function updateGeoColors(){
-    if(!geoCountriesG||!geoCountriesData) return;
-    const isDark=matchMedia('(prefers-color-scheme:dark)').matches;
-    const land=isDark?'#0e1c30':'#dce8f0';
-    const gcR=GEO[1]; const meaR=GEO[2];
-    geoCountriesG.selectAll('path').attr('fill',d=>{
-      const id=String(d.id).padStart(3,'0');
-      if(id==='344') return geoActive==='hk'?'rgba(196,164,107,0.7)':land;
-      if(gcR.gcIds&&gcR.gcIds.has(id)) return geoActive==='gcapac'?'rgba(58,123,213,0.38)':land;
-      if(meaR.meaIds&&meaR.meaIds.has(id)) return geoActive==='mea'?'rgba(237,161,0,0.38)':land;
-      return land;
-    });
-  }
-
-  function renderGeoDots(){
-    if(!geoDotsG||!geoProjection) return;
-    geoDotsG.selectAll('*').remove();
-    GEO.forEach(r=>{
-      const xy=geoProjection([r.dot[0],r.dot[1]]);
-      if(!xy) return;
-      const [x,y]=xy; const on=r.id===geoActive;
-      const g=geoDotsG.append('g').style('cursor','pointer')
-        .on('click',()=>{geoActive=r.id;updateGeoTab();renderGeoPanel();updateGeoColors();renderGeoDots()});
-      g.append('circle').attr('cx',x).attr('cy',y).attr('r',on?16:10).attr('fill',r.col).attr('opacity',on?.15:.08);
-      g.append('circle').attr('cx',x).attr('cy',y).attr('r',on?7:4.5).attr('fill',r.col).attr('opacity',on?1:.55);
-      if(on){
-        const p=g.append('circle').attr('cx',x).attr('cy',y).attr('r',7).attr('fill','none').attr('stroke',r.col).attr('stroke-width',1.5).attr('opacity',.4);
-        p.append('animate').attr('attributeName','r').attr('values','7;20;7').attr('dur','2s').attr('repeatCount','indefinite');
-        p.append('animate').attr('attributeName','opacity').attr('values','.4;0;.4').attr('dur','2s').attr('repeatCount','indefinite');
+      }catch{
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(btnVisible){btnVisible.innerHTML=lang==='zh'?'发送失败，请重试':'Error — try again';btnVisible.style.background='#6b3d3d';}
+        btns.forEach(b=>b.disabled=false);
       }
     });
-  }
+  })();
 
-  function updateGeoTab(){
-    document.querySelectorAll('.geo-rbtn').forEach(b=>b.classList.toggle('active',b.dataset.region===geoActive));
-  }
+  // ── Apply initial language ──
+  setLang(currentLang);
 
-  async function initGeoMap(){
-    const W=700,H=420;
-    const svgEl=document.getElementById('geo-svg');
-    if(!svgEl||typeof d3==='undefined'||typeof topojson==='undefined') return;
-    geoProjection=d3.geoOrthographic().scale(260).center([0,0]).rotate([-88,-18,0]).clipAngle(90).translate([W/2,H/2]);
-    const pathGen=d3.geoPath(geoProjection);
-    geoSvg=d3.select('#geo-svg');
-    try{
-      const world=await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-      geoCountriesData=topojson.feature(world,world.objects.countries);
-      document.getElementById('geo-loading').style.display='none';
-      svgEl.style.display='block';
-      const isDark=matchMedia('(prefers-color-scheme:dark)').matches;
-      const ocean=isDark?'#080d14':'#c8dce8'; const stroke=isDark?'rgba(80,130,200,0.18)':'rgba(80,130,200,0.28)'; const land=isDark?'#0e1c30':'#dce8f0';
-      geoSvg.append('path').datum({type:'Sphere'}).attr('d',pathGen).attr('fill',ocean).attr('stroke','rgba(80,130,200,0.25)').attr('stroke-width',1);
-      const grat=d3.geoGraticule().step([15,15])();
-      geoSvg.append('path').datum(grat).attr('d',pathGen).attr('fill','none').attr('stroke',isDark?'rgba(80,130,200,0.09)':'rgba(80,130,200,0.13)').attr('stroke-width',.4);
-      geoCountriesG=geoSvg.append('g');
-      geoCountriesG.selectAll('path').data(geoCountriesData.features).join('path').attr('d',pathGen).attr('fill',land).attr('stroke',stroke).attr('stroke-width',.4);
-      geoDotsG=geoSvg.append('g');
-      updateGeoColors(); renderGeoDots();
-      geoCountriesG.selectAll('path').on('click',function(event,d){
-        const id=String(d.id).padStart(3,'0');
-        const gcR=GEO[1]; const meaR=GEO[2];
-        if(id==='344') geoActive='hk';
-        else if(gcR.gcIds&&gcR.gcIds.has(id)) geoActive='gcapac';
-        else if(meaR.meaIds&&meaR.meaIds.has(id)) geoActive='mea';
-        else return;
-        updateGeoTab(); renderGeoPanel(); updateGeoColors(); renderGeoDots();
-      });
-    }catch(e){ document.getElementById('geo-loading').textContent='Map unavailable'; }
-  }
-
-  document.querySelectorAll('.geo-rbtn').forEach(b=>{
-    b.addEventListener('click',()=>{geoActive=b.dataset.region;updateGeoTab();renderGeoPanel();updateGeoColors();renderGeoDots()});
-  });
-
-  renderGeoPanel();
-
-  function loadScript(src,cb){const s=document.createElement('script');s.src=src;s.onload=cb;document.head.appendChild(s);}
-  if(typeof d3==='undefined'){
-    loadScript('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js',()=>{
-      loadScript('https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js',initGeoMap);
-    });
-  } else if(typeof topojson==='undefined'){
-    loadScript('https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js',initGeoMap);
-  } else { initGeoMap(); }
-
-  // ── Chatbot ──
-  const chatBtn=document.getElementById('chatbot-btn'),chatWin=document.getElementById('chat-win');
-  const chatClose=document.getElementById('chat-close'),chatMsgs=document.getElementById('chat-msgs');
-  const chatOpts=document.getElementById('chat-opts'),chatInput=document.getElementById('chat-input');
-  chatBtn.addEventListener('click',()=>chatWin.classList.toggle('open'));
-  chatClose.addEventListener('click',()=>chatWin.classList.remove('open'));
-
-  const botResponses={
-    startup:{
-      en:`Great — you likely fit our <strong>Business Landing</strong> or <strong>Venture Building</strong> service. If you need help establishing in Asia, submit your deck via the form. <a href="/#contact" style="color:var(--teal)">Submit here →</a>`,
-      zh:`很好——您可能适合我们的<strong>企业落地加速</strong>或<strong>创投孵化共建</strong>服务。如需在亚洲建立业务，请通过表格提交资料。<a href="/#contact" style="color:var(--teal)">立即提交 →</a>`
-    },
-    cdmo:{
-      en:`We connect CDMOs with our global pipeline of longevity founders. <a href="/#contact" style="color:var(--teal)">Contact us to explore partnership →</a>`,
-      zh:`我们将CDMO与全球长寿科技创始人管道对接。<a href="/#contact" style="color:var(--teal)">联系我们探讨合作 →</a>`
-    },
-    researcher:{
-      en:`We help you structure, protect, and license your IP to Asian partners. <a href="/#contact" style="color:var(--teal)">Tell us about your IP →</a>`,
-      zh:`我们协助您架构、保护并将知识产权授权给亚洲合作伙伴。<a href="/#contact" style="color:var(--teal)">介绍您的知识产权 →</a>`
-    },
-    investor:{
-      en:`The longevity economy in Asia is projected at <strong>$4.2T by 2035</strong>. <a href="/longevity-asia" style="color:var(--teal)">Read our market intelligence →</a>`,
-      zh:`亚洲长寿经济预计到2035年将达到<strong>4.2万亿美元</strong>。<a href="/longevity-asia" style="color:var(--teal)">查看市场洞察 →</a>`
-    }
-  };
-
-  function addMsg(text,type){const m=document.createElement('div');m.className=`msg ${type}`;m.innerHTML=text.replace(/\n/g,'<br>');chatMsgs.appendChild(m);chatMsgs.scrollTop=chatMsgs.scrollHeight;}
-
-  document.querySelectorAll('.chat-opt').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const q=btn.dataset.q; const r=botResponses[q]; if(!r) return;
-      chatOpts.style.display='none';
-      const userText=btn.querySelector(`.${currentLang}`)?.textContent||btn.textContent;
-      addMsg(userText,'user');
-      setTimeout(()=>{
-        addMsg(r[currentLang]||r.en,'bot');
-        setTimeout(()=>{
-          const restart=document.createElement('button');
-          restart.className='chat-opt';restart.style.cssText='margin:.2rem 1rem .6rem;display:block';
-          restart.innerHTML=currentLang==='zh'?'← 重新开始':'← Start over';
-          restart.addEventListener('click',()=>{restart.remove();chatOpts.style.display='flex'});
-          chatMsgs.after(restart);
-        },400);
-      },600);
-    });
-  });
-
-  document.getElementById('chat-send').addEventListener('click',sendFree);
-  document.getElementById('chat-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendFree()});
-  function sendFree(){
-    const v=chatInput.value.trim(); if(!v) return;
-    addMsg(v,'user'); chatInput.value='';
-    setTimeout(()=>{
-      const reply=currentLang==='zh'
-        ?`感谢您的留言！请<a href="/#contact" style="color:var(--teal)">填写联系表格</a>或<a href="https://cal.com/justintso/intro" style="color:var(--teal)" target="_blank">预约通话</a>，我们的团队将尽快与您联系。`
-        :`Thanks! Please <a href="/#contact" style="color:var(--teal)">fill out our contact form</a> or <a href="https://cal.com/justintso/intro" style="color:var(--teal)" target="_blank">schedule a call</a> and our team will be in touch.`;
-      addMsg(reply,'bot');
-    },700);
-  }
 </script>
 </body></html>

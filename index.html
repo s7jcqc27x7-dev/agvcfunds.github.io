@@ -394,6 +394,28 @@
     /* ── ACCESSIBILITY ── */
     a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
 
+
+    /* ── CONTACT ── */
+    #contact{background:var(--ink-mid);border-top:1px solid var(--rule);scroll-margin-top:70px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+    .contact-intro .sec-title{margin-bottom:1.2rem}
+    .contact-lead{color:var(--text-dim);font-size:var(--fs-body);line-height:1.8;margin-bottom:2rem;max-width:420px}
+    .contact-detail{display:flex;flex-direction:column;gap:.9rem;margin-top:2rem}
+    .contact-item{display:flex;align-items:center;gap:.7rem;font-size:var(--fs-sm);color:var(--text-dim)}
+    .contact-item a{color:var(--text-dim);transition:color .2s}
+    .contact-item a:hover{color:var(--gold)}
+    .cf{display:flex;flex-direction:column;gap:1rem}
+    .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fi,.fta,.fsel{width:100%;padding:.8rem 1rem;background:var(--ink);border:1px solid var(--rule-hi);border-radius:var(--r);color:var(--text);font-family:var(--sans);font-size:var(--fs-sm);transition:border-color .2s}
+    .fi::placeholder,.fta::placeholder{color:var(--text-muted)}
+    .fi:focus,.fta:focus,.fsel:focus{border-color:var(--gold);outline:none}
+    .fta{resize:vertical;min-height:110px}
+    .fsel{cursor:pointer}
+    .fsub{width:100%;padding:.85rem;background:var(--grad);color:var(--ink);border:none;border-radius:var(--r);font-family:var(--serif);font-weight:500;font-size:var(--fs-sm);letter-spacing:.03em;cursor:pointer;transition:opacity .2s}
+    .fsub:hover{opacity:.9}
+    .fsub:disabled{opacity:.6;cursor:default}
+    @media(max-width:760px){.contact-grid{grid-template-columns:1fr}.cf-row{grid-template-columns:1fr}}
+
   </style>
 </head>
 <body>
@@ -472,8 +494,8 @@
       <button class="path-card secondary" onclick="document.getElementById('chatbot-btn').click()">
         <div class="path-card-label en">Get in touch</div>
         <div class="path-card-label zh">联系我们</div>
-        <div class="path-card-main en">Connect with Us →</div>
-        <div class="path-card-main zh">与我们对话 →</div>
+        <div class="path-card-main en">Chat with Us →</div>
+        <div class="path-card-main zh">在线咨询 →</div>
         <div class="path-card-sub en">Connect directly with our team for a conversation.</div>
         <div class="path-card-sub zh">直接与我们的团队沟通交流。</div>
       </button>
@@ -492,6 +514,63 @@
       <div class="hstat"><div class="hstat-num">3<span>+</span></div><div class="hstat-lbl en">Longevity Hubs</div><div class="hstat-lbl zh">孵化基地</div></div>
       <div class="hstat"><div class="hstat-num">Asia<span>⇄Global</span></div><div class="hstat-lbl en">Cross-Border</div><div class="hstat-lbl zh">跨境布局</div></div>
       <div class="hstat"><div class="hstat-num">$4.2<span>T</span></div><div class="hstat-lbl en">Silver Economy by 2035</div><div class="hstat-lbl zh">2035年银发经济规模</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-intro rv">
+        <p class="label en">Get in Touch</p>
+        <p class="label zh">联系我们</p>
+        <h2 class="sec-title en">Pitch to us or <em>start a conversation.</em></h2>
+        <h2 class="sec-title zh-title zh">向我们提交项目，<em>或开启对话。</em></h2>
+        <p class="contact-lead en">Share your company, thesis, or partnership idea. We review every submission and respond within 5 business days.</p>
+        <p class="contact-lead zh">分享您的公司、理念或合作构想。我们审阅每一份提交，并在5个工作日内回复。</p>
+        <div class="contact-detail">
+          <div class="contact-item">✉ <a href="mailto:info@agvcfunds.com">info@agvcfunds.com</a></div>
+          <div class="contact-item">🔗 <a href="https://linkedin.com/company/agvcfunds" target="_blank" rel="noopener">linkedin.com/company/agvcfunds</a></div>
+          <div class="contact-item">📅 <a href="https://cal.com/justintso/intro" target="_blank" rel="noopener"><span class="en">Schedule an intro call</span><span class="zh">预约初步通话</span></a></div>
+          <div class="contact-item">📍 <span class="en">Hong Kong · New York</span><span class="zh">中国香港 · 美国纽约</span></div>
+        </div>
+      </div>
+      <form class="cf rv d1" id="cf-form">
+        <input type="hidden" name="access_key" value="eac9ab84-4433-402e-a7e5-57335e232e21"/>
+        <input type="hidden" name="subject" value="New AGVC Website Enquiry"/>
+        <input type="hidden" name="from_name" value="AGVC Website"/>
+        <input type="checkbox" name="botcheck" style="display:none"/>
+        <div class="cf-row">
+          <input class="fi en" type="text" name="name" placeholder="Your name" required/>
+          <input class="fi zh" type="text" name="name" placeholder="您的姓名" required/>
+          <input class="fi en" type="text" name="company" placeholder="Company"/>
+          <input class="fi zh" type="text" name="company" placeholder="公司名称"/>
+        </div>
+        <input class="fi en" type="email" name="email" placeholder="Email address" required/>
+        <input class="fi zh" type="email" name="email" placeholder="电子邮箱" required/>
+        <select class="fsel en" name="enquiry_type">
+          <option value="">I am a…</option>
+          <option>Deep-tech founder / startup</option>
+          <option>CDMO / manufacturing partner</option>
+          <option>Researcher / Tech Transfer Office</option>
+          <option>Investor / LP</option>
+          <option>Other</option>
+        </select>
+        <select class="fsel zh" name="enquiry_type">
+          <option value="">我的身份是…</option>
+          <option>深度科技创始人 / 初创企业</option>
+          <option>CDMO / 制造合作伙伴</option>
+          <option>科研人员 / 技术转让办公室</option>
+          <option>投资者 / 有限合伙人</option>
+          <option>其他</option>
+        </select>
+        <textarea class="fta en" name="message" placeholder="Tell us about your company, thesis, or how we can help…" required></textarea>
+        <textarea class="fta zh" name="message" placeholder="请介绍您的公司、理念，或我们能提供的帮助…" required></textarea>
+        <button type="submit" class="fsub en">Send Message</button>
+        <button type="submit" class="fsub zh">发送信息</button>
+      </form>
     </div>
   </div>
 </section>
@@ -544,8 +623,8 @@
       <div class="chat-head-info">
         <div class="chat-avatar">🧬</div>
         <div>
-          <div class="chat-name en">AGVC Advisor</div>
-          <div class="chat-name zh">AGVC 顾问</div>
+          <div class="chat-name en">Chat with Us</div>
+          <div class="chat-name zh">在线咨询</div>
           <div class="chat-status">● Online</div>
         </div>
       </div>
@@ -702,6 +781,15 @@
     }
   })();
 
+
+  // ── Pitch to Us smooth scroll (same-page #contact) ──
+  document.querySelectorAll('a[href="/#contact"],a[href="#contact"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const c=document.getElementById('contact');
+      if(c){e.preventDefault();c.scrollIntoView({behavior:'smooth'});}
+    });
+  });
+
   // ── Language Switch ──
   const htmlEl = document.documentElement;
   let currentLang = 'en';
@@ -757,14 +845,30 @@
   if(cfForm){
     cfForm.addEventListener('submit',async e=>{
       e.preventDefault();
-      const btn=cfForm.querySelector('.fsub');
-      btn.innerHTML=currentLang==='zh'?'发送中…':'Sending…'; btn.disabled=true;
+      // Only submit the visible language's fields (hidden-lang dupes share names)
+      const lang=document.documentElement.getAttribute('data-lang')||'en';
+      const hideLang=lang==='zh'?'en':'zh';
+      cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=true);
+      const btnVisible=cfForm.querySelector('.fsub.'+lang)||cfForm.querySelector('.fsub');
+      const btns=cfForm.querySelectorAll('.fsub');
+      btns.forEach(b=>b.disabled=true);
+      btnVisible.innerHTML=currentLang==='zh'?'发送中…':'Sending…';
       try{
-        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(cfForm)))});
+        const fd=new FormData(cfForm);
+        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(fd))});
         const d=await res.json();
-        if(d.success){btn.innerHTML=currentLang==='zh'?'✓ 已发送':'Sent ✓';btn.style.background='#3d6b4a';cfForm.reset();}
-        else throw new Error();
-      }catch{btn.innerHTML=currentLang==='zh'?'发送失败':'Error';btn.style.background='#6b3d3d';btn.disabled=false;}
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(d.success){
+          btnVisible.innerHTML=currentLang==='zh'?'✓ 已发送':'Sent ✓';
+          btnVisible.style.background='#3d6b4a';
+          cfForm.reset();
+        } else throw new Error();
+      }catch{
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        btnVisible.innerHTML=currentLang==='zh'?'发送失败，请重试':'Error — try again';
+        btnVisible.style.background='#6b3d3d';
+        btns.forEach(b=>b.disabled=false);
+      }
     });
   }
 

@@ -575,8 +575,8 @@
       <div class="chat-head-info">
         <div class="chat-avatar">🧬</div>
         <div>
-          <div class="chat-name en">AGVC Advisor</div>
-          <div class="chat-name zh">AGVC 顾问</div>
+          <div class="chat-name en">Chat with Us</div>
+          <div class="chat-name zh">在线咨询</div>
           <div class="chat-status">● Online</div>
         </div>
       </div>
@@ -611,37 +611,102 @@
     const mm=document.getElementById('mobile-menu');
     const bd=document.getElementById('mm-backdrop');
     if(ham&&mm&&bd){
-      function toggle(){const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+      const toggle=()=>{const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';};
       ham.addEventListener('click',toggle);
       bd.addEventListener('click',toggle);
       mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ham.classList.remove('open');bd.classList.remove('open');document.body.style.overflow='';}));
     }
   })();
 
-  // ── Self-contained language init ──────────────────────────────
+  // ── Language ──
   let currentLang = localStorage.getItem('agvc-lang') || 'en';
-  function setLang(lang) {
+  function setLang(lang){
     currentLang = lang;
     document.documentElement.setAttribute('data-lang', lang);
-    document.querySelectorAll('.lang-opt').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
     localStorage.setItem('agvc-lang', lang);
-    if (typeof renderGeoPanel === 'function') renderGeoPanel();
+    if(typeof renderGeoPanel==='function'){ try{renderGeoPanel();}catch(e){} }
   }
-  document.querySelectorAll('.lang-opt').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
-  // Initial lang applied at end of script (after GEO defined)
+  document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
 
-  // ── Nav scroll ────────────────────────────────────────────────
-  const nav = document.getElementById('nav');
-  if (nav) window.addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 50), {passive: true});
+  // ── Nav scroll ──
+  const nav=document.getElementById('nav');
+  if(nav) window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
 
-  // ── Scroll reveal ─────────────────────────────────────────────
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, {threshold: 0.05});
-  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-  setTimeout(() => document.querySelectorAll('.rv:not(.in)').forEach(el => el.classList.add('in')), 800);
+  // ── Scroll reveal ──
+  if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.05});
+    document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')),800);
+  } else {
+    document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  }
 
-  // ── GEO SWITCHER DATA ─────────────────────────────────────────
+  // ── Chatbot ──
+  (function(){
+    const btn=document.getElementById('chatbot-btn');
+    const win=document.getElementById('chat-win');
+    const close=document.getElementById('chat-close');
+    if(btn&&win) btn.addEventListener('click',()=>win.classList.toggle('open'));
+    if(close&&win) close.addEventListener('click',()=>win.classList.remove('open'));
+    // Chat option buttons → route to contact / mail
+    document.querySelectorAll('.chat-opt').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const q=b.dataset.q;
+        const msgs=document.getElementById('chat-msgs');
+        if(msgs){
+          const u=document.createElement('div');u.className='msg user';u.textContent=b.textContent.trim();msgs.appendChild(u);
+          const bot=document.createElement('div');bot.className='msg bot';
+          const replies={
+            startup: currentLang==='zh'?'太好了！请通过下方表单提交您的公司资料，或预约通话。':'Great — share your company via the form below, or schedule a call.',
+            cdmo: currentLang==='zh'?'我们很乐意对接制造合作。请填写表单或直接发送邮件。':'We\'d love to explore manufacturing partnering. Fill the form or email us.',
+            researcher: currentLang==='zh'?'我们支持科研成果的商业化。请通过表单联系我们。':'We support commercialising research IP. Reach us via the form.',
+            investor: currentLang==='zh'?'感谢您的关注，请通过表单或邮件与我们联系。':'Thanks for your interest — connect via the form or email.'
+          };
+          bot.textContent=replies[q]||(currentLang==='zh'?'请通过下方表单联系我们。':'Please reach us via the form below.');
+          msgs.appendChild(bot);
+          msgs.scrollTop=msgs.scrollHeight;
+        }
+        // Also route to contact section if present
+        const contact=document.getElementById('contact');
+        if(contact){setTimeout(()=>{win.classList.remove('open');contact.scrollIntoView({behavior:'smooth'});},900);}
+        else{setTimeout(()=>{window.location.href='/#contact';},900);}
+      });
+    });
+  })();
+
+  // ── Contact form (Web3Forms) ──
+  (function(){
+    const cfForm=document.getElementById('cf-form');
+    if(!cfForm) return;
+    cfForm.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const lang=document.documentElement.getAttribute('data-lang')||'en';
+      const hideLang=lang==='zh'?'en':'zh';
+      cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=true);
+      const btns=cfForm.querySelectorAll('.fsub');
+      const btnVisible=cfForm.querySelector('.fsub.'+lang)||btns[0];
+      btns.forEach(b=>b.disabled=true);
+      if(btnVisible) btnVisible.innerHTML=lang==='zh'?'发送中…':'Sending…';
+      try{
+        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(cfForm)))});
+        const d=await res.json();
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(d.success){ if(btnVisible){btnVisible.innerHTML=lang==='zh'?'✓ 已发送':'Sent ✓';btnVisible.style.background='#3d6b4a';} cfForm.reset(); }
+        else throw new Error();
+      }catch{
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(btnVisible){btnVisible.innerHTML=lang==='zh'?'发送失败，请重试':'Error — try again';btnVisible.style.background='#6b3d3d';}
+        btns.forEach(b=>b.disabled=false);
+      }
+    });
+  })();
+
+  // ── Apply initial language ──
+  setLang(currentLang);
+
+  // ── GEO MAP (only if geo elements present) ──
+  if(document.getElementById('geo-svg')){
   // ── GEO SWITCHER ──
   const GEO = [
     {
@@ -681,7 +746,6 @@
   let geoActive='hk', geoProjection=null, geoSvg=null, geoCountriesData=null, geoDotsG=null, geoCountriesG=null;
 
   function renderGeoPanel(){
-    if(typeof GEO==='undefined') return;
     const r=GEO.find(x=>x.id===geoActive);
     const panel=document.getElementById('geo-panel');
     if(!panel||!r) return;
@@ -778,7 +842,7 @@
 
   renderGeoPanel();
 
-  function loadScript(src,cb){const s=document.createElement('script');s.src=src;s.onload=cb;document.head.appendChild(s);}
+  function loadScript(src,cb){const s=document.createElement('script');s.src=src;s.onload=cb;(document.head||document.documentElement).appendChild(s);}
   if(typeof d3==='undefined'){
     loadScript('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js',()=>{
       loadScript('https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js',initGeoMap);
@@ -788,17 +852,7 @@
   } else { initGeoMap(); }
 
 
-
-  // ── Chatbot ───────────────────────────────────────────────────
-  const chatBtn = document.getElementById('chatbot-btn');
-  const chatWin = document.getElementById('chat-win');
-  const chatClose = document.getElementById('chat-close');
-  if (chatBtn) chatBtn.addEventListener('click', () => chatWin.classList.toggle('open'));
-  if (chatClose) chatClose.addEventListener('click', () => chatWin.classList.remove('open'));
-
-  // ── Apply initial language now that everything is defined ──
-  setLang(currentLang);
-  renderGeoPanel();
+  }
 </script>
 </body>
 </html>

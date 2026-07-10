@@ -230,17 +230,100 @@
     const mm=document.getElementById('mobile-menu');
     const bd=document.getElementById('mm-backdrop');
     if(ham&&mm&&bd){
-      function toggle(){const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';}
+      const toggle=()=>{const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';};
       ham.addEventListener('click',toggle);
       bd.addEventListener('click',toggle);
       mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ham.classList.remove('open');bd.classList.remove('open');document.body.style.overflow='';}));
     }
   })();
 
-  const htmlEl=document.documentElement;
-  function setLang(lang){htmlEl.setAttribute('data-lang',lang);document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('agvc-lang',lang);}
+  // ── Language ──
+  let currentLang = localStorage.getItem('agvc-lang') || 'en';
+  function setLang(lang){
+    currentLang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    localStorage.setItem('agvc-lang', lang);
+    if(typeof renderGeoPanel==='function'){ try{renderGeoPanel();}catch(e){} }
+  }
   document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
-  const saved=localStorage.getItem('agvc-lang');if(saved)setLang(saved);
+
+  // ── Nav scroll ──
+  const nav=document.getElementById('nav');
+  if(nav) window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
+
+  // ── Scroll reveal ──
+  if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.05});
+    document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')),800);
+  } else {
+    document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  }
+
+  // ── Chatbot ──
+  (function(){
+    const btn=document.getElementById('chatbot-btn');
+    const win=document.getElementById('chat-win');
+    const close=document.getElementById('chat-close');
+    if(btn&&win) btn.addEventListener('click',()=>win.classList.toggle('open'));
+    if(close&&win) close.addEventListener('click',()=>win.classList.remove('open'));
+    // Chat option buttons → route to contact / mail
+    document.querySelectorAll('.chat-opt').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const q=b.dataset.q;
+        const msgs=document.getElementById('chat-msgs');
+        if(msgs){
+          const u=document.createElement('div');u.className='msg user';u.textContent=b.textContent.trim();msgs.appendChild(u);
+          const bot=document.createElement('div');bot.className='msg bot';
+          const replies={
+            startup: currentLang==='zh'?'太好了！请通过下方表单提交您的公司资料，或预约通话。':'Great — share your company via the form below, or schedule a call.',
+            cdmo: currentLang==='zh'?'我们很乐意对接制造合作。请填写表单或直接发送邮件。':'We\'d love to explore manufacturing partnering. Fill the form or email us.',
+            researcher: currentLang==='zh'?'我们支持科研成果的商业化。请通过表单联系我们。':'We support commercialising research IP. Reach us via the form.',
+            investor: currentLang==='zh'?'感谢您的关注，请通过表单或邮件与我们联系。':'Thanks for your interest — connect via the form or email.'
+          };
+          bot.textContent=replies[q]||(currentLang==='zh'?'请通过下方表单联系我们。':'Please reach us via the form below.');
+          msgs.appendChild(bot);
+          msgs.scrollTop=msgs.scrollHeight;
+        }
+        // Also route to contact section if present
+        const contact=document.getElementById('contact');
+        if(contact){setTimeout(()=>{win.classList.remove('open');contact.scrollIntoView({behavior:'smooth'});},900);}
+        else{setTimeout(()=>{window.location.href='/#contact';},900);}
+      });
+    });
+  })();
+
+  // ── Contact form (Web3Forms) ──
+  (function(){
+    const cfForm=document.getElementById('cf-form');
+    if(!cfForm) return;
+    cfForm.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const lang=document.documentElement.getAttribute('data-lang')||'en';
+      const hideLang=lang==='zh'?'en':'zh';
+      cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=true);
+      const btns=cfForm.querySelectorAll('.fsub');
+      const btnVisible=cfForm.querySelector('.fsub.'+lang)||btns[0];
+      btns.forEach(b=>b.disabled=true);
+      if(btnVisible) btnVisible.innerHTML=lang==='zh'?'发送中…':'Sending…';
+      try{
+        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(cfForm)))});
+        const d=await res.json();
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(d.success){ if(btnVisible){btnVisible.innerHTML=lang==='zh'?'✓ 已发送':'Sent ✓';btnVisible.style.background='#3d6b4a';} cfForm.reset(); }
+        else throw new Error();
+      }catch{
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(btnVisible){btnVisible.innerHTML=lang==='zh'?'发送失败，请重试':'Error — try again';btnVisible.style.background='#6b3d3d';}
+        btns.forEach(b=>b.disabled=false);
+      }
+    });
+  })();
+
+  // ── Apply initial language ──
+  setLang(currentLang);
+
 </script>
 </body>
 </html>
