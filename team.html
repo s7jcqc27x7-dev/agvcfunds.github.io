@@ -31,7 +31,9 @@
     .nav-right{display:flex;align-items:center;gap:1rem}
     .nav-back{font-size:.78rem;color:var(--text-muted);display:flex;align-items:center;gap:.4rem;transition:color .2s}
     .nav-back:hover{color:var(--text-dim)}
-    .page-header{padding:clamp(6rem,12vw,9rem) 0 clamp(3rem,5vw,5rem);border-bottom:1px solid var(--rule)}
+    .page-shell{padding:clamp(6rem,12vw,9rem) 0 clamp(4rem,8vw,8rem)}
+    .page-header{margin-bottom:clamp(3rem,5vw,5rem);border-bottom:1px solid var(--rule);padding-bottom:clamp(2rem,4vw,4rem)}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:2rem;transition:color .2s}
     .label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.8rem}
     .page-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;font-style:italic;color:#fff;line-height:1.1;margin-bottom:1rem}
     .page-title.zh-title{font-family:var(--sans);font-style:normal;font-weight:300}
@@ -82,7 +84,7 @@
     <a href="/" class="nav-logo">
       <span class="logo-word">AGVC</span>
       <span class="nav-word en">/ Age, but less.</span>
-      <span class="nav-word zh">/ 增长年岁，而不衰老。</span>
+      <span class="nav-word zh">/ 银发产业孵化器</span>
     </a>
     <div class="nav-right">
       <a href="/" class="nav-back en">← Back to home</a>
@@ -104,8 +106,9 @@
   <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
 </div>
 
-<div class="page-header">
-  <div class="wrap">
+<div class="page-shell"><div class="wrap">
+  <a href="/" class="back-link en">← Back</a><a href="/" class="back-link zh">← 返回</a>
+  <div class="page-header rv">
     <p class="label en">Our Team</p>
     <p class="label zh">我们的团队</p>
     <h1 class="page-title en">Operators, scientists,<br>and <strong>capital builders.</strong></h1>
@@ -113,7 +116,6 @@
     <p class="page-sub en">AGVC is built by a team fluent across the boardroom, the clinic, and the cap table — united by a single thesis: that aging is the defining opportunity of our time.</p>
     <p class="page-sub zh">AGVC 团队精通商业谈判、临床实践与资本运作，凝聚于一个共同信念：老龄化是我们这个时代最重要的机遇。</p>
   </div>
-</div>
 
 <div class="team-section">
   <div class="wrap">
@@ -222,7 +224,11 @@
   </div>
 </div>
 
+</div></div>
+
 <script>
+function __agvcInit(){
+
 
   // ── Mobile menu ──
   (function(){
@@ -324,6 +330,9 @@
   // ── Apply initial language ──
   setLang(currentLang);
 
+
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',__agvcInit);}else{__agvcInit();}
 </script>
 <div id="chatbot">
   <div class="chat-window" id="chat-win">
