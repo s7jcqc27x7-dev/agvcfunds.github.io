@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team — AGVC</title>
+  <link rel="icon" type="image/png" href="/images/logo2__new_.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--ink:#010408;--ink-mid:#050e1c;--ink-soft:#0a1828;--rule:rgba(80,130,200,0.13);--rule-hi:rgba(80,130,200,0.24);--text:#f0f4ff;--text-dim:#b8cfe0;--text-muted:#3d5a78;--gold:#c4a46b;--serif:'Montserrat','Noto Sans SC',sans-serif;--sans:'Satoshi','Noto Sans SC',system-ui,sans-serif;--max:1080px;--r:4px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:linear-gradient(160deg,#010408 0%,#020c18 30%,#040f1e 60%,#030b16 85%,#010408 100%);background-attachment:scroll;color:var(--text);font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+    [data-lang="zh"] .en{display:none!important}
+    [data-lang="en"] .zh{display:none!important}
+    .lang-btn{display:flex;align-items:center;background:var(--ink-soft);border:1px solid var(--rule-hi);border-radius:20px;overflow:hidden;padding:0;cursor:pointer}
+    .lang-opt{padding:.32rem .8rem;font-size:.7rem;font-weight:500;border:none;background:none;color:var(--text-muted);cursor:pointer;font-family:var(--sans);transition:all .2s}
+    .lang-opt.active{background:var(--gold);color:var(--ink)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(3,8,15,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+    .nav-row{max-width:var(--max);margin:0 auto;padding:1.1rem clamp(1.25rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:.7rem}
+    .nav-logo img{height:24px;width:auto;object-fit:contain}
+    .nav-word{font-size:.72rem;font-weight:400;letter-spacing:.05em;color:var(--text-dim);font-family:var(--serif)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .nav-back{font-size:.78rem;color:var(--text-muted);display:flex;align-items:center;gap:.4rem;transition:color .2s}
+    .nav-back:hover{color:var(--text-dim)}
+    .page-header{padding:clamp(6rem,12vw,9rem) 0 clamp(3rem,5vw,5rem);border-bottom:1px solid var(--rule)}
+    .label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .page-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;font-style:italic;color:#fff;line-height:1.1;margin-bottom:1rem}
+    .page-title.zh-title{font-family:var(--sans);font-style:normal;font-weight:300}
+    .page-title strong{font-style:normal;font-weight:400;color:var(--gold)}
+    .page-sub{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--text-dim);max-width:520px;line-height:1.8}
+    .team-section{padding:clamp(3rem,6vw,6rem) 0}
+    .team-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin-top:2.5rem}
+    .team-card{background:var(--ink-mid);padding:2.2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:background .2s}
+    .team-card:hover{background:var(--ink-soft)}
+    .team-card.featured{grid-column:span 2;gap:2rem;padding:2.5rem}
+    .team-photo{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule-hi)}
+    .team-photo img{width:100%;height:100%;object-fit:cover}
+    .team-photo.lg{width:100px;height:120px;border-radius:var(--r)}
+    .team-init{width:72px;height:72px;border-radius:50%;background:var(--ink-soft);border:1px solid var(--rule-hi);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--gold);flex-shrink:0}
+    .team-name{font-size:1rem;font-weight:500;color:#fff;margin-bottom:.2rem}
+    .team-role{font-size:.82rem;color:var(--teal);letter-spacing:.04em;margin-bottom:.6rem}
+    .team-bio{font-size:.8rem;color:var(--text-dim);line-height:1.75;margin-bottom:.8rem}
+    .creds{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+    .cred{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .8rem;border:1px solid var(--rule-hi);color:var(--text-muted);border-radius:20px;white-space:nowrap}
+    .team-cta{margin-top:3rem;padding:2rem;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);text-align:center}
+    .team-cta p{font-size:.9rem;color:var(--text-dim);margin-bottom:1rem}
+    .team-cta a{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;padding:.7rem 1.6rem;background:var(--gold);color:var(--ink);border-radius:var(--r);transition:opacity .2s}
+    .team-cta a:hover{opacity:.88}
+    @media(max-width:720px){.team-cards{grid-template-columns:1fr}.team-card.featured{grid-column:span 1}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-row">
+    <a href="/" class="nav-logo">
+      <img src="/images/logo2__new_.png" alt="AGVC" onerror="this.src='/images/agvc-logo-white.png'"/>
+      <span class="nav-word en">/ Age, but less.</span>
+      <span class="nav-word zh">/ 增长年岁，而不衰老。</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back en">← Back to home</a>
+      <a href="/" class="nav-back zh">← 返回主页</a>
+      <div class="lang-btn">
+        <button class="lang-opt active" data-lang="en">EN</button>
+        <button class="lang-opt" data-lang="zh">中文</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="wrap">
+    <p class="label en">Our Team</p>
+    <p class="label zh">我们的团队</p>
+    <h1 class="page-title en">Operators, scientists,<br>and <strong>capital builders.</strong></h1>
+    <h1 class="page-title zh-title zh">运营者、科学家，<br>与<strong>资本构建者。</strong></h1>
+    <p class="page-sub en">AGVC is built by a team fluent across the boardroom, the clinic, and the cap table — united by a single thesis: that aging is the defining opportunity of our time.</p>
+    <p class="page-sub zh">AGVC 团队精通商业谈判、临床实践与资本运作，凝聚于一个共同信念：老龄化是我们这个时代最重要的机遇。</p>
+  </div>
+</div>
+
+<div class="team-section">
+  <div class="wrap">
+    <div class="team-cards">
+      <!-- Justin featured -->
+      <div class="team-card featured">
+        <div class="team-photo lg"><img src="/images/justin-tso.jpg" alt="Justin Tso" onerror="this.parentElement.style.background='var(--ink-soft)';this.style.display='none'"/></div>
+        <div>
+          <div class="team-name en">Justin Tso</div><div class="team-name zh">Justin Tso 曹展立</div>
+          <div class="team-role en">Co-Founder &amp; General Partner</div>
+          <div class="team-role zh">联合创始人兼普通合伙人</div>
+          <p class="team-bio en">Justin leads AGVC’s cross-border acceleration platform, focused on longevity and health-tech landing across APAC and US–Asia deal origination. A life scientist turned venture operator, his journey spans biotechnology at Columbia University, the Biotech IPO team of the Hong Kong Stock Exchange, SPAC and IPO advisory at MSQ Ventures, and life-science venture building at RTW Investments. As Director of Longevity Global China, he has been building the longevity community through engaging educational events, wellness programming, and a growing network of aging scientists, clinicians, and founders across Asia.</p>
+          <p class="team-bio zh">曹展立主导AGVC的跨境加速平台，专注于将亚太地区的长寿科技与医疗健康创新者与资本及亚洲商业化路径相连接。身为从生命科学转型的投资者，他的职业轨迹历经香港交易所生物科技IPO团队、MSQ Ventures的SPAC及IPO顾问服务，以及RTW Investments的生命科学创投孵化工作。担任Longevity Global中国区总监期间，他在亚洲搭建起业内最活跃的长寿社群之一——通过教育活动、健康体验及老龄化创新展示，汇聚科学家、创始人与临床医生，共推长寿产业发展。</p>
+
+          <a href="https://www.linkedin.com/in/justin-cl-t-a53629157/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Donny -->
+      <div class="team-card">
+        <div class="team-photo"><img src="/images/donny-siu.jpg" alt="Donny Siu" onerror="this.parentElement.outerHTML='<div class=team-init>DS</div>'"/></div>
+        <div>
+          <div class="team-name en">Donny Siu</div><div class="team-name zh">Donny Siu 萧觀明</div>
+          <div class="team-role en">Director, Acceleration Services</div>
+          <div class="team-role zh">加速服务总监</div>
+          <p class="team-bio en">The "Father of Hackathons" and cornerstone of the Hong Kong startup ecosystem. Former Head of the HKUST Entrepreneurship Centre, where he incubated 600+ startups and nurtured 10 unicorns. Currently a Director at EdUHK, he is a master of technology transfer and global strategy.</p>
+          <p class="team-bio zh">被誉为香港「黑客马拉松之父」，是香港创业生态圈的基石人物。曾任香港科技大学创业中心主管，在任期间孵化超过600家初创企业并培育出10家独角兽公司。现任香港教育大学总监，深耕技术转让与全球战略。</p>
+          <a href="https://www.linkedin.com/in/donny-siu-7265a433/" target="_blank" rel="noopener" class="li-link" title="LinkedIn" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Aaisha -->
+      <div class="team-card">
+        <div class="team-photo"><img src="/images/aaisha-bhuiyan.jpg" alt="Aaisha Bhuiyan" onerror="this.parentElement.outerHTML='<div class=team-init>AB</div>'"/></div>
+        <div>
+          <div class="team-name">Aaisha Bhuiyan</div>
+          <div class="team-role en">General Partner</div>
+          <div class="team-role zh">普通合伙人</div>
+          <p class="team-bio en">General Partner with deep expertise in venture fund formation and global deal-making. Brings institutional networks across AngelList, Decile Pro, and the global early-stage ecosystem.</p>
+          <p class="team-bio zh">普通合伙人，在创投基金架构及全球交易撮合方面具有深厚专业积淀，拥有AngelList、Decile Pro及全球早期创业生态圈的广泛机构资源。</p>
+          <a href="https://www.linkedin.com/in/aaishabhuiyan/" target="_blank" rel="noopener" class="li-link" title="LinkedIn" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Doug -->
+      <div class="team-card">
+        <div class="team-photo"><img src="/images/doug-nissinoff.jpg" alt="Doug Nissinoff" onerror="this.parentElement.outerHTML='<div class=team-init>DN</div>'"/></div>
+        <div>
+          <div class="team-name">Doug Nissinoff</div>
+          <div class="team-role en">Venture Partner</div>
+          <div class="team-role zh">创投合伙人</div>
+          <p class="team-bio en">Venture Partner focused on deep-tech commercialisation and cross-border deal structuring. GP at Intelligence Venture, with networks spanning North America and Asia.</p>
+          <p class="team-bio zh">创投合伙人，专注于深度科技商业化及跨境交易架构，担任智慧创投普通合伙人，拥有横跨北美与亚洲的广泛投资网络。</p>
+          <a href="https://www.linkedin.com/in/douglasnissinoff/" target="_blank" rel="noopener" class="li-link" title="LinkedIn" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Rima -->
+      <div class="team-card">
+        <div class="team-photo"><img src="/images/rima-patel.jpg" alt="Dr. Rima Patel" onerror="this.parentElement.outerHTML='<div class=team-init>RP</div>'"/></div>
+        <div>
+          <div class="team-name en">Dr. Rima Patel</div><div class="team-name zh">Dr. Rima Patel 医学博士</div>
+          <div class="team-role en">Venture Partner</div>
+          <div class="team-role zh">创投合伙人</div>
+          <p class="team-bio en">Global health physician-operator with expertise in healthcare services, longevity medicine, and AI-driven clinical strategy. Brings rare dual fluency in clinical science and venture capital.</p>
+          <p class="team-bio zh">全球健康领域的医生运营专家，擅长医疗服务、长寿医学及AI临床策略，兼具临床科学与风险投资的罕见双重专业素养。</p>
+          <a href="https://www.linkedin.com/in/rima-patel-md-ms-360a495a/" target="_blank" rel="noopener" class="li-link" title="LinkedIn" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Elena -->
+      <div class="team-card">
+        <div class="team-photo"><img src="/images/elena-liapounova.jpeg" alt="Elena Liapounova" onerror="this.parentElement.outerHTML='<div class=team-init>EL</div>'"/></div>
+        <div>
+          <div class="team-name">Elena Liapounova</div>
+          <div class="team-role en">Investor Relations</div>
+          <div class="team-role zh">投资者关系</div>
+          <p class="team-bio en">Former Head of Investor Relations at BioAge Labs (Nasdaq-listed longevity biotech). Previously at JP Morgan, Barclays, and Morgan Stanley. Leads LP engagement and capital relationships across Asia, Europe, and the Gulf.</p>
+          <p class="team-bio zh">前BioAge Labs（纳斯达克上市长寿生物科技企业）投资者关系主管，曾供职于摩根大通、巴克莱银行及摩根士丹利，主导AGVC在亚洲、欧洲及海湾地区的有限合伙人关系与资本管理。</p>
+          <a href="https://www.linkedin.com/in/elia555/" target="_blank" rel="noopener" class="li-link" title="LinkedIn" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Sergei -->
+      <div class="team-card">
+        <div class="team-photo"><img src="/images/sergei-petukhov.jpeg" alt="Sergei Petukhov" onerror="this.parentElement.outerHTML='<div class=team-init>SP</div>'"/></div>
+        <div>
+          <div class="team-name en">Sergei Petukhov, Ph.D.</div><div class="team-name zh">Sergei Petukhov 博士</div>
+          <div class="team-role en">Venture Partner</div>
+          <div class="team-role zh">创投合伙人</div>
+          <p class="team-bio en">Seasoned VC biotech investor with 25+ years of leadership and research experience in the longevity biotech space. Has founded and led multiple longevity medicine and health-tech companies.</p>
+          <a href="https://www.linkedin.com/in/sergeipetukhov/" target="_blank" rel="noopener" class="li-link" title="LinkedIn" style="display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;font-size:.7rem;color:var(--text-muted);transition:color .2s" onmouseover="this.style.color='#c4a46b'" onmouseout="this.style.color=''"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+          <p class="team-bio zh">资深生物科技风险投资人，在长寿生物科技领域拥有逾25年的领导与研究经验，曾创办并主导多家长寿医学及健康科技企业。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-cta">
+      <p class="en">Interested in joining AGVC or working with our team?</p>
+      <p class="zh">有意加入AGVC或与我们的团队合作？</p>
+      <a href="https://cal.com/justintso/intro" target="_blank" rel="noopener">
+        <span class="en">Schedule an intro call with our team →</span>
+        <span class="zh">预约与我们团队的初步通话 →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const htmlEl=document.documentElement;
+  function setLang(lang){htmlEl.setAttribute('data-lang',lang);document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));localStorage.setItem('agvc-lang',lang);}
+  document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
+  const saved=localStorage.getItem('agvc-lang');if(saved)setLang(saved);
+</script>
+</body>
+</html>

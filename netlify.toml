@@ -1,0 +1,28 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/partnering"
+  to = "/partnering.html"
+  status = 200
+
+[[redirects]]
+  from = "/intelligence"
+  to = "/intelligence.html"
+  status = 200
+
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/team"
+  to = "/team.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
