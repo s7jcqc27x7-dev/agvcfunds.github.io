@@ -403,19 +403,21 @@
   </style>
 
   <style>
-    .team-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:1rem}
-    .team-card{display:flex;gap:1.8rem;padding:2rem;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);transition:border-color .25s}
-    .team-card:hover{border-color:var(--rule-hi)}
-    .team-photo{width:110px;height:110px;border-radius:var(--r);object-fit:cover;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule)}
-    .team-info{flex:1;min-width:0}
-    .team-name{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:#fff;margin-bottom:.15rem}
-    .team-name .zh-sub{font-size:.9rem;color:var(--text-dim);margin-left:.5rem}
-    .team-role{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
-    .team-bio{font-size:var(--fs-sm);color:var(--text-dim);line-height:1.75;margin-bottom:1rem}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem;align-items:stretch}
+    .team-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.2rem 1.6rem;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);transition:border-color .25s,transform .25s;height:100%}
+    .team-card:hover{border-color:var(--rule-hi);transform:translateY(-3px)}
+    .team-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule-hi);margin-bottom:1.3rem}
+    .team-photo-fallback{width:120px;height:120px;border-radius:50%;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule-hi);margin-bottom:1.3rem;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;color:var(--gold)}
+    .team-info{width:100%;display:flex;flex-direction:column;flex:1}
+    .team-name{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:.2rem}
+    .team-name .zh-sub{font-size:.85rem;color:var(--text-dim);margin-left:.4rem}
+    .team-role{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .team-bio{font-size:var(--fs-xs);color:var(--text-dim);line-height:1.7;margin-bottom:1rem;text-align:left;flex:1}
     .team-linkedin{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-xs);color:var(--text-muted);transition:color .2s}
     .team-linkedin:hover{color:var(--gold)}
     .team-linkedin svg{width:15px;height:15px}
-    @media(max-width:640px){.team-card{flex-direction:column;gap:1.2rem}.team-photo{width:90px;height:90px}}
+    @media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.team-grid{grid-template-columns:1fr}}
   </style>
 
 </head>
@@ -466,7 +468,7 @@
   <div class="team-grid">
 
     <div class="team-card rv">
-      <img class="team-photo" src="/images/justin-tso.jpg" alt="Justin Tso" onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/justin-tso.jpg" alt="Justin Tso" onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>JT</div>'"/>
       <div class="team-info">
         <div class="team-name">Justin Tso</div>
         <div class="team-role en">Founder &amp; General Partner</div>
@@ -480,7 +482,7 @@
       </div>
     </div>
     <div class="team-card rv">
-      <img class="team-photo" src="/images/donny-siu.jpg" alt="Donny Siu" onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/donny-siu.jpg" alt="Donny Siu" onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>DS</div>'"/>
       <div class="team-info">
         <div class="team-name">Donny Siu</div>
         <div class="team-role en">Director, Acceleration Services</div>
@@ -494,7 +496,7 @@
       </div>
     </div>
     <div class="team-card rv">
-      <img class="team-photo" src="/images/aaisha-bhuiyan.jpg" alt="Aaisha Bhuiyan" onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/aaisha-bhuiyan.jpg" alt="Aaisha Bhuiyan" onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>AB</div>'"/>
       <div class="team-info">
         <div class="team-name">Aaisha Bhuiyan</div>
         <div class="team-role en">General Partner</div>
@@ -508,7 +510,7 @@
       </div>
     </div>
     <div class="team-card rv">
-      <img class="team-photo" src="/images/doug-nissinoff.jpg" alt="Doug Nissinoff" onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/doug-nissinoff.jpg" alt="Doug Nissinoff" onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>DN</div>'"/>
       <div class="team-info">
         <div class="team-name">Doug Nissinoff</div>
         <div class="team-role en">Venture Partner</div>
@@ -522,7 +524,7 @@
       </div>
     </div>
     <div class="team-card rv">
-      <img class="team-photo" src="/images/rima-patel.jpg" alt="Dr. Rima Patel" onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/rima-patel.jpg" alt="Dr. Rima Patel" onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>RP</div>'"/>
       <div class="team-info">
         <div class="team-name">Dr. Rima Patel</div>
         <div class="team-role en">Venture Partner</div>
@@ -536,7 +538,7 @@
       </div>
     </div>
     <div class="team-card rv">
-      <img class="team-photo" src="/images/elena-liapounova.jpeg" alt="Elena Liapounova" onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/elena-liapounova.jpeg" alt="Elena Liapounova" onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>EL</div>'"/>
       <div class="team-info">
         <div class="team-name">Elena Liapounova</div>
         <div class="team-role en">Investor Relations</div>
@@ -550,7 +552,7 @@
       </div>
     </div>
     <div class="team-card rv">
-      <img class="team-photo" src="/images/sergei-petukhov.jpeg" alt="Sergei Petukhov, Ph.D." onerror="this.style.display='none'"/>
+      <img class="team-photo" src="/images/sergei-petukhov.jpeg" alt="Sergei Petukhov, Ph.D." onerror="this.outerHTML='<div class=&quot;team-photo-fallback&quot;>SP</div>'"/>
       <div class="team-info">
         <div class="team-name">Sergei Petukhov, Ph.D.</div>
         <div class="team-role en">Venture Partner</div>
