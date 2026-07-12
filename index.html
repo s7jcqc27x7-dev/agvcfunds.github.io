@@ -718,10 +718,11 @@ function __agvcInit(){
 
     function resize(){
       dpr = window.devicePixelRatio||1;
-      W = canvas.offsetWidth;
-      H = canvas.offsetHeight;
+      W = canvas.offsetWidth || canvas.parentElement.offsetWidth || window.innerWidth;
+      H = canvas.offsetHeight || canvas.parentElement.offsetHeight || window.innerHeight;
       canvas.width = W*dpr;
       canvas.height = H*dpr;
+      ctx.setTransform(1,0,0,1,0,0);
       ctx.scale(dpr,dpr);
     }
 
@@ -733,10 +734,11 @@ function __agvcInit(){
     }
 
     function draw(){
+      if(!W || !H || W<1 || H<1){ requestAnimationFrame(draw); return; }
       ctx.clearRect(0,0,W,H);
 
       // Subtle radial vignette to focus center
-      const vig = ctx.createRadialGradient(W*0.5, H*0.5, H*0.1, W*0.5, H*0.5, H*0.75);
+      const vig = ctx.createRadialGradient(W*0.5, H*0.5, Math.max(1,H*0.1), W*0.5, H*0.5, Math.max(2,H*0.75));
       vig.addColorStop(0,'rgba(1,4,8,0)');
       vig.addColorStop(1,'rgba(1,4,8,0.4)');
       ctx.fillStyle = vig;
@@ -758,7 +760,7 @@ function __agvcInit(){
 
         // Draw glow for larger particles
         if(p.glow){
-          const glowGrad = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size*7);
+          const gr=Math.max(0.5,(p.size||1)*7); if(!isFinite(p.x)||!isFinite(p.y)){return;} const glowGrad = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,gr);
           glowGrad.addColorStop(0, p.color+(p.alpha*0.85)+')');
           glowGrad.addColorStop(0.4, p.color+(p.alpha*0.3)+')');
           glowGrad.addColorStop(1, p.color+'0)');
