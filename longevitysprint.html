@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" style="visibility:visible">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Longevity Sprint — acceleration, IP landing and research | AGVC</title>
+  <meta name="description" content="Longevity Sprint — acceleration and landing services, IP scaling from university technology transfer, and healthspan research, events and education across Asia-Pacific."/>
+  <meta property="og:title" content="Longevity Sprint"/>
+  <meta property="og:description" content="Acceleration and landing, IP scaling from technology transfer, and research across Asia-Pacific."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://agvcfunds.com/longevitysprint"/>
+  <meta property="og:image" content="https://agvcfunds.com/images/Longevity-Sprint_black.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://agvcfunds.com/longevitysprint"/>
+  <link rel="icon" type="image/png" href="/images/logo2__new_.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Serif:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root{
+      --ink:#03080f;--ink-mid:#071020;--ink-soft:#0e1c30;
+      --rule:rgba(80,130,200,0.13);--rule-hi:rgba(80,130,200,0.24);
+      --text:#e6ecf5;--text-dim:#8fafc8;--text-muted:#3d5a78;
+      --gold:#c4a46b;--gold-dim:rgba(196,164,107,0.1);--gold-glow:rgba(196,164,107,0.04);
+      --blue-acc:#3a7bd5;--blue-dim:rgba(58,123,213,0.12);
+      --grad:linear-gradient(135deg,#c4a46b 0%,#b8975c 100%);
+      --grad-hover:linear-gradient(135deg,#d0b078 0%,#c4a46b 100%);
+      --grad-border:rgba(196,164,107,0.4);
+      --teal:#c4a46b;--teal-dim:rgba(196,164,107,0.1);
+      --serif:'Noto Serif',Georgia,serif;
+      --sans:'Inter','Noto Sans SC',system-ui,sans-serif;
+      --fs-hero:clamp(2.4rem,5vw,4.8rem);--fs-h2:clamp(1.5rem,2.6vw,2.3rem);
+      --fs-body:clamp(.88rem,1vw,.97rem);--fs-sm:.8rem;--fs-xs:.68rem;
+      --max:1180px;--gap:clamp(1.5rem,4vw,3rem);--r:4px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:linear-gradient(160deg,#03080f 0%,#050d1a 25%,#071525 50%,#061220 75%,#040b16 100%);background-attachment:scroll;color:var(--text);font-family:var(--sans);font-size:var(--fs-body);font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+    .label{font-size:var(--fs-xs);font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+    /* ── LANGUAGE SWITCH ── */
+    [data-lang="zh"] .en{display:none!important}
+    [data-lang="en"] .zh{display:none!important}
+    /* Prevent flash of hidden content before JS sets data-lang */
+    html:not([data-lang]) .en, html:not([data-lang]) .zh{display:revert}
+    .lang-btn{
+      display:flex;align-items:center;gap:0;
+      background:var(--ink-soft);border:1px solid var(--rule-hi);
+      border-radius:20px;overflow:hidden;padding:0;cursor:pointer;
+    }
+    .lang-opt{
+      padding:.32rem .8rem;font-size:.7rem;font-weight:500;letter-spacing:.06em;
+      border:none;background:none;color:var(--text-muted);cursor:pointer;
+      font-family:var(--sans);transition:all .2s;
+    }
+    .lang-opt.active{background:var(--grad);color:#fff;}
+    .lang-opt:first-child{border-radius:20px 0 0 20px}
+    .lang-opt:last-child{border-radius:0 20px 20px 0}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+    nav.on{background:rgba(3,8,15,.97);backdrop-filter:blur(14px);border-color:var(--rule)}
+    .nav-row{max-width:var(--max);margin:0 auto;padding:1.2rem clamp(1.25rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .nav-logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+    .nav-logo img{height:26px;width:auto;object-fit:contain}
+    .nav-word{font-size:.72rem;font-weight:400;letter-spacing:.05em;color:var(--text-dim);font-family:var(--serif)}
+    /* ── LOGO WORDMARK (brand-book gold gradient) ── */
+    .logo-word{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.01em;background:linear-gradient(to bottom,#f0d696 0%,#d4b478 32%,#c8c8cd 55%,#8a8a92 74%,#2a2a30 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .hero-logo-word{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;background:linear-gradient(to bottom,#f4dca0 0%,#d8b87c 34%,#d0d0d6 58%,#9a9aa2 78%,#4a4a52 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:inline-block}
+
+    .nav-right{display:flex;align-items:center;gap:1.4rem}
+    .nav-links{display:flex;align-items:center;gap:1.4rem;list-style:none}
+    .nav-links a{font-size:var(--fs-sm);color:var(--text-dim);letter-spacing:.05em;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{font-size:var(--fs-sm);font-weight:500;letter-spacing:.08em;padding:.4rem 1rem;border:1px solid var(--grad-border);color:#4db8a8;border-radius:var(--r);transition:all .25s;background:var(--teal-dim);border-color:var(--grad-border)}
+    .nav-cta:hover{background:var(--grad);color:#fff;border-color:transparent}
+
+    /* ── HERO ── */
+    #hero{min-height:100vh;min-height:-webkit-fill-available;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(4rem,9vw,7rem);position:relative;overflow:hidden;background:#03080f}
+    .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 90% 65% at 65% 15%,rgba(20,70,160,.22) 0%,transparent 65%),radial-gradient(ellipse 55% 75% at 5% 90%,rgba(15,55,120,.14) 0%,transparent 60%)}
+    .hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 20%,transparent 100%);mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 20%,transparent 100%)}
+    .hero-map{position:absolute;right:-3%;top:50%;transform:translateY(-50%);width:clamp(280px,44vw,580px);opacity:.055;z-index:0;pointer-events:none}
+    .hero-content{position:relative;z-index:1}
+    .hero-logo-wrap{margin-bottom:2rem}
+    .hero-logo-img{height:clamp(34px,5vw,52px);width:auto;object-fit:contain;opacity:.95}
+    .hero-eye{display:flex;align-items:center;gap:.9rem;margin-bottom:2rem}
+    .hero-eye-line{width:36px;height:1px;background:var(--teal)}
+    h1.hero-h{font-family:var(--serif);font-size:var(--fs-hero);font-weight:300;font-style:italic;line-height:1.08;color:#fff;max-width:820px;margin-bottom:1.5rem}
+    h1.hero-h.zh-headline{font-style:normal;font-family:var(--sans);font-weight:300;letter-spacing:.03em}
+    h1.hero-h strong{font-style:normal;font-weight:400;color:var(--gold)}
+    .hero-sub{font-size:clamp(.9rem,1.3vw,1.07rem);font-weight:300;color:var(--text-dim);max-width:520px;line-height:1.82;margin-bottom:1.4rem}
+    .hero-paths{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+    .path-card{flex:1;min-width:200px;padding:1.2rem 1.4rem;border-radius:var(--r);cursor:pointer;transition:all .25s;text-align:left;font-family:var(--sans);border:1px solid var(--rule-hi)}
+    .path-card.primary{background:var(--grad);border-color:var(--teal);color:var(--ink)}
+    .path-card.primary:hover{opacity:.9}
+    .path-card.secondary{background:var(--blue-dim);border-color:rgba(58,123,213,.3);color:var(--text)}
+    .path-card.secondary:hover{background:rgba(58,123,213,.2);border-color:rgba(58,123,213,.5)}
+    .path-card-label{font-size:.67rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.4rem;opacity:.7}
+    .path-card-main{font-size:.92rem;font-weight:500;line-height:1.3}
+    .path-card-sub{font-size:.72rem;margin-top:.3rem;opacity:.65;line-height:1.4}
+    .hero-stats{padding-top:2rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr);max-width:680px}
+    .hstat{padding:.8rem 1.2rem .8rem 0}
+    .hstat-num{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:300;color:#fff;line-height:1}
+    .hstat-num span{color:var(--gold)}
+    .hstat-lbl{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:.3rem;opacity:.7}
+
+    /* ── SECTION ── */
+    section{padding:clamp(3.5rem,7vw,7rem) 0}
+    .sec-hd{margin-bottom:clamp(2rem,4vw,4rem)}
+    .sec-hd .label{margin-bottom:.8rem}
+    .sec-title{font-family:var(--serif);font-size:var(--fs-h2);font-weight:300;line-height:1.16;color:#fff;max-width:580px}
+    .sec-title.zh-title{font-family:var(--sans);font-style:normal;font-weight:300;letter-spacing:.02em}
+    .sec-title em{font-style:italic;color:var(--gold)}
+
+    /* ── WHO WE SERVE ── */
+    #serve{background:var(--ink-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);scroll-margin-top:60px}
+    .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+    .serve-card{background:var(--ink-mid);padding:2rem 1.8rem;transition:background .2s}
+    .serve-card:hover{background:var(--ink-soft)}
+    .serve-icon{font-size:1.6rem;margin-bottom:1rem}
+    .serve-title{font-size:.95rem;font-weight:500;color:#fff;margin-bottom:.5rem}
+    .serve-body{font-size:var(--fs-sm);color:var(--text-dim);line-height:1.75}
+    .serve-cta{margin-top:1rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:500}
+    .serve-cta svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+
+    /* ── IMPACT ── */
+    #impact{background:var(--ink);border-bottom:1px solid var(--rule)}
+    .impact-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin-bottom:3rem}
+    .impact-num-card{background:var(--ink);padding:2rem 1.8rem}
+    .impact-val{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#fff;line-height:1}
+    .impact-val span{color:var(--gold)}
+    .impact-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:.5rem;line-height:1.5}
+    .impact-src{font-size:.62rem;color:var(--text-muted);margin-top:.25rem}
+
+    /* ── THESIS ── */
+    #thesis{background:var(--ink-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .thesis-2col{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+    .thesis-body{font-size:clamp(.92rem,1.15vw,1.02rem);color:var(--text);line-height:1.82;opacity:.85}
+    .thesis-body p+p{margin-top:1.1em}
+    .thesis-body strong{color:#fff;font-weight:400;opacity:1}
+    .thesis-pull{font-family:var(--sans);font-style:italic;font-size:clamp(1.1rem,1.6vw,1.45rem);font-weight:300;line-height:1.45;color:var(--text);border-left:2px solid var(--teal);padding-left:1.4rem;margin-bottom:2rem}
+    .thesis-pull.zh-pull{font-family:var(--sans);font-style:normal;font-size:clamp(1rem,1.4vw,1.25rem)}
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem}
+    .tag{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .72rem;border:1px solid var(--rule-hi);color:var(--text-muted);border-radius:20px}
+    .force-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;margin-top:2.5rem}
+    .force-card{background:var(--ink-mid);padding:1.6rem 1.4rem}
+    .force-icon{font-size:1.3rem;margin-bottom:.8rem}
+    .force-title{font-size:.85rem;font-weight:500;color:#fff;margin-bottom:.35rem}
+    .force-body{font-size:var(--fs-sm);color:var(--text);line-height:1.72;opacity:.8}
+
+    /* ── SERVICES ── */
+    #services{background:var(--ink)}
+    .svc-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;border-bottom:1px solid var(--rule);padding-bottom:0}
+    .svc-tab{font-size:var(--fs-sm);font-weight:400;letter-spacing:.05em;padding:.65rem 1.1rem;border:none;background:none;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;font-family:var(--sans)}
+    .svc-tab:hover{color:var(--text)}
+    .svc-tab.active{color:var(--teal);border-bottom-color:var(--teal)}
+    .svc-panel{display:none}
+    .svc-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+    .svc-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1.1rem}
+    .svc-badge-dot{width:6px;height:6px;background:var(--teal);border-radius:50%}
+    .svc-h{font-family:var(--serif);font-size:clamp(1.4rem,2vw,1.9rem);font-weight:300;color:#fff;line-height:1.2;margin-bottom:.9rem}
+    .svc-h.zh-h{font-family:var(--sans);font-style:normal;font-weight:300}
+    .svc-intro{font-size:clamp(.88rem,1.1vw,.98rem);color:var(--text-dim);line-height:1.8;margin-bottom:1.6rem}
+    .svc-acc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;border-top:1px solid var(--rule);padding:.65rem 0;font-family:var(--sans);font-size:var(--fs-xs);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;margin-bottom:0;transition:color .2s}
+    .svc-acc-btn:hover{color:var(--text-dim)}
+    .svc-acc-btn.open{color:var(--teal)}
+    .svc-acc-btn.open .svc-acc-arr{transform:rotate(90deg)}
+    .svc-acc-arr{transition:transform .25s;font-size:.7rem;margin-left:.5rem}
+    .svc-acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .svc-del-list{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.5rem;padding-top:.5rem}
+    .svc-del-list li{font-size:var(--fs-sm);color:var(--text);display:flex;align-items:flex-start;gap:.6rem;line-height:1.6}
+    .svc-del-list li::before{content:'→';color:var(--teal);font-size:.7rem;margin-top:.2rem;flex-shrink:0}
+    .svc-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+    .pill{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .65rem;background:var(--teal-dim);color:var(--teal);border-radius:20px}
+    .svc-card{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+    .svc-card-head{padding:1.3rem 1.5rem;border-bottom:1px solid var(--rule);background:rgba(13,158,140,0.04)}
+    .svc-card-head-label{font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.3rem}
+    .svc-card-head-val{font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.6rem);font-weight:300;color:#fff}
+    .svc-card-body{padding:1.3rem 1.5rem}
+    .svc-row{display:flex;justify-content:space-between;align-items:baseline;padding:.5rem 0;border-bottom:1px solid var(--rule);font-size:var(--fs-sm)}
+    .svc-row:last-child{border-bottom:none}
+    .svc-row-k{color:var(--text-dim);font-size:.7rem}
+    .svc-row-v{color:var(--text);font-weight:500;text-align:right;max-width:55%}
+
+    /* ── TEAM GRID ── */
+    #advisors{background:var(--ink-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .adv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+    .adv-card{background:var(--ink-mid);padding:1.7rem;display:flex;gap:1.1rem;align-items:flex-start;transition:background .2s}
+    .adv-card:hover{background:var(--ink-soft)}
+    .adv-photo{width:54px;height:54px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--ink-soft);border:1px solid var(--rule-hi)}
+    .adv-photo img{width:100%;height:100%;object-fit:cover}
+    .adv-init{width:54px;height:54px;border-radius:50%;background:var(--ink-soft);border:1px solid var(--rule-hi);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--teal);font-weight:300;flex-shrink:0}
+    .adv-name{font-size:.87rem;font-weight:500;color:#fff;margin-bottom:.12rem}
+    .adv-title{font-size:.74rem;color:var(--text-dim);line-height:1.5}
+
+    /* ── GEO SWITCHER ── */
+    #china{background:var(--ink);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .geo-layout{display:grid;grid-template-columns:1fr 340px;gap:var(--gap);align-items:start}
+    .geo-map-wrap{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+    .geo-map-wrap svg{width:100%;display:block}
+    .land{fill:var(--ink-soft);stroke:rgba(80,130,200,0.18);stroke-width:.5}
+    .geo-panel{display:flex;flex-direction:column;gap:.9rem}
+    .geo-panel-head{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.3rem}
+    .geo-panel-title{font-size:1.05rem;font-weight:500;color:#fff;margin-bottom:.15rem}
+    .geo-panel-sub{font-size:var(--fs-sm);color:var(--text-dim);margin-top:.15rem}
+    .geo-stats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+    .geo-stat{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:.9rem 1rem}
+    .geo-stat-val{font-family:var(--serif);font-size:clamp(1.3rem,1.8vw,1.7rem);font-weight:300;color:#fff;line-height:1}
+    .geo-stat-val span{color:var(--gold)}
+    .geo-stat-label{font-size:.68rem;letter-spacing:.06em;color:var(--text-dim);margin-top:.3rem;line-height:1.4}
+    .geo-opps{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:1rem 1.2rem}
+    .geo-opps-title{font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.7rem}
+    .geo-opp{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;border-bottom:1px solid var(--rule)}
+    .geo-opp:last-child{border-bottom:none;padding-bottom:0}
+    .geo-opp-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:.38rem}
+    .geo-opp-text{font-size:var(--fs-sm);color:var(--text-dim);line-height:1.55}
+    .geo-opp-text strong{color:var(--text);font-weight:500}
+    .geo-region-btns{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .geo-rbtn{background:none;border:1px solid var(--rule);color:var(--text-muted);font-family:var(--sans);font-size:var(--fs-sm);padding:.4rem .95rem;border-radius:20px;cursor:pointer;transition:all .2s}
+    .geo-rbtn:hover{border-color:var(--rule-hi);color:var(--text-dim)}
+    .geo-rbtn.active{background:var(--teal-dim);border-color:rgba(13,158,140,.35);color:var(--teal)}
+
+    /* ── NEWS ── */
+    #news{background:var(--ink-mid);border-bottom:1px solid var(--rule)}
+    .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+    .news-card{display:block;background:var(--ink);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;transition:border-color .2s;cursor:pointer}
+    .news-card:hover{border-color:var(--rule-hi)}
+    .news-card-img{height:130px;background:var(--ink-soft);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+    .news-card-img-placeholder{font-size:2rem;opacity:.3}
+    .news-card-tag{position:absolute;top:.7rem;left:.7rem;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.18rem .55rem;background:var(--gold-dim);color:var(--teal);border-radius:20px;border:1px solid rgba(196,164,107,.2)}
+    .news-card-body{padding:1.2rem}
+    .news-card-date{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
+    .news-card-title{font-size:.87rem;font-weight:500;color:#fff;line-height:1.4;margin-bottom:.5rem}
+    .news-card-excerpt{font-size:.76rem;color:var(--text-dim);line-height:1.65}
+    .news-more{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-top:2rem;font-weight:500}
+    .news-more svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+
+    /* ── PRESENCE ── */
+    #presence{background:var(--ink);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .presence-2col{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+    .map-frame{border-radius:var(--r);overflow:hidden;border:1px solid var(--rule);background:var(--ink-soft)}
+    .map-frame img{width:100%;display:block;opacity:.7}
+    .geo-list{display:flex;flex-direction:column;gap:1.1rem}
+    .geo-item{padding-bottom:1.1rem;border-bottom:1px solid var(--rule)}
+    .geo-item:last-child{border-bottom:none;padding-bottom:0}
+    .geo-name{font-size:.87rem;font-weight:500;color:#fff;margin-bottom:.22rem}
+    .geo-desc{font-size:var(--fs-sm);color:var(--text-dim);line-height:1.68}
+
+    /* ── CONTACT ── */
+    #contact{background:var(--ink-mid);border-top:1px solid var(--rule)}
+    .contact-2col{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start}
+    .contact-paths{display:flex;flex-direction:column;gap:.8rem;margin-top:1.5rem;margin-bottom:1.5rem}
+    .contact-path{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.2rem;border:1px solid var(--rule);border-radius:var(--r);transition:border-color .2s,background .2s;cursor:pointer;background:transparent;font-family:var(--sans);text-align:left;width:100%;text-decoration:none}
+    .contact-path:hover{border-color:var(--rule-hi);background:var(--ink-mid)}
+    .contact-path-icon{font-size:1.2rem;flex-shrink:0;margin-top:.05rem}
+    .contact-path-title{font-size:.85rem;font-weight:500;color:#fff;margin-bottom:.15rem}
+    .contact-path-sub{font-size:.73rem;color:var(--text-dim);line-height:1.5}
+    .contact-links{display:flex;flex-direction:column;gap:.65rem;margin-top:1.5rem}
+    .contact-link{display:flex;align-items:center;gap:.7rem;font-size:var(--fs-sm);color:var(--text-dim);transition:color .2s}
+    .contact-link:hover{color:var(--teal)}
+    .contact-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0}
+    .cf{background:var(--ink);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(1.4rem,2.5vw,2.2rem)}
+    .fg{margin-bottom:1rem}
+    .fl{display:block;font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem}
+    .fi,.fta,.fsel{width:100%;background:var(--ink-mid);border:1px solid var(--rule-hi);color:var(--text);font-family:var(--sans);font-size:var(--fs-sm);font-weight:300;padding:.68rem .9rem;border-radius:var(--r);outline:none;transition:border-color .2s;appearance:none}
+    .fi:focus,.fta:focus,.fsel:focus{border-color:var(--teal)}
+    .fi::placeholder,.fta::placeholder{color:var(--text-muted)}
+    .fta{resize:vertical;min-height:95px}
+    .fr{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    .fsub{width:100%;padding:.78rem;background:var(--grad);color:#fff;font-family:var(--sans);font-size:var(--fs-sm);font-weight:500;letter-spacing:.08em;border:none;border-radius:var(--r);cursor:pointer;transition:opacity .2s}
+    .fsub:hover{opacity:.88}
+    .fnote{font-size:.68rem;color:var(--text-muted);text-align:center;margin-top:.65rem}
+
+    /* ── FOOTER ── */
+    footer{background:var(--ink-mid);border-top:1px solid var(--rule);padding:3rem 0 2rem}
+    .footer-main{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;align-items:start;margin-bottom:2rem}
+    .footer-italic{font-family:var(--serif);font-style:italic;font-size:.77rem;color:var(--text-muted)}
+    .footer-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.01em;background:linear-gradient(to bottom,#f0d696,#d4b478 34%,#c8c8cd 58%,#8a8a92 78%,#3a3a42);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;display:inline-block}
+    .footer-tagline{font-family:var(--serif);font-style:italic;font-size:.77rem;color:var(--text-muted)}
+    .footer-offices{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:1rem}
+    .footer-office{font-size:.72rem;color:var(--text-muted);line-height:1.6}
+    .footer-office strong{display:block;color:var(--text-dim);font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.15rem}
+    .footer-col-title{font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.9rem}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+    .footer-links a{font-size:.76rem;color:var(--text-dim);transition:color .2s}
+    .footer-links a:hover{color:var(--text)}
+    .footer-bottom{padding-top:1.3rem;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
+    .footer-copy{font-size:.68rem;color:var(--text-muted)}
+
+    /* ── AI CHATBOT ── */
+    #chatbot{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300}
+    .chat-bubble{width:52px;height:52px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(196,164,107,.3);transition:transform .2s;border:none}
+    .chat-bubble:hover{transform:scale(1.08)}
+    .chat-bubble svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2}
+    .chat-window{position:absolute;bottom:65px;right:0;width:320px;background:var(--ink-mid);border:1px solid var(--rule-hi);border-radius:12px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,.5)}
+    .chat-window.open{display:flex}
+    .chat-head{padding:1rem 1.2rem;background:var(--ink-soft);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between}
+    .chat-head-info{display:flex;align-items:center;gap:.7rem}
+    .chat-avatar{width:32px;height:32px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(196,164,107,.3);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+    .chat-name{font-size:.82rem;font-weight:500;color:#fff}
+    .chat-status{font-size:.65rem;color:var(--teal)}
+    .chat-close{background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1.1rem;padding:.2rem;line-height:1}
+    .chat-msgs{height:240px;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+    .msg{max-width:85%;padding:.65rem .9rem;border-radius:10px;font-size:.78rem;line-height:1.55}
+    .msg.bot{background:var(--ink-soft);color:var(--text);align-self:flex-start;border:1px solid var(--rule)}
+    .msg.user{background:var(--grad);color:var(--ink);align-self:flex-end}
+    .chat-options{padding:.6rem 1rem;display:flex;flex-direction:column;gap:.4rem;border-top:1px solid var(--rule)}
+    .chat-opt{background:none;border:1px solid var(--rule-hi);color:var(--text-dim);font-family:var(--sans);font-size:.72rem;padding:.45rem .8rem;border-radius:20px;cursor:pointer;text-align:left;transition:all .2s}
+    .chat-opt:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
+    .chat-input-row{display:flex;gap:.5rem;padding:.8rem 1rem;border-top:1px solid var(--rule)}
+    .chat-input{flex:1;background:var(--ink);border:1px solid var(--rule-hi);color:var(--text);font-family:var(--sans);font-size:.76rem;padding:.5rem .75rem;border-radius:6px;outline:none}
+    .chat-send{background:var(--grad);border:none;color:var(--ink);padding:.5rem .8rem;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:500}
+
+    /* ── REVEAL ── */
+    .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .rv.in{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+
+    /* ── MOBILE HAMBURGER ── */
+    .nav-hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;z-index:210}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);transition:all .3s}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:var(--ink-mid);border-left:1px solid var(--rule-hi);z-index:205;flex-direction:column;padding:5rem 2rem 2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);gap:.4rem}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu a{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--text);padding:.9rem 0;border-bottom:1px solid var(--rule);letter-spacing:-.01em}
+    .mobile-menu a:last-of-type{border-bottom:none}
+    .mobile-menu-backdrop{display:none;position:fixed;inset:0;background:rgba(1,4,8,.6);backdrop-filter:blur(3px);z-index:204}
+    .mobile-menu-backdrop.open{display:block}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .thesis-2col,.presence-2col,.contact-2col{grid-template-columns:1fr}
+      .svc-panel.active{grid-template-columns:1fr}
+      .serve-grid,.force-3{grid-template-columns:1fr}
+      .impact-nums{grid-template-columns:repeat(2,1fr)}
+      .news-grid{grid-template-columns:1fr 1fr}
+      .adv-grid{grid-template-columns:1fr}
+      .geo-layout{grid-template-columns:1fr}
+        .fr{grid-template-columns:1fr}
+      .hero-stats{grid-template-columns:repeat(2,1fr)}
+      .hero-paths{flex-direction:column}
+    }
+    @media(max-width:760px){
+      .nav-links{display:none}
+      .nav-hamburger{display:flex}
+      .mobile-menu{display:flex}
+      .news-grid{grid-template-columns:1fr}
+      .impact-nums{grid-template-columns:1fr 1fr}
+      .chat-window{width:290px}
+    }
+  
+    .page-shell{padding:clamp(6rem,12vw,9rem) 0 clamp(4rem,8vw,8rem)}
+    .page-header{margin-bottom:clamp(3rem,5vw,5rem);border-bottom:1px solid var(--rule);padding-bottom:clamp(2rem,4vw,4rem)}
+    .page-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;font-style:italic;color:#fff;line-height:1.1;margin-bottom:1rem}
+    .page-title.zh-title{letter-spacing:.02em}
+    .page-title strong{font-style:normal;font-weight:400;color:var(--teal)}
+    .page-sub{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--text-dim);max-width:560px;line-height:1.8}
+    .back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:2rem;transition:color .2s}
+    .back-link:hover{color:var(--text-dim)}
+
+    /* ── ACCESSIBILITY ── */
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+
+    /* ══ LONGEVITY SPRINT — report, ecosystem, wordmark ══ */
+    :root{--spark:#4a9eff}
+    /* Centred sub-brand masthead.
+       Wordmark source canvas 3400x1120, content bbox 2708x364 @ (346,421) — cropped in CSS.
+       No onerror hide: if the file is ever missing we want to see it, not lose the logo silently. */
+    .ls-brand{text-align:center;padding-bottom:clamp(2rem,3.5vw,3rem);margin-bottom:clamp(2.2rem,4vw,3.4rem);border-bottom:1px solid var(--rule)}
+    .ls-mark{position:relative;height:clamp(34px,5vw,62px);aspect-ratio:2708/364;overflow:hidden;margin:0 auto}
+    .ls-mark img{position:absolute;width:125.554%;max-width:none;left:-12.777%;top:-115.659%}
+    .ls-intro{max-width:760px;margin:1.7rem auto 0;font-size:clamp(.9rem,1.15vw,1.02rem);color:var(--text-dim);line-height:1.9}
+    .ls-intro strong{color:var(--text);font-weight:400}
+
+    .ls-sec{padding-top:clamp(3rem,5vw,4.5rem);margin-top:clamp(3rem,5vw,4.5rem);border-top:1px solid var(--rule)}
+    .ls-sec-hd{margin-bottom:clamp(1.8rem,3vw,2.6rem)}
+    .ls-sec-hd .label{margin-bottom:.7rem}
+    .ls-sec-h{font-family:var(--serif);font-size:var(--fs-h2);font-weight:300;color:#fff;line-height:1.18;max-width:660px}
+    .ls-sec-h.zh-title{font-family:var(--sans);font-style:normal;font-weight:300;letter-spacing:.02em}
+
+    /* Report band */
+    .ls-report{border:1px solid var(--grad-border);border-radius:var(--r);overflow:hidden;
+      background:linear-gradient(135deg,rgba(196,164,107,.09),rgba(74,158,255,.05))}
+    .ls-report-in{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(1.6rem,3vw,3rem);padding:clamp(1.7rem,3.2vw,2.6rem)}
+    .ls-report-t{font-family:var(--serif);font-size:clamp(1.3rem,2.3vw,1.95rem);font-weight:300;color:#fff;line-height:1.24;margin-bottom:.9rem}
+    .ls-report-t.zh-title{font-family:var(--sans);font-weight:300}
+    .ls-report-b{font-size:var(--fs-sm);color:var(--text-dim);line-height:1.8}
+    .ls-report-b + .ls-report-b{margin-top:.9em}
+    .ls-report-side{border-left:1px solid var(--rule-hi);padding-left:clamp(1.2rem,2.2vw,2rem);display:flex;flex-direction:column;justify-content:center}
+    .ls-report-side-t{font-size:var(--fs-xs);letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.9rem}
+    .ls-report-fine{font-size:.7rem;color:var(--text-muted);line-height:1.7;margin-top:.8rem}
+    .ls-seek{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.4rem}
+    .ls-seek li{font-size:var(--fs-sm);color:var(--text);display:flex;align-items:flex-start;gap:.6rem;line-height:1.6}
+    .ls-seek li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--spark);margin-top:.55rem;flex-shrink:0}
+    .ls-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;font-size:var(--fs-sm);font-weight:500;letter-spacing:.06em;border-radius:var(--r);transition:border-color .2s,color .2s;text-align:center}
+    .ls-btn-s{border:1px solid var(--rule-hi);color:var(--text)}
+    .ls-btn-s:hover{border-color:var(--teal);color:var(--teal)}
+
+    /* Ecosystem partners */
+    .ls-partners{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .ls-partner{display:flex;flex-direction:column;gap:.9rem;padding:1.5rem;border:1px solid var(--rule);border-radius:var(--r);background:var(--ink-mid);transition:border-color .25s,background .25s}
+    .ls-partner:hover{border-color:var(--rule-hi);background:var(--ink-soft)}
+    /* white margins in the source files are clipped, not trimmed — heights are set
+       per logo so the visible mark lands at the same optical size in every chip */
+    .ls-partner-chip{background:#fff;border-radius:var(--r);height:72px;display:flex;align-items:center;justify-content:center;padding:0 1rem;overflow:hidden}
+    .ls-partner-chip img{width:auto;max-width:none;flex-shrink:0}
+    .ls-partner-chip img.lg-square{height:46px}
+    .ls-partner-chip img.lg-invest{height:128px}
+    .ls-partner-chip img.lg-biohk{height:86px}
+    .ls-partner-n{font-size:.85rem;font-weight:500;color:#fff}
+    .ls-partner-r{font-size:.72rem;color:var(--text-dim);line-height:1.6;margin-top:.2rem}
+
+    @media(max-width:900px){
+      .ls-report-in,.ls-partners{grid-template-columns:1fr}
+      .ls-report-side{border-left:none;border-top:1px solid var(--rule-hi);padding-left:0;padding-top:1.5rem}
+    }
+  </style>
+</head><body>
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-row">
+    <a href="/" class="nav-logo">
+      <span class="logo-word">AGVC</span>
+      <span class="nav-word en">/ Age, but less.</span>
+      <span class="nav-word zh">/ 银发产业孵化器</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a></li>
+        <li><a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a></li>
+        <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
+        <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
+        <li><a href="/#contact" class="nav-cta"><span class="en">Connect</span><span class="zh">联系我们</span></a></li>
+      </ul>
+      <div class="lang-btn" id="lang-btn">
+        <button class="lang-opt active" data-lang="en">EN</button>
+        <button class="lang-opt" data-lang="zh">中文</button>
+      </div>
+      </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu-backdrop" id="mm-backdrop"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a>
+  <a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a>
+  <a href="/team"><span class="en">Team</span><span class="zh">团队</span></a>
+  <a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a>
+  <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
+</div>
+
+
+<div class="page-shell"><div class="wrap">
+  <a href="/" class="back-link en">← Back</a><a href="/" class="back-link zh">← 返回</a>
+  <div class="ls-brand rv">
+    <div class="ls-mark"><img src="/images/Longevity-Sprint_transparent.png" alt="Longevity Sprint"/></div>
+    <p class="ls-intro en"><strong>Longevity Sprint is the world’s first accelerator dedicated to the longevity and silver economy.</strong> Scalable IP, government backing, biotech clusters and a large underserved preventative-health market are moving the region from sick care to health care — and ventures built inside that ecosystem compound faster than anything standalone. We land global longevity IP in Asia, and take Asia’s breakthroughs to the world.</p>
+    <p class="ls-intro zh"><strong>Longevity Sprint 是全球首个专注长寿与银发经济的加速器。</strong>可规模化的知识产权、政府支持、生物科技集群，以及庞大而未被满足的预防性健康需求，正推动区域从疾病治疗走向健康管理——依托生态构建的创业公司，其复利速度快于任何单打独斗的模式。我们把全球长寿技术落地亚洲，也把亚洲的突破带向世界。</p>
+  </div>
+  <div class="page-header rv">
+    <p class="label en">What We Do</p><p class="label zh">我们的服务</p>
+    <h1 class="page-title en">Anchoring <strong>the inevitable transition toward a proactive, ageless society.</strong></h1>
+    <h1 class="page-title zh-title zh">锚定<strong>迈向主动健康、无龄社会的必然趋势。</strong></h1>
+    <p class="page-sub en">Our deal flow is driven by targeted events, founder and investor referrals, and a strong network built over a decade in tech and medical ventures — giving us unparalleled access to competitive rounds ahead of the market.</p>
+    <p class="page-sub zh">我们的项目源自精准的行业活动、创始人与投资人推荐，以及深耕科技与医疗创投十余年积累的强大网络——使我们能先于市场，触达最具竞争力的融资轮次。</p>
+  </div>
+
+  <!-- S1 -->
+  <div style="margin-bottom:4rem" class="rv">
+    <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem">
+      <span style="font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--teal);opacity:.7">01</span>
+      <h2 class="sec-title en" style="max-width:none">Landing Acceleration</h2>
+      <h2 class="sec-title zh-title zh" style="max-width:none">落地加速服务</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start">
+      <div>
+        <p class="en" style="color:var(--text-dim);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.4rem">AGVC builds solutions that drive healthspan improvement from pharma, universities, and biotech — and develops them faster and more efficiently by leveraging our cross-border acceleration program and co-investment network. We apply our collective power to build successful companies around brilliant ideas.</p>
+        <p class="zh" style="color:var(--text-dim);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.4rem">AGVC 携手制药企业、高校与生物科技机构，共同打造推动健康寿命提升的解决方案，并依托跨境加速计划与联合投资网络，更快、更高效地推进其发展。我们汇聚集体力量，围绕卓越创意打造成功企业。</p>
+        <ul class="svc-del-list en"><li>Corporate structuring, organisation design &amp; strategy planning</li><li>Ecosystem partnering — research institutes, hospital groups &amp; CROs</li><li>Buyer, manufacturer &amp; distributor matching</li><li>IP structuring, patent liaison &amp; R&amp;D co-development framing</li><li>Accounting, tax planning &amp; reporting systems</li><li>Funding support &amp; grant facilitation</li></ul>
+        <ul class="svc-del-list zh"><li>集团架构设计、组织规划及战略布局</li><li>生态对接——研究院、医院集团及CRO</li><li>买家、制造商及分销商匹配对接</li><li>知识产权架构、专利协调及研发合作框架</li><li>会计核算、税务筹划及财务报告体系搭建</li><li>资金支持与资助统筹</li></ul>
+        <div class="svc-pills" style="margin-top:1rem"><span class="pill en">Corporate Structuring</span><span class="pill zh">集团架构</span><span class="pill en">Ecosystem Partnering</span><span class="pill zh">生态对接</span><span class="pill en">IP &amp; R&amp;D</span><span class="pill zh">知识产权与研发</span><span class="pill en">Funding Support</span><span class="pill zh">资金支持</span></div>
+      </div>
+      <div class="svc-card"><div class="svc-card-head"><div class="svc-card-head-label en">What to Expect</div><div class="svc-card-head-label zh">预期成果</div><div class="svc-card-head-val en">Full Cycle Ideation</div><div class="svc-card-head-val zh">全周期共创</div></div>
+        
+      </div>
+        </div>
+  </div>
+
+  <!-- S2 -->
+  <div style="margin-bottom:4rem;padding-top:3rem;border-top:1px solid var(--rule)" class="rv">
+    <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem">
+      <span style="font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--teal);opacity:.7">02</span>
+      <h2 class="sec-title en" style="max-width:none">Local CDMO &amp; Manufacturing Partnering</h2>
+      <h2 class="sec-title zh-title zh" style="max-width:none">本地CDMO及制造合作</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start">
+      <div>
+        <p class="en" style="color:var(--text-dim);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.4rem">For biotech, pharma, and MedTech founders with validated IP, we identify and broker access to CDMOs and manufacturing partners.</p>
+        <p class="zh" style="color:var(--text-dim);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.4rem">针对拥有经验证知识产权的生物科技、制药及医疗器械创始人，我们在香港、大湾区及东南亚识别并对接合适的CDMO及制造合作伙伴。</p>
+        <ul class="svc-del-list en"><li>CDMO identification and matchmaking </li><li>Manufacturing and supply agreement negotiation</li><li>IP out-licensing to regional pharma, MedTech &amp; manufacturing partners</li><li>Asset licensing deal structuring and milestone architecture</li><li>GMP readiness, quality systems &amp; regulatory filing support</li><li>R&amp;D co-development with local academic and institute partners</li></ul>
+        <ul class="svc-del-list zh"><li>香港、广东及东盟CDMO识别与精准匹配</li><li>制造及供应协议谈判</li><li>知识产权向区域制药、医疗器械及制造伙伴的授权转让</li><li>资产授权交易架构及里程碑体系设计</li><li>GMP合规准备、质量体系及法规申报支持</li><li>与本地学术机构及研究院联合研发合作</li></ul>
+        <div class="svc-pills" style="margin-top:1rem"><span class="pill en">CDMO Access</span><span class="pill zh">CDMO对接</span><span class="pill en">IP Out-Licensing</span><span class="pill zh">知识产权授权</span><span class="pill en">GMP Readiness</span><span class="pill zh">GMP合规</span></div>
+      </div>
+      <div class="svc-card"><div class="svc-card-head"><div class="svc-card-head-label en">What to Expect</div><div class="svc-card-head-label zh">预期成果</div><div class="svc-card-head-val en">Bench to Production</div><div class="svc-card-head-val zh">从实验室到生产线</div></div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div style="padding-top:3rem;border-top:1px solid var(--rule)" class="rv">
+    <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem">
+      <span style="font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--teal);opacity:.7">03</span>
+      <h2 class="sec-title en" style="max-width:none">Venture Building &amp; Operational Integration</h2>
+      <h2 class="sec-title zh-title zh" style="max-width:none">创投孵化与运营整合</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:start">
+      <div>
+        <p class="en" style="color:var(--text-dim);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.4rem">For companies that need more than advisory — we embed operationally, building end-to-end commercial infrastructure from upstream procurement and manufacturing through to downstream market delivery across Asia.</p>
+        <p class="zh" style="color:var(--text-dim);font-size:var(--fs-sm);line-height:1.8;margin-bottom:1.4rem">针对需要深度支持的企业——我们深度嵌入运营，构建从上游采购、制造到下游亚洲市场交付的全链路商业基础设施。</p>
+        <ul class="svc-del-list en"><li>Embedded operational leadership — External COO model</li><li>End-to-end value chain: procurement, manufacturing, distribution</li><li>Strategic alliances with industry, academic institutions &amp; public sector</li><li>Product commercialisation across health-tech, medical device &amp; supplement verticals</li><li>Co-build ventures alongside founding teams from pre-incorporation</li></ul>
+        <ul class="svc-del-list zh"><li>嵌入式运营领导团队——外部COO模式</li><li>全链路价值链管理：采购、制造、分销</li><li>与产业界、学术机构及公共部门建立战略联盟</li><li>健康科技、医疗器械及营养补充品领域产品商业化</li><li>与创始团队联合孵化，从公司注册前阶段全程参与</li><li>生态圈引荐：香港科技园、数码港、InnoHK创新集群</li></ul>
+        <div class="svc-pills" style="margin-top:1rem"><span class="pill en">External COO</span><span class="pill zh">外部COO</span><span class="pill en">Alliance Network</span><span class="pill zh">战略联盟</span><span class="pill en">Co-Build</span><span class="pill zh">联合孵化</span></div>
+      </div>
+      <div class="svc-card"><div class="svc-card-head"><div class="svc-card-head-label en">What to Expect</div><div class="svc-card-head-label zh">预期成果</div><div class="svc-card-head-val en">Full Operating Partnership</div><div class="svc-card-head-val zh">全面运营合作伙伴关系</div></div>
+        <div class="svc-card-body">
+          <div class="svc-row"><span class="svc-row-k en">Alliance network</span><span class="svc-row-k zh">联盟网络</span><span class="svc-row-v en">Industry · Academic · Public</span><span class="svc-row-v zh">产学研政</span></div>
+          <div class="svc-row"><span class="svc-row-k en">Ecosystem access</span><span class="svc-row-k zh">生态资源</span><span class="svc-row-v en">Major global longevity clusters</span><span class="svc-row-v zh">全球主要长寿产业集群</span></div>
+          <div class="svc-row"><span class="svc-row-k en">Scope</span><span class="svc-row-k zh">服务范围</span><span class="svc-row-v en">Tailored to your stage and goals</span><span class="svc-row-v zh">依据阶段与目标定制</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ RESEARCH — forthcoming report ══ -->
+  <div class="ls-sec rv">
+    <div class="ls-sec-hd">
+      <p class="label en">Research</p><p class="label zh">研究</p>
+      <h2 class="ls-sec-h en">Forthcoming</h2>
+      <h2 class="ls-sec-h zh-title zh">即将发布</h2>
+    </div>
+    <div class="ls-report">
+      <div class="ls-report-in">
+        <div>
+          <div class="ls-report-t en">Longevity Research Insight Report 2026 — Asia-Pacific</div>
+          <div class="ls-report-t zh-title zh">《2026 亚太长寿研究洞察报告》</div>
+          <p class="ls-report-b en">Our first annual report on aging science, capital formation and company building across Asia-Pacific. It covers what is actually being licensed and funded in the region — institutional pipelines, financing structures, regulatory routes and the reference-data question — rather than another projection of the demographic curve.</p>
+          <p class="ls-report-b en">Written for the ecosystem rather than for a portfolio, so university, institute and clinical partners can contribute without a commercial relationship.</p>
+          <p class="ls-report-b zh">我们的首份年度报告，覆盖亚太地区的衰老科学、资本形成与公司创建。报告关注区域内真实发生的许可与融资——机构技术管线、融资结构、监管路径，以及参照数据问题——而不是又一次对人口曲线的预测。</p>
+          <p class="ls-report-b zh">报告面向整个生态而非某一投资组合撰写，高校、研究院与临床伙伴可在没有商业关系的前提下参与。</p>
+        </div>
+        <div class="ls-report-side">
+          <div class="ls-report-side-t en">Open for co-authors and partners</div>
+          <div class="ls-report-side-t zh">公开征集共同作者与合作方</div>
+          <ul class="ls-seek en">
+            <li>University groups and technology transfer offices with primary licensing data</li>
+            <li>Clinical centres and cohort holders working on aging biomarkers</li>
+            <li>Insurers and health systems running preventative pilots</li>
+            <li>Investors and operators willing to co-author a chapter</li>
+          </ul>
+          <ul class="ls-seek zh">
+            <li>拥有一手许可数据的高校课题组与技术转移办公室</li>
+            <li>从事衰老生物标志物研究的临床中心与队列持有方</li>
+            <li>正在试点预防性健康项目的保险公司与医疗体系</li>
+            <li>愿意共同撰写章节的投资人与从业者</li>
+          </ul>
+          <a href="/#contact" class="ls-btn ls-btn-s"><span class="en">Request early access</span><span class="zh">申请优先获取报告</span></a>
+          <p class="ls-report-fine en">Register your interest via the contact form and we will send the report on release. Tell us in the message if you would like to contribute a chapter or data.</p>
+          <p class="ls-report-fine zh">通过联系表格登记，报告发布时我们会第一时间发送。如希望共同撰写章节或提供数据，请在留言中说明。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ECOSYSTEM — supporting partners ══ -->
+  <div class="ls-sec rv">
+    <div class="ls-sec-hd">
+      <p class="label en">Ecosystem</p><p class="label zh">生态伙伴</p>
+      <h2 class="ls-sec-h en">Supporting partners and organisations</h2>
+      <h2 class="ls-sec-h zh-title zh">支持伙伴与合作机构</h2>
+    </div>
+    <div class="ls-partners">
+      <div class="ls-partner">
+        <div class="ls-partner-chip"><img class="lg-square" src="/images/Longevity%20Global.jpeg" alt="Longevity Global" onerror="this.parentElement.style.display='none'"/></div>
+        <div>
+          <div class="ls-partner-n">Longevity Global</div>
+          <div class="ls-partner-r en">Research collaboration and non-profit publishing partner.</div>
+          <div class="ls-partner-r zh">研究合作与非营利出版伙伴。</div>
+        </div>
+      </div>
+      <div class="ls-partner">
+        <div class="ls-partner-chip"><img class="lg-invest" src="/images/InvestHK.png" alt="InvestHK" onerror="this.parentElement.style.display='none'"/></div>
+        <div>
+          <div class="ls-partner-n">InvestHK</div>
+          <div class="ls-partner-r en">Hong Kong SAR Government support for teams establishing in Hong Kong.</div>
+          <div class="ls-partner-r zh">香港特区政府机构，支持团队在香港落地设立。</div>
+        </div>
+      </div>
+      <div class="ls-partner">
+        <div class="ls-partner-chip"><img class="lg-biohk" src="/images/BIOHK.png" alt="BIOHK" onerror="this.parentElement.style.display='none'"/></div>
+        <div>
+          <div class="ls-partner-n">BIOHK</div>
+          <div class="ls-partner-r en">Hong Kong's biotechnology convention — programme and ecosystem partner.</div>
+          <div class="ls-partner-r zh">香港生物科技展会——项目及生态合作伙伴。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:4rem;padding:2.5rem;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);text-align:center" class="rv">
+    <div style="font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.5rem" class="en">Not sure which service fits?</div>
+    <div style="font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.5rem" class="zh">不确定哪项服务最适合您？</div>
+    <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:1.2rem" class="en">Talk to our team — we'll help you figure out the right path.</div>
+    <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:1.2rem" class="zh">与我们的团队交流——我们将帮您找到正确的路径。</div>
+    <div style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap"><a href="https://cal.com/justintso/intro" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;background:var(--grad);color:var(--ink);font-size:var(--fs-sm);font-weight:500;border-radius:var(--r)"><span class="en">Schedule an Intro Call</span><span class="zh">预约初步通话</span></a><a href="/#contact" class="ls-btn ls-btn-s"><span class="en">Send us a message</span><span class="zh">给我们留言</span></a></div>
+  </div>
+</div></div>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand-col">
+        <div class="footer-brand">AGVC</div>
+        <div class="footer-tagline en">The cross-border venture accelerator for the longevity economy.</div>
+        <div class="footer-tagline zh">专注长寿经济的跨境创投加速平台。</div>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-col-title en">Explore</div>
+        <div class="footer-col-title zh">探索</div>
+        <ul class="footer-links">
+          <li><a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a></li>
+          <li><a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a></li>
+          <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
+          <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-col">
+        <div class="footer-col-title en">Connect</div>
+        <div class="footer-col-title zh">联系方式</div>
+        <ul class="footer-links">
+          <li><a href="mailto:info@agvcfunds.com">info@agvcfunds.com</a></li>
+          <li><a href="https://linkedin.com/company/agvcfunds" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://cal.com/justintso/intro" target="_blank" rel="noopener"><span class="en">Schedule a Call</span><span class="zh">预约通话</span></a></li>
+        </ul>
+        <div class="footer-offices">
+          <div class="footer-office"><span class="en">Hong Kong, HKSAR · New York, NY</span><span class="zh">中国香港 · 美国纽约</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy en">© 2025 AGVC Limited. All rights reserved.</span>
+      <span class="footer-copy zh">© 2025 AGVC Limited. 版权所有。</span>
+      <span class="footer-italic en">Age, but less.</span>
+      <span class="footer-italic zh">银发产业孵化器</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── AI CHATBOT ── -->
+<div id="chatbot">
+  <div class="chat-window" id="chat-win">
+    <div class="chat-head">
+      <div class="chat-head-info">
+        <div class="chat-avatar">🧬</div>
+        <div>
+          <div class="chat-name en">Chat with Us</div>
+          <div class="chat-name zh">在线咨询</div>
+          <div class="chat-status">● Online</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chat-close">✕</button>
+    </div>
+    <div class="chat-msgs" id="chat-msgs">
+      <div class="msg bot en">Hi! I can help you figure out which of our services fits your situation best. What describes you?</div>
+      <div class="msg bot zh">您好！我可以帮您了解哪项服务最适合您的情况。请问您的身份是？</div>
+    </div>
+    <div class="chat-options" id="chat-opts">
+      <button class="chat-opt" data-q="startup"><span class="en">🔬 I have a longevity / health-tech startup</span><span class="zh">🔬 我有一家长寿/健康科技初创企业</span></button>
+      <button class="chat-opt" data-q="cdmo"><span class="en">🏭 I'm a CDMO or manufacturing partner</span><span class="zh">🏭 我是CDMO或制造合作方</span></button>
+      <button class="chat-opt" data-q="researcher"><span class="en">🎓 I'm a researcher / TTO with IP</span><span class="zh">🎓 我是科研人员或技术转让办公室</span></button>
+      <button class="chat-opt" data-q="investor"><span class="en">💼 I'm exploring the longevity market</span><span class="zh">💼 我正在研究长寿赛道</span></button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chat-input" placeholder="…"/>
+      <button class="chat-send" id="chat-send">→</button>
+    </div>
+  </div>
+  <button class="chat-bubble" id="chatbot-btn" aria-label="Open AI Advisor">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+</div>
+
+<!-- ── SCRIPTS ── -->
+<script>
+function __agvcInit(){
+
+
+  // ── Mobile menu ──
+  (function(){
+    const ham=document.getElementById('hamburger');
+    const mm=document.getElementById('mobile-menu');
+    const bd=document.getElementById('mm-backdrop');
+    if(ham&&mm&&bd){
+      const toggle=()=>{const o=mm.classList.toggle('open');ham.classList.toggle('open',o);bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';};
+      ham.addEventListener('click',toggle);
+      bd.addEventListener('click',toggle);
+      mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ham.classList.remove('open');bd.classList.remove('open');document.body.style.overflow='';}));
+    }
+  })();
+
+  // ── Language ──
+  let currentLang = localStorage.getItem('agvc-lang') || 'en';
+  function setLang(lang){
+    currentLang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    localStorage.setItem('agvc-lang', lang);
+    if(typeof renderGeoPanel==='function'){ try{renderGeoPanel();}catch(e){} }
+  }
+  document.querySelectorAll('.lang-opt').forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
+
+  // ── Nav scroll ──
+  const nav=document.getElementById('nav');
+  if(nav) window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>50),{passive:true});
+
+  // ── Scroll reveal ──
+  if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.05});
+    document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')),800);
+  } else {
+    document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  }
+
+  // ── Chatbot ──
+  (function(){
+    const btn=document.getElementById('chatbot-btn');
+    const win=document.getElementById('chat-win');
+    const close=document.getElementById('chat-close');
+    if(btn&&win) btn.addEventListener('click',()=>win.classList.toggle('open'));
+    if(close&&win) close.addEventListener('click',()=>win.classList.remove('open'));
+    // Chat option buttons → route to contact / mail
+    document.querySelectorAll('.chat-opt').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const q=b.dataset.q;
+        const msgs=document.getElementById('chat-msgs');
+        if(msgs){
+          const u=document.createElement('div');u.className='msg user';u.textContent=b.textContent.trim();msgs.appendChild(u);
+          const bot=document.createElement('div');bot.className='msg bot';
+          const replies={
+            startup: currentLang==='zh'?'太好了！请通过下方表单提交您的公司资料，或预约通话。':'Great — share your company via the form below, or schedule a call.',
+            cdmo: currentLang==='zh'?'我们很乐意对接制造合作。请填写表单或直接发送邮件。':'We\'d love to explore manufacturing partnering. Fill the form or email us.',
+            researcher: currentLang==='zh'?'我们支持科研成果的商业化。请通过表单联系我们。':'We support commercialising research IP. Reach us via the form.',
+            investor: currentLang==='zh'?'感谢您的关注，请通过表单或邮件与我们联系。':'Thanks for your interest — connect via the form or email.'
+          };
+          bot.textContent=replies[q]||(currentLang==='zh'?'请通过下方表单联系我们。':'Please reach us via the form below.');
+          msgs.appendChild(bot);
+          msgs.scrollTop=msgs.scrollHeight;
+        }
+        // Also route to contact section if present
+        const contact=document.getElementById('contact');
+        if(contact){setTimeout(()=>{win.classList.remove('open');contact.scrollIntoView({behavior:'smooth'});},900);}
+        else{setTimeout(()=>{window.location.href='/#contact';},900);}
+      });
+    });
+  })();
+
+  // ── Contact form (Web3Forms) ──
+  (function(){
+    const cfForm=document.getElementById('cf-form');
+    if(!cfForm) return;
+    cfForm.addEventListener('submit',async e=>{
+      e.preventDefault();
+      const lang=document.documentElement.getAttribute('data-lang')||'en';
+      const hideLang=lang==='zh'?'en':'zh';
+      cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=true);
+      const btns=cfForm.querySelectorAll('.fsub');
+      const btnVisible=cfForm.querySelector('.fsub.'+lang)||btns[0];
+      btns.forEach(b=>b.disabled=true);
+      if(btnVisible) btnVisible.innerHTML=lang==='zh'?'发送中…':'Sending…';
+      try{
+        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(cfForm)))});
+        const d=await res.json();
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(d.success){ if(btnVisible){btnVisible.innerHTML=lang==='zh'?'✓ 已发送':'Sent ✓';btnVisible.style.background='#3d6b4a';} cfForm.reset(); }
+        else throw new Error();
+      }catch{
+        cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
+        if(btnVisible){btnVisible.innerHTML=lang==='zh'?'发送失败，请重试':'Error — try again';btnVisible.style.background='#6b3d3d';}
+        btns.forEach(b=>b.disabled=false);
+      }
+    });
+  })();
+
+  // ── Apply initial language ──
+  setLang(currentLang);
+
+
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',__agvcInit);}else{__agvcInit();}
+</script>
+</body></html>

@@ -202,7 +202,7 @@
     .geo-stats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
     .geo-stat{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:.9rem 1rem}
     .geo-stat-val{font-family:var(--serif);font-size:clamp(1.3rem,1.8vw,1.7rem);font-weight:300;color:#fff;line-height:1}
-    .geo-stat-val span{color:var(--teal)}
+    .geo-stat-val span{color:var(--gold)}
     .geo-stat-label{font-size:.68rem;letter-spacing:.06em;color:var(--text-dim);margin-top:.3rem;line-height:1.4}
     .geo-opps{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:1rem 1.2rem}
     .geo-opps-title{font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.7rem}
@@ -360,6 +360,30 @@
     /* ── ACCESSIBILITY ── */
     a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
 
+
+    /* ── China deep dive ──
+       These classes shipped with no CSS at all, so the block rendered as plain
+       14px body text. Rules below mirror .geo-stat* / .geo-opp* so the section
+       matches the rest of this page. Fonts are left to inherit exactly as the
+       sibling components do — note this page defines --serif/--sans inverted
+       relative to index/intelligence, so hard-coding a token here would fight it. */
+    .china-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:2rem}
+    .china-stat{background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.1rem;transition:border-color .25s}
+    .china-stat:hover{border-color:var(--rule-hi)}
+    .china-stat-val{font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:300;color:#fff;line-height:1}
+    .china-stat-val span{color:var(--gold)}
+    .china-stat-label{font-size:.72rem;letter-spacing:.04em;color:var(--text-dim);margin-top:.55rem;line-height:1.5}
+    .china-stat-src{font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);margin-top:.6rem;opacity:.8}
+    /* sits in the right-hand column of a 1fr 1fr parent — one card per row */
+    .china-opp-grid{display:flex;flex-direction:column;gap:.7rem}
+    .china-opp{display:flex;gap:.9rem;align-items:flex-start;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:1rem 1.15rem;transition:border-color .25s,background .25s}
+    .china-opp:hover{border-color:var(--rule-hi);background:var(--ink-soft)}
+    .china-opp-icon{font-size:1.05rem;line-height:1.4;flex-shrink:0}
+    .china-opp-title{font-size:.9rem;font-weight:500;color:#fff;margin-bottom:.3rem}
+    .china-opp-body{font-size:var(--fs-sm);color:var(--text-dim);line-height:1.7}
+    @media(max-width:900px){
+      .china-stats{grid-template-columns:repeat(2,1fr)}
+    }
   </style>
 </head><body>
 <!-- ── NAV ── -->
@@ -373,9 +397,9 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="/about"><span class="en">Who We Serve</span><span class="zh">服务对象</span></a></li>
-        <li><a href="/services"><span class="en">Services</span><span class="zh">服务内容</span></a></li>
         <li><a href="/longevity-asia"><span class="en">Longevity in Asia</span><span class="zh">亚洲长寿产业</span></a></li>
         <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
+        <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
         <li><a href="/#contact" class="nav-cta"><span class="en">Connect</span><span class="zh">联系我们</span></a></li>
       </ul>
       <div class="lang-btn" id="lang-btn">
@@ -389,9 +413,9 @@
 <div class="mobile-menu-backdrop" id="mm-backdrop"></div>
 <div class="mobile-menu" id="mobile-menu">
   <a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a>
-  <a href="/services"><span class="en">Services</span><span class="zh">服务内容</span></a>
   <a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a>
   <a href="/team"><span class="en">Team</span><span class="zh">团队</span></a>
+  <a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a>
   <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
 </div>
 
@@ -492,9 +516,9 @@
         <div class="footer-col-title zh">探索</div>
         <ul class="footer-links">
           <li><a href="/about"><span class="en">Who We Serve</span><span class="zh">服务对象</span></a></li>
-          <li><a href="/services"><span class="en">Services</span><span class="zh">服务内容</span></a></li>
           <li><a href="/longevity-asia"><span class="en">Longevity in Asia</span><span class="zh">亚洲长寿产业</span></a></li>
           <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
+          <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
         </ul>
       </div>
       <div class="footer-contact-col">

@@ -13,9 +13,15 @@
   status = 200
 
 [[redirects]]
-  from = "/services"
-  to = "/services.html"
+  from = "/longevitysprint"
+  to = "/longevitysprint.html"
   status = 200
+
+# former /services URL — kept so existing links and search results still resolve
+[[redirects]]
+  from = "/services"
+  to = "/longevitysprint"
+  status = 301
 
 [[redirects]]
   from = "/team"
