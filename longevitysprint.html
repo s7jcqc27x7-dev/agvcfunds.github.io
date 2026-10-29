@@ -471,6 +471,27 @@
     .evc-lightbox[hidden]{display:none}
     .evc-lightbox img{max-width:min(92vw,720px);max-height:92vh;width:auto;height:auto;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.6);cursor:default}
     .evc-lb-close{position:absolute;top:1rem;right:1.2rem;width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--rule-hi);background:var(--ink-mid);color:var(--text);font-size:1rem;cursor:pointer}
+      /* ══ Chinese typography + mobile layout ══
+       One sans stack for all Chinese text: Noto Serif has no CJK glyphs, so serif
+       headings were mixing serif Latin with sans Chinese. Native CJK faces first. */
+    html[data-lang="zh"] body{line-break:strict}
+    html[data-lang="zh"] .zh:not(.footer-italic){font-family:'Inter','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif!important;font-style:normal!important}
+    html[data-lang="zh"] .zh em{font-style:normal!important}
+    html[data-lang="zh"] :is(h1,h2,h3).zh{letter-spacing:.01em!important;text-wrap:balance}
+    html[data-lang="zh"] :is(.label,.path-card-label,.hstat-lbl,.footer-col-title).zh{letter-spacing:.06em!important}
+    html[data-lang="zh"] p.zh{line-height:1.85}
+    #chatbot{transition:opacity .25s,transform .25s}
+    #chatbot.chat-hidden{opacity:0;pointer-events:none;transform:translateY(10px)}
+    @media(max-width:600px){
+      html[data-lang="zh"] .hero-h.zh{font-size:clamp(1.7rem,7.6vw,2.4rem)!important;line-height:1.28!important}
+      html[data-lang="zh"] .page-title.zh{font-size:clamp(1.55rem,7vw,2.2rem)!important;line-height:1.32!important}
+      html[data-lang="zh"] .path-card-label.zh{display:none}
+      .path-card{padding:.85rem 1.1rem}
+      .hero-paths{gap:.6rem;margin-bottom:2.2rem}
+      #chatbot{bottom:.9rem;right:.9rem}
+      .chat-bubble{width:44px;height:44px}
+      footer{padding-bottom:4.5rem}
+    }
   </style>
 </head><body>
 <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="zh">跳至正文</span></a>
@@ -487,7 +508,7 @@
         <li><a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a></li>
         <li><a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a></li>
         <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
-        <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
+        <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">Longevity Sprint</span></a></li>
         <li><a href="/#contact" class="nav-cta"><span class="en">Connect</span><span class="zh">联系我们</span></a></li>
       </ul>
       <div class="lang-btn" id="lang-btn">
@@ -503,7 +524,7 @@
   <a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a>
   <a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a>
   <a href="/team"><span class="en">Team</span><span class="zh">团队</span></a>
-  <a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a>
+  <a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">Longevity Sprint</span></a>
   <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
 </div>
 
@@ -516,20 +537,20 @@
 
   <div class="page-header rv">
     <h1 class="page-title en">Helping longevity innovations <strong>reach new markets.</strong></h1>
-    <h1 class="page-title zh-title zh">助力长寿创新<strong>走向新市场。</strong></h1>
+    <h1 class="page-title zh-title zh">让长寿科技创新<strong>走向市场。</strong></h1>
     <p class="page-sub en">We work alongside founders, researchers, and industry partners to help promising innovations move from scientific development toward commercial adoption. Our work combines cross-border acceleration, manufacturing and licensing partnerships, and hands-on venture building.</p>
-    <p class="page-sub zh">我们与创始人、科研人员及产业伙伴并肩合作，推动具潜力的创新从科研开发走向商业应用。我们的工作涵盖跨境加速、生产与授权合作，以及深度参与的企业共建。</p>
+    <p class="page-sub zh">我们为长寿科技及生命科学领域的创业团队提供跨境加速、产业合作与企业运营支持，协助团队推进商业化规划、对接相关资源，并探索亚洲及国际市场的发展机会。</p>
   </div>
 
   <!-- S1 -->
   <div class="svc-block rv">
-    <div class="svc-hd"><span class="svc-num">01</span><h2 class="sec-title en">Cross-Border Acceleration</h2><h2 class="sec-title zh-title zh">跨境加速</h2></div>
+    <div class="svc-hd"><span class="svc-num">01</span><h2 class="sec-title en">Cross-Border Acceleration</h2><h2 class="sec-title zh-title zh">跨境市场拓展</h2></div>
     <div class="svc-grid">
       <div>
         <p class="svc-lead en">We help science-led teams establish a presence in new markets, connect with relevant partners, and develop practical commercialization strategies.</p>
-        <p class="svc-lead zh">我们协助以科学为核心的团队在新市场建立业务据点、对接相关合作伙伴，并制定切实可行的商业化策略。</p>
+        <p class="svc-lead zh">协助企业制定市场进入策略，对接产业与科研合作伙伴，探索新的商业机会。</p>
         <ul class="svc-del-list en"><li>Market entry planning and company setup</li><li>Corporate structuring and strategy, with accounting and tax handled through professional advisers</li><li>Research, hospital and clinical partnerships, including CROs</li><li>IP commercialization coordination and R&amp;D collaboration</li><li>Funding and grant navigation</li><li>Introductions to buyers, manufacturers and distributors</li></ul>
-        <ul class="svc-del-list zh"><li>市场进入规划与公司设立</li><li>企业架构与战略规划，会计及税务事宜由专业顾问协同处理</li><li>对接研究机构、医院及临床合作伙伴（包括CRO）</li><li>统筹知识产权商业化与研发合作</li><li>资金与政府资助渠道指引</li><li>引荐买家、制造商及分销商</li></ul>
+        <ul class="svc-del-list zh"><li>市场进入规划与公司设立</li><li>企业架构与战略规划，会计及税务事宜由专业顾问协同处理</li><li>对接科研机构、医院及临床合作伙伴（包括 CRO）</li><li>协调知识产权商业化及研发合作</li><li>融资及政府资助申请指引</li><li>对接采购方、生产商及分销渠道</li></ul>
       </div>
       <div class="svc-card"><div class="svc-card-head">
         <div class="svc-card-head-label en">Best for</div><div class="svc-card-head-label zh">适合对象</div>
@@ -540,13 +561,13 @@
 
   <!-- S2 -->
   <div class="svc-block rv">
-    <div class="svc-hd"><span class="svc-num">02</span><h2 class="sec-title en">CDMO &amp; Manufacturing Partnerships</h2><h2 class="sec-title zh-title zh">CDMO与生产合作</h2></div>
+    <div class="svc-hd"><span class="svc-num">02</span><h2 class="sec-title en">CDMO &amp; Manufacturing Partnerships</h2><h2 class="sec-title zh-title zh">CDMO及生产合作</h2></div>
     <div class="svc-grid">
       <div>
         <p class="svc-lead en">We connect biotech, pharmaceutical, and MedTech companies with suitable manufacturing, development, and licensing partners across Asia.</p>
-        <p class="svc-lead zh">我们为生物科技、制药及医疗器械企业，对接亚洲合适的生产、研发与授权合作伙伴。</p>
+        <p class="svc-lead zh">根据企业的技术与产品需求，对接药物开发、生产制造及技术许可等领域的合作伙伴。</p>
         <ul class="svc-del-list en"><li>Identifying and screening suitable CDMO and manufacturing partners</li><li>CDMO introductions and supply-agreement support</li><li>Licensing coordination with regional pharmaceutical, MedTech and manufacturing partners</li><li>Deal-structuring support, including milestone frameworks</li><li>Manufacturing readiness, including quality-system preparation</li><li>Regulatory submissions coordinated with qualified advisers</li><li>R&amp;D collaboration with local academic and research institutes</li></ul>
-        <ul class="svc-del-list zh"><li>寻找并筛选合适的CDMO及生产合作伙伴</li><li>引荐CDMO并支持供应协议洽谈</li><li>统筹与区域制药、医疗器械及制造伙伴的授权合作</li><li>协助交易架构设计，包括里程碑安排</li><li>生产准备工作，包括质量体系筹备</li><li>与合资格顾问协同推进法规申报</li><li>与本地高校及研究机构开展研发合作</li></ul>
+        <ul class="svc-del-list zh"><li>筛选合适的 CDMO 及生产合作伙伴</li><li>对接 CDMO，并协助供应协议洽谈</li><li>协调与区域药企、医疗器械及生产企业的技术许可</li><li>协助设计交易结构，包括里程碑条款</li><li>生产准备及质量体系建设</li><li>与合资格法规顾问协作推进注册申报</li><li>与本地高校及研究机构开展研发合作</li></ul>
       </div>
       <div class="svc-card"><div class="svc-card-head">
         <div class="svc-card-head-label en">Best for</div><div class="svc-card-head-label zh">适合对象</div>
@@ -561,9 +582,9 @@
     <div class="svc-grid">
       <div>
         <p class="svc-lead en">For founders who need more hands-on support, we work alongside their teams on operational planning, strategic partnerships, commercialization, and business development.</p>
-        <p class="svc-lead zh">对于需要更深度支持的创始人，我们与其团队并肩合作，推进运营规划、战略合作、商业化及业务拓展。</p>
+        <p class="svc-lead zh">从商业规划、合作拓展到日常运营，为需要长期支持的团队提供灵活的 External CXO 服务。</p>
         <ul class="svc-del-list en"><li>Embedded operational leadership through an External CXO model</li><li>Operational planning across procurement, manufacturing and distribution</li><li>Strategic partnerships with industry, academic institutions and the public sector</li><li>Commercialization and business development across health-tech, medical-device and supplement categories</li><li>Working alongside founding teams from before incorporation</li></ul>
-        <ul class="svc-del-list zh"><li>以外部CXO模式提供嵌入式运营领导</li><li>覆盖采购、生产与分销的运营规划</li><li>与产业界、学术机构及公共部门建立战略合作</li><li>健康科技、医疗器械及营养补充品领域的商业化与业务拓展</li><li>在公司注册前即与创始团队并肩合作</li></ul>
+        <ul class="svc-del-list zh"><li>以 External CXO 模式参与企业运营管理</li><li>覆盖采购、生产及分销的运营规划</li><li>与产业界、学术机构及公共部门建立战略合作</li><li>健康科技、医疗器械及营养补充品领域的商业化与业务拓展</li><li>从公司成立前开始，与创始团队协同推进</li></ul>
       </div>
       <div class="svc-card"><div class="svc-card-head">
         <div class="svc-card-head-label en">Best for</div><div class="svc-card-head-label zh">适合对象</div>
@@ -590,9 +611,9 @@
   <!-- CTA -->
   <div style="margin-top:4rem;padding:2.5rem;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);text-align:center" class="rv">
     <div style="font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.5rem" class="en">Not sure which service fits?</div>
-    <div style="font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.5rem" class="zh">不确定哪项服务最适合您？</div>
+    <div style="font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.5rem" class="zh">不确定哪项服务适合您？</div>
     <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:1.2rem" class="en">Talk to our team — we'll help you figure out the right path.</div>
-    <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:1.2rem" class="zh">与我们的团队交流——我们将帮您找到正确的路径。</div>
+    <div style="font-size:var(--fs-sm);color:var(--text-dim);margin-bottom:1.2rem" class="zh">欢迎与我们的团队交流，共同找到合适的合作方式。</div>
     <div style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap"><a href="https://cal.com/justintso/intro" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;background:var(--grad);color:var(--ink);font-size:var(--fs-sm);font-weight:500;border-radius:var(--r)"><span class="en">Schedule an Intro Call</span><span class="zh">预约初步通话</span></a><a href="/#contact" class="ls-btn ls-btn-s"><span class="en">Send us a message</span><span class="zh">给我们留言</span></a></div>
   </div>
 </div></div>
@@ -603,7 +624,7 @@
       <div class="footer-brand-col">
         <div class="footer-brand"><span class="av-mark foot" role="img" aria-label="Ag Ventures"></span></div>
         <div class="footer-tagline en">Anchoring innovation in aging technology for the Silver Economy.</div>
-        <div class="footer-tagline zh">立足老龄科技创新，深耕银发经济。</div>
+        <div class="footer-tagline zh">推动长寿科技创新，连接银发经济机遇。</div>
       </div>
       <div class="footer-nav-col">
         <div class="footer-col-title en">Explore</div>
@@ -612,7 +633,7 @@
           <li><a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a></li>
           <li><a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a></li>
           <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
-          <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
+          <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">Longevity Sprint</span></a></li>
         </ul>
       </div>
       <div class="footer-contact-col">
@@ -631,7 +652,7 @@
       <span class="footer-copy en">© 2026 Ag Ventures. All rights reserved.</span>
       <span class="footer-copy zh">© 2026 Ag Ventures. 版权所有。</span>
       <span class="footer-italic en">Age, but less.</span>
-      <span class="footer-italic zh">银发产业孵化器</span>
+      <span class="footer-italic zh">Age, but less.</span>
     </div>
   </div>
 </footer>

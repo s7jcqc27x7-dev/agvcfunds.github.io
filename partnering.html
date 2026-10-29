@@ -453,6 +453,28 @@
     /* balanced line breaks so headings never strand a single word */
     .page-title,.sec-title,.pub-title,.evc-title{text-wrap:balance}
     .footer-tagline{font-family:var(--serif);font-style:italic;font-size:.86rem;line-height:1.6;color:var(--text);opacity:.88;max-width:300px}
+
+    /* ══ Chinese typography + mobile layout ══
+       One sans stack for all Chinese text: Noto Serif has no CJK glyphs, so serif
+       headings were mixing serif Latin with sans Chinese. Native CJK faces first. */
+    html[data-lang="zh"] body{line-break:strict}
+    html[data-lang="zh"] .zh:not(.footer-italic){font-family:'Inter','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif!important;font-style:normal!important}
+    html[data-lang="zh"] .zh em{font-style:normal!important}
+    html[data-lang="zh"] :is(h1,h2,h3).zh{letter-spacing:.01em!important;text-wrap:balance}
+    html[data-lang="zh"] :is(.label,.path-card-label,.hstat-lbl,.footer-col-title).zh{letter-spacing:.06em!important}
+    html[data-lang="zh"] p.zh{line-height:1.85}
+    #chatbot{transition:opacity .25s,transform .25s}
+    #chatbot.chat-hidden{opacity:0;pointer-events:none;transform:translateY(10px)}
+    @media(max-width:600px){
+      html[data-lang="zh"] .hero-h.zh{font-size:clamp(1.7rem,7.6vw,2.4rem)!important;line-height:1.28!important}
+      html[data-lang="zh"] .page-title.zh{font-size:clamp(1.55rem,7vw,2.2rem)!important;line-height:1.32!important}
+      html[data-lang="zh"] .path-card-label.zh{display:none}
+      .path-card{padding:.85rem 1.1rem}
+      .hero-paths{gap:.6rem;margin-bottom:2.2rem}
+      #chatbot{bottom:.9rem;right:.9rem}
+      .chat-bubble{width:44px;height:44px}
+      footer{padding-bottom:4.5rem}
+    }
   </style>
 </head><body>
 <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="zh">跳至正文</span></a>
@@ -469,7 +491,7 @@
         <li><a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a></li>
         <li><a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a></li>
         <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
-        <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
+        <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">Longevity Sprint</span></a></li>
         <li><a href="/#contact" class="nav-cta"><span class="en">Connect</span><span class="zh">联系我们</span></a></li>
       </ul>
       <div class="lang-btn" id="lang-btn">
@@ -485,7 +507,7 @@
   <a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a>
   <a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a>
   <a href="/team"><span class="en">Team</span><span class="zh">团队</span></a>
-  <a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a>
+  <a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">Longevity Sprint</span></a>
   <a href="/#contact"><span class="en">Connect</span><span class="zh">联系我们</span></a>
 </div>
 
@@ -495,16 +517,16 @@
   <div class="page-header rv">
     <p class="label en">Partnering</p><p class="label zh">合作伙伴</p>
     <h1 class="page-title en">Building the future of <strong>healthy aging, together.</strong></h1>
-    <h1 class="page-title zh" style="font-style:normal;letter-spacing:-.01em">携手共建<strong>健康老龄化的未来。</strong></h1>
+    <h1 class="page-title zh" style="font-style:normal;letter-spacing:0">携手推动<strong>长寿科技创新。</strong></h1>
     <p class="page-sub en">We work with early-stage companies and research teams developing solutions for longer, healthier lives. Our focus spans four areas of longevity innovation, with particular interest in teams that have a clear scientific foundation, access to relevant intellectual property, and a practical path to commercialization.</p>
-    <p class="page-sub zh">我们与致力于延长健康寿命的早期企业及科研团队合作，聚焦四大长寿创新领域，尤其关注具备扎实科学基础、拥有相关知识产权，并有清晰商业化路径的团队。</p>
+    <p class="page-sub zh">我们与科研团队、初创企业及产业机构合作，关注具有科学依据和商业化潜力的技术与产品，协助创新项目从研发走向市场。</p>
   </div>
 
   <!-- Four verticals from page 9 -->
   <div class="sec-hd rv">
     <p class="label en">Focus Areas</p><p class="label zh">重点领域</p>
     <h2 class="sec-title en">Four areas of <em>longevity innovation.</em></h2>
-    <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:500;line-height:1.12;color:#fff;max-width:580px;letter-spacing:-.02em">四大<em style="color:var(--teal)">长寿创新领域。</em></h2>
+    <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:500;line-height:1.12;color:#fff;max-width:580px;letter-spacing:-.02em">四大<em style="color:var(--teal)">长寿科技领域。</em></h2>
     <p style="color:var(--text-dim);font-size:var(--fs-sm);max-width:500px;margin-top:.7rem;line-height:1.8" class="en">We work mainly with pre-seed and seed-stage teams in the following areas.</p>
     <p style="color:var(--text-dim);font-size:var(--fs-sm);max-width:500px;margin-top:.7rem;line-height:1.8" class="zh">我们主要与以下领域中处于种子前及种子轮阶段的团队合作。</p>
   </div>
@@ -560,7 +582,7 @@
     <div class="sec-hd">
         <p class="label en">Who We Work With</p><p class="label zh">合作对象</p>
         <h2 class="sec-title en">Who we work with, <em>and how we help.</em></h2>
-        <h2 class="sec-title zh" style="font-family:var(--serif);font-size:var(--fs-h2);font-weight:500;color:#fff;max-width:580px;letter-spacing:-.02em">合作对象，<em style="color:var(--teal)">以及我们如何协助。</em></h2>
+        <h2 class="sec-title zh-title zh">我们与谁合作</h2>
       </div>
       <div class="serve-grid rv d1">
         <div class="serve-card">
@@ -590,9 +612,9 @@
   <!-- ══ CO-ACCELERATION PARTNERS ══ -->
   <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--rule)" class="rv">
     <div style="margin-bottom:2rem">
-      <p class="label en">Co-Acceleration</p><p class="label zh">联合加速</p>
+      <p class="label en">Co-Acceleration</p><p class="label zh">合作网络</p>
       <h2 class="sec-title en">Regional co-acceleration partners.</h2>
-      <h2 class="sec-title zh-title zh">区域联合加速伙伴。</h2>
+      <h2 class="sec-title zh-title zh">区域合作伙伴。</h2>
     </div>
     <div class="coinc">
         <div class="coinc-card">
@@ -601,7 +623,7 @@
             <div class="coinc-region en">Hong Kong</div><div class="coinc-region zh">香港</div>
             <div class="coinc-name">InvestHK</div>
             <p class="coinc-body en">Regional co-acceleration partner for Hong Kong — the HKSAR Government department supporting overseas and Mainland teams setting up and scaling in Hong Kong.</p>
-            <p class="coinc-body zh">香港联合加速伙伴——香港特区政府投资推广署，协助海外及内地团队在香港设立与发展业务。</p>
+            <p class="coinc-body zh">香港合作伙伴——香港特区政府投资推广署，协助海外及内地团队在香港设立与发展业务。</p>
           </div>
         </div>
       <div class="coinc-card">
@@ -610,7 +632,7 @@
           <div class="coinc-region en">Hong Kong</div><div class="coinc-region zh">香港</div>
           <div class="coinc-name">HKSTP Global Connect</div>
           <p class="coinc-body en">Regional co-acceleration partner for Hong Kong and the Greater Bay Area — soft-landing, lab and facility access, and programme support for teams establishing across Hong Kong and the Greater Bay Area.</p>
-          <p class="coinc-body zh">香港及大湾区联合加速伙伴——为在香港及大湾区落地的团队提供软着陆支持、实验室与设施资源及项目配套。</p>
+          <p class="coinc-body zh">香港及大湾区合作伙伴——为在香港及大湾区落地的团队提供软着陆支持、实验室与设施资源及项目配套。</p>
         </div>
       </div>
       <div class="coinc-card">
@@ -619,7 +641,7 @@
           <div class="coinc-region en">Japan</div><div class="coinc-region zh">日本</div>
           <div class="coinc-name">AYARI</div>
           <p class="coinc-body en">Regional co-acceleration partner for Japan — the Abe Yoan Aging Research Institute, supporting research collaboration and clinical translation for teams entering the Japanese market.</p>
-          <p class="coinc-body zh">日本联合加速伙伴——阿部養庵老化研究所，为进入日本市场的团队提供研究合作与临床转化支持。</p>
+          <p class="coinc-body zh">日本合作伙伴——阿部養庵老化研究所，为进入日本市场的团队提供研究合作与临床转化支持。</p>
         </div>
       </div>
     </div>
@@ -647,9 +669,9 @@
   <div style="margin-top:4rem;padding:2.5rem;background:var(--grad);border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem" class="rv">
     <div>
       <div style="font-size:1.1rem;font-weight:600;color:#fff;font-family:var(--serif);letter-spacing:-.02em;margin-bottom:.4rem" class="en">Let’s explore what we can build together.</div>
-      <div style="font-size:1.1rem;font-weight:600;color:#fff;font-family:var(--serif);letter-spacing:-.01em;margin-bottom:.4rem" class="zh">一起探索我们能共同创造的可能。</div>
+      <div style="font-size:1.1rem;font-weight:600;color:#fff;font-family:var(--serif);letter-spacing:-.01em;margin-bottom:.4rem" class="zh">与我们探讨合作机会。</div>
       <div style="font-size:var(--fs-sm);color:rgba(255,255,255,.75)" class="en">Whether you’re bringing a technology to market, looking for a commercial partner, or exploring opportunities in the Silver Economy, we’d be glad to connect.</div>
-      <div style="font-size:var(--fs-sm);color:rgba(255,255,255,.75)" class="zh">无论您正将技术推向市场、寻找商业合作伙伴，还是在探索银发经济的机遇，我们都乐意与您交流。</div>
+      <div style="font-size:var(--fs-sm);color:rgba(255,255,255,.75)" class="zh">无论您正在推进科研成果转化、拓展国际市场，还是寻找产业合作伙伴，我们都欢迎进一步交流。</div>
     </div>
     <div style="display:flex;gap:.8rem;flex-wrap:wrap">
       <a href="/#contact" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;background:#fff;color:var(--ink);font-size:var(--fs-sm);font-weight:600;border-radius:var(--r);font-family:var(--serif)"><span class="en">Share Your Project</span><span class="zh">分享您的项目</span></a>
@@ -665,7 +687,7 @@
       <div class="footer-brand-col">
         <div class="footer-brand"><span class="av-mark foot" role="img" aria-label="Ag Ventures"></span></div>
         <div class="footer-tagline en">Anchoring innovation in aging technology for the Silver Economy.</div>
-        <div class="footer-tagline zh">立足老龄科技创新，深耕银发经济。</div>
+        <div class="footer-tagline zh">推动长寿科技创新，连接银发经济机遇。</div>
       </div>
       <div class="footer-nav-col">
         <div class="footer-col-title en">Explore</div>
@@ -674,7 +696,7 @@
           <li><a href="/partnering"><span class="en">Partnering</span><span class="zh">合作伙伴</span></a></li>
           <li><a href="/intelligence"><span class="en">Intelligence</span><span class="zh">产业洞察</span></a></li>
           <li><a href="/team"><span class="en">Team</span><span class="zh">团队</span></a></li>
-          <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">银发创投</span></a></li>
+          <li><a href="/longevitysprint"><span class="en">Longevity Sprint</span><span class="zh">Longevity Sprint</span></a></li>
         </ul>
       </div>
       <div class="footer-contact-col">
@@ -693,7 +715,7 @@
       <span class="footer-copy en">© 2026 Ag Ventures. All rights reserved.</span>
       <span class="footer-copy zh">© 2026 Ag Ventures. 版权所有。</span>
       <span class="footer-italic en">Age, but less.</span>
-      <span class="footer-italic zh">银发产业孵化器</span>
+      <span class="footer-italic zh">Age, but less.</span>
     </div>
   </div>
 </footer>
