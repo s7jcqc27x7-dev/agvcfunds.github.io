@@ -566,10 +566,10 @@
       <div class="contact-intro">
         <p class="label en">Get in Touch</p>
         <p class="label zh">联系我们</p>
-        <h2 class="sec-title en">Pitch to us or <em>start a conversation.</em></h2>
-        <h2 class="sec-title zh-title zh">向我们提交项目，<em>或开启对话。</em></h2>
-        <p class="contact-lead en">Tell us about your company, technology, or partnership idea. Messages go directly to our team.</p>
-        <p class="contact-lead zh">介绍您的公司、技术或合作构想，信息将直接送达我们的团队。</p>
+        <h2 class="sec-title en">Pitch <em>to us.</em></h2>
+        <h2 class="sec-title zh-title zh">向我们<em>提交项目。</em></h2>
+        <p class="contact-lead en">Tell us about your company, technology, or partnership idea.</p>
+        <p class="contact-lead zh">介绍您的公司、技术或合作构想。</p>
         <div class="contact-detail">
           <a class="contact-btn" href="mailto:justin@agvcfunds.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
@@ -585,7 +585,7 @@
           </a>
         </div>
       </div>
-      <form class="cf" id="cf-form" novalidate>
+      <form class="cf" id="cf-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="16698712-2f2c-4dd9-b965-b5d327bf0b08"/>
         <input type="hidden" name="subject" value="New Ag Ventures Website Enquiry"/>
         <input type="hidden" name="from_name" value="Ag Ventures Website"/>
@@ -646,7 +646,6 @@
         <div class="footer-col-title en">Connect</div>
         <div class="footer-col-title zh">联系方式</div>
         <ul class="footer-links">
-          <li><a href="mailto:justin@agvcfunds.com">justin@agvcfunds.com</a></li>
           <li><a href="https://linkedin.com/company/agvcfunds" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://cal.com/justintso/intro" target="_blank" rel="noopener"><span class="en">Schedule a Call</span><span class="zh">预约通话</span></a></li>
         </ul>
@@ -907,7 +906,7 @@ function __agvcInit(){
       btnVisible.innerHTML=currentLang==='zh'?'发送中…':'Sending…';
       try{
         const fd=new FormData(cfForm);
-        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(fd))});
+        const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:fd});
         const d=await res.json();
         cfForm.querySelectorAll('.'+hideLang).forEach(el=>el.disabled=false);
         if(d.success){
