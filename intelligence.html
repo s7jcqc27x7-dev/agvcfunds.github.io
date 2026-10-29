@@ -788,7 +788,7 @@ function __agvcInit(){
         <div class="geo-panel-title">${info.title}</div>
         <div class="geo-panel-sub">${info.sub}</div>
       </div>
-      ${stats.length?`<div class="geo-stats">${stats.map(s=>`<div class="geo-stat"><div class="geo-stat-val">${s.v}<span>${s.u}</span></div><div class="geo-stat-label">${s.l}</div>${s.src?`<div class="geo-stat-src">${s.src}</div>`:''}</div>`).join('')}</div>`:`<p class="geo-nodata">${lang==='zh'?'数据整理中。':'Verified market figures for this region are being compiled.'}</p>`}
+      ${stats.length?`<div class="geo-stats">${stats.map(s=>`<div class="geo-stat"><div class="geo-stat-val">${s.v}<span>${s.u}</span></div><div class="geo-stat-label">${s.l}</div>${s.src?`<div class="geo-stat-src">${s.src}</div>`:''}</div>`).join('')}</div>`:''}
       <div class="geo-opps">
         <div class="geo-opps-title">${lang==='zh'?'重点机遇':'Opportunity segments'}</div>
         ${opps.map(o=>`<div class="geo-opp"><div class="geo-opp-dot"></div><div class="geo-opp-text"><strong>${o.t}</strong> — ${o.b}</div></div>`).join('')}
