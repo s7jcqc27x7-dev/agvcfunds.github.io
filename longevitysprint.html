@@ -438,7 +438,7 @@
     .svc-card-head{background:rgba(196,164,107,.05)}
     .svc-card-head-val{font-size:clamp(1.05rem,1.6vw,1.35rem);line-height:1.35}
     /* ── Compact event card ── */
-    .evc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1rem,2.5vw,2rem);align-items:center;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(1.2rem,2.4vw,1.8rem)}
+    .evc{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(1rem,2.5vw,2rem);align-items:center;background:var(--ink-mid);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(1.2rem,2.4vw,1.8rem)}
     .evc-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:84px;padding:.7rem .8rem;border:1px solid var(--grad-border);border-radius:var(--r)}
     .evc-day{font-family:var(--serif);font-size:2rem;font-weight:300;line-height:1;color:#fff}
     .evc-mon{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:.35rem;white-space:nowrap}
@@ -459,6 +459,12 @@
     /* balanced line breaks so headings never strand a single word */
     .page-title,.sec-title,.pub-title,.evc-title{text-wrap:balance}
     .footer-tagline{font-family:var(--serif);font-style:italic;font-size:.86rem;line-height:1.6;color:var(--text);opacity:.88;max-width:300px}
+
+    /* event poster thumbnail, opens full size */
+    .evc-poster{display:block;width:120px;border-radius:6px;overflow:hidden;border:1px solid var(--rule-hi);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .25s}
+    .evc-poster:hover{transform:translateY(-3px)}
+    .evc-poster img{display:block;width:100%;height:auto}
+    @media(max-width:600px){.evc{grid-template-columns:auto minmax(0,1fr)}.evc-poster{grid-column:1/-1;width:100%;max-width:240px}}
   </style>
 </head><body>
 <a class="skip-link" href="#main"><span class="en">Skip to content</span><span class="zh">跳至正文</span></a>
@@ -571,7 +577,8 @@
         <p class="evc-meta en"><time datetime="2026-12-29T14:00+08:00">Tuesday 29 December 2026 · 2:00–5:00 PM</time><br>HKSTP Community Lab, 24/F Lee Garden Five, 18 Hysan Avenue, Causeway Bay, Hong Kong</p>
         <p class="evc-meta zh"><time datetime="2026-12-29T14:00+08:00">2026年12月29日（星期二）· 下午2:00–5:00</time><br>香港铜锣湾希慎道18号利园五期24楼 HKSTP Community Lab</p>
       </div>
-    </div>
+    <a class="evc-poster" href="/images/event-longevity-tech-summit-2026.jpg" target="_blank" rel="noopener" aria-label="View the event poster full size"><img src="/images/event-longevity-tech-summit-2026.jpg" width="810" height="1102" loading="lazy" alt="Event poster: Longevity Tech Summit &amp; Startup Showcase, Hong Kong, 29 December 2026" onerror="this.parentElement.remove()"/></a>
+      </div>
   </div>
 
   <!-- CTA -->
