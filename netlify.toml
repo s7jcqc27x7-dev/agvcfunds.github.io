@@ -28,6 +28,33 @@
   to = "/team.html"
   status = 200
 
+# ── Consolidated legacy routes (see AUDIT.md) ──
+# force = true is required: the old .html files remain as redirect stubs, and
+# Netlify ignores a redirect rule when a file already matches the path.
+[[redirects]]
+  from = "/about"
+  to = "/partnering"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/partnering"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/longevity-asia"
+  to = "/intelligence"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/longevity-asia.html"
+  to = "/intelligence"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
